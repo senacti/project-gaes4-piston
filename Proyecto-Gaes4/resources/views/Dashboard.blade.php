@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,300,1,200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,500,1,200" />
     <title>DashboardPiston</title>
-    <link rel="stylesheet" href="css/Dashboard.css">
+    <link rel="stylesheet" href="{{asset('css/Dashboard.css') }}">
 
 </head>
 <body>
@@ -24,7 +24,7 @@
             
             <div class="top">
                 <div class="logo">
-                    <img src="Imagenes/Please.png" alt="">
+                    <img src="{{ asset('Imagenes/Please.png') }}" alt="">
                     <h2><span class="danger">PIS</span>TON</h2>
                 </div>
                 <div class="close" id="close-btn">
@@ -35,43 +35,43 @@
 
              <!--------Los iconos :D---------->
              <div class="sidebar">
-                <a href="Dashboard.html" class="active">
+                <a href="{{ url('/dashboard') }}" class="active">
                     
                         <span class="material-symbols-rounded">dashboard</span>
                         <h3>Dashboard</h3>
     
                     </a>
     
-                    <a href="Index.html" >
+                    <a href="{{ url('/clientes') }}">
                         <span class="material-icons-sharp">people</span>
                         <h3>Clientes</h3>
     
                     </a>
                     
-                    <a href="Productos.html">
+                    <a href="{{ url('/productosyservicios') }}">
                         <span class="material-icons-sharp">inventory</span>
                         <h3>Productos y Servicios</h3>
                         <span class="message-count">0</span> 
                          <!-------- El contador de los productos ---------->
                     </a>
                 
-                    <a href="Mecanicos.html">
+                    <a href="{{ url('/mecanicos') }}">
                         <span class="material-symbols-rounded">plumbing</span>
                         <h3>Mecanicos</h3>
     
                     </a>
-                    <a href="ventas.html">
+                    <a href="{{ url('/ventas') }}">
                         <span class="material-symbols-outlined">add_task</span>
                         <h3>Ventas</h3>
     
                     </a>
 
-                    <a href="Historial de ventas y Informes.html">
+                    <a href="{{ url('/historialeinformes') }}">
                         <span class="material-symbols-rounded">history </span>
-                        <h3>Historial de ventas y informes</h3>
+                        <h3>Historial de ventas e informes</h3>
     
                     </a>
-                    <a href="Error500.html"> 
+                    <a href="{{ url('/error500') }}">
                         <span class="material-symbols-rounded">add </span>
                         <h3>Añadir Modulos</h3>
 
@@ -229,7 +229,7 @@
                     <small class="text-muted">Admin</small>
                 </div>
             <div class="profile-photo">
-                <img src="Imagenes/descarga.jpg">
+                <img src="{{ asset('Imagenes/descarga.jpg') }}">
             </div>
             </div>
         </div>
@@ -263,8 +263,8 @@
 
     </div>  
 
-<script src="js/Script1.js"></script>
-<script src="js/orders.js"></script>
+<script src="{{ asset('js/Script1.js') }}"></script>
+<script src="{{ asset('js/orders.js') }}"></script>
 
 </body>
 </html>

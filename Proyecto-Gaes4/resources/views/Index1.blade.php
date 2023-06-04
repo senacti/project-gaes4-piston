@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="wild=device-width, initial-scale=1.0" />
     <title>Servicentro La 22 (prueba)</title>
-    <link rel="stylesheet" href="css/css.css" />
+    <link rel="stylesheet" href="{{asset('css/css.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="js/script.js"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -36,7 +36,7 @@
 
 <a href="#" class="logo">
     
-<img src="Imagenes/logo.PNG" alt="">
+<img src="{{ asset('Imagenes/logo.PNG') }}" alt="">
 </a>
 
 <nav class="navbar">
@@ -151,7 +151,7 @@
                 preventivo para tu vehículo, y adelantamos cualquier procedimiento de mecánica general.</p>
             <a href="#" class="btn">Obten nuestros servicios</a>
         </div>
-        <img src="Imagenes/silhouette-black-sports-car-with-headlights-black-background.jpg" style="width: 100%;height: 100%;">
+        <img src="{{ asset('Imagenes/silhouette-black-sports-car-with-headlights-black-background.jpg') }}" style="width: 100%;height: 100%;">
         </div>
 
         <div class="myslide ">
@@ -159,7 +159,7 @@
             <h3>Nuestra especialidad</h3>
             <p><br>Nuestro taller se espicializa exclusivamente en reparacion en automoviles y vehiculos pesados.</p>
         </div>
-        <img src="Imagenes/ff44760a-4fa9-4c29-9bd3-6fd91bd981d0.png" style="width: 100%;height: 100%;">
+        <img src="{{ asset('Imagenes/ff44760a-4fa9-4c29-9bd3-6fd91bd981d0.png') }}" style="width: 100%;height: 100%;">
         </div>
 
         <div class="myslide ">
@@ -167,7 +167,7 @@
             <h3>Nuestros Mecanicos</h3>
             <p><br>Nuestros mecanicos cuentan con gran profecionalidad a los vehiculos a nuestros clientes.</p>
         </div>
-        <img src="Imagenes/3f177e4a-94b9-437a-879d-d98f3de92a52.png" style="width: 100%;height: 100%;">
+        <img src="{{ asset('Imagenes/3f177e4a-94b9-437a-879d-d98f3de92a52.png') }}" style="width: 100%;height: 100%;">
         </div>
 
         <div class="myslide ">
@@ -175,7 +175,7 @@
             <h3>¿Por que nosotros?</h3>
             <p><br>Servicentro La 22 Siempre brinda calidad y elegancia a nuestros servicios. </p>
         </div>
-        <img src="Imagenes/luxurious-car-parked-highway-with-illuminated-headlight-sunset.jpg" style="width: 100%;height: 100%;">
+        <img src="{{ asset('Imagenes/luxurious-car-parked-highway-with-illuminated-headlight-sunset.jpg') }}" style="width: 100%;height: 100%;">
         </div>
 
         <div class="myslide">
@@ -183,7 +183,7 @@
             <h3>¡Cuente con Nosotros!</h3>
             <p><br>Cuente con la confianza y el respaldo de su vehiculo de cada uno de nuestros procuctos.</p>
         </div>
-        <img src="Imagenes/51a728de-bf48-4fb2-9022-504e557cedb4.png" style="width: 100%; height: 100%;">
+        <img src="{{ asset('Imagenes/51a728de-bf48-4fb2-9022-504e557cedb4.png') }}" style="width: 100%; height: 100%;">
         </div>
 
         
@@ -206,7 +206,7 @@
     <h1 class="heading"><span>Nuestra </span> Empresa</h1>
     <div class="row">
     <div class="imagen">
-        <img src="Imagenes/auto-repairmen-examining-undercarriage-car-workshop.jpg" alt="">
+        <img src="{{ asset('Imagenes/auto-repairmen-examining-undercarriage-car-workshop.jpg') }}" alt="">
    </div>
    <div class="content">
     <h3>Servicentro La 22</h3>
@@ -226,22 +226,22 @@
     <h1 class="heading"> Nuestro  <span>Portafolio </span></h1>
 <div class="box-container">
     <div class="box">
-        <img src="Imagenes/Firmware-cuate.png" alt="">
+        <img src="{{ asset('Imagenes/Firmware-cuate.png') }}" alt="">
         <h3 >REPROGRAMACIÓN DE ECU y TCM</h3>
         <div class="price">$400.000</div>
-        <a href="Error.html" class="btn">Añadir</a>
+        <a href="{{ url('/error404') }}" class="btn">Añadir</a>
     </div>
     <div class="box">
-        <img src="Imagenes/Car accesories-bro.png" alt="">
+        <img src="{{ asset('Imagenes/Car accesories-bro.png') }}" alt="">
         <h3>MECANICA GENERAL</h3>
         <div class="price">$500.000 - $1.000.000</div>
-        <a href="Error.html" class="btn">Añadir</a>
+        <a href="{{ url('/error404') }}" class="btn">Añadir</a>
     </div>
     <div class="box">
-        <img src="Imagenes/Hybrid car-bro (1).png" alt="">
+        <img src="{{ asset('Imagenes/Hybrid car-bro (1).png') }}" alt="">
         <h3>CAMBIOS DE ACEITE</h3>
         <div class="price">$750.000</div>
-        <a href="Error.html" class="btn">Añadir</a>
+        <a href="{{ url('/error404') }}" class="btn">Añadir</a>
     </div>
     
 </div>
@@ -297,9 +297,8 @@
     </div>
  <div class="credit">Creado por <span> Juan Felipe Barrios Hidalgo</span> / Sena - Sena Servicio Nacional de Aprendizaje </div>
 </section>
-<script src="js/Carrusel.js"></script>
-<script src="js/script.js"></script>
-<script src="js/Validacion.js"></script>
+<script src="{{ asset('js/Carrusel.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

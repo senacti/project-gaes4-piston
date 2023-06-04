@@ -26,7 +26,7 @@ Route::get('/ventas', function () {
     return view("Ventas");
 });
 
-Route::get('/historialyinformes', function () {
+Route::get('/historialeinformes', function () {
     return view("Historial de ventas y Informes");
 });
 
