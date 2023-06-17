@@ -81,129 +81,176 @@
             </div>
           </div>
           <div class="form-group clearfix">
-            <div class="row">
-              <div class="col-sm-7">
-                <div class="row addvalueBox">
-                  <div class="col-sm-6">
-                    <input type="text" placeholder="Enter City1" class="form-control" />
-                  </div>
-                  <div class="col-md-6">
-                    <input type="text" placeholder="Enter City2" class="form-control" />
-                  </div>
-                  <div class="col-md-6">
-                    <input type="text" placeholder="Enter City2" class="form-control" />
-                  </div>
-                </div>
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="row addvalueBox">
+              <div class="col-sm-6">
+                <select class="form-control" id="mecanico-select">
+                  <option value="">Seleccionar Mecánico</option>
+                  <option value="Mecánico 1">Mecánico 1</option>
+                  <option value="Mecánico 2">Mecánico 2</option>
+                  <option value="Mecánico 3">Mecánico 3</option>
+                </select>
               </div>
-              <div class="col-sm-5">
-                <button class="btn btn-success" data-action="addlastrow">Añadir</button>
+              <div class="col-md-6">
+                <input type="number" placeholder="Asignar porcentaje (1-100)" class="form-control" id="porcentaje-input" min="1" max="100" />
+              </div>
+              <div class="col-md-6">
+                <select class="form-control" id="marca-select">
+                  <option value="">Seleccionar Marca del Vehículo</option>
+                  <option value="Marca 1">Marca 1</option>
+                  <option value="Marca 2">Marca 2</option>
+                  <option value="Marca 3">Marca 3</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <input type="text" placeholder="Modelo del vehículo" class="form-control" id="modelo-input" />
+              </div>
+              <div class="col-md-6">
+                <input type="text" placeholder="Matrícula" class="form-control" id="matricula-input" />
+              </div>
+              <div class="col-md-6">
+                <input type="text" placeholder="Vin Vehículo" class="form-control" id="vin-input" />
+              </div>
+              <div class="col-md-6">
+                <input type="date" class="form-control" id="fecha-input" />
+              </div>
+              <div class="col-md-6">
+                <select class="form-control" id="servicio-select">
+                  <option value="">Seleccionar Servicio</option>
+                  <option value="Servicio 1">Servicio 1</option>
+                  <option value="Servicio 2">Servicio 2</option>
+                  <option value="Servicio 3">Servicio 3</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <select class="form-control" id="producto-select">
+                  <option value="">Seleccionar Producto</option>
+                  <option value="Producto 1">Producto 1</option>
+                  <option value="Producto 2">Producto 2</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <input type="text" placeholder="Total" class="form-control" id="total-input" />
+              </div>
+              <div class="col-sm-20 offset-sm-20">
+                <button class="btn btn-success pull-right" data-action="addrow">Añadir</button>
               </div>
             </div>
+          </div>
+          <div class="col-sm-12">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Mecánico</th>
+                  <th>Porcentaje</th>
+                  <th>Marca del vehículo</th>
+                  <th>Modelo del vehículo</th>
+                  <th>Matrícula</th>
+                  <th>Vin Vehículo</th>
+                  <th>Fecha en que se solicitó el pedido</th>
+                  <th>Servicio</th>
+                  <th>Producto</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-body">
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </main>
   </div>
-  <script src="{{ asset('js/Script1.js') }}"></script>
-  <script src="{{ asset('js/Ventas.js') }}"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script>
-    (function ($) {
-      $.fn.createTable = function (options) {
-        var content = "<table class='table table-bordered table-striped'>";
-        if (options.thead.length > 0) {
-          content += "<thead><tr>";
-          if (options.tbody.length > 0) {
-            for (i = 0; i < options.thead.length; i++) {
-              content += "<th>" + options.thead[i] + "</th>";
-            }
-          }
-          content += "</tr></thead>";
-          content += "<tbody>";
-          for (i = 0; i < options.tbody.length; i++) {
-            content += "<tr>";
-            for (j = 0; j < options.thead.length; j++) {
-              content += "<td>" + options.tbody[i][j] + "</td>";
-            }
-            content += "</tr>";
-          }
-          content += "</tbody>";
-        }
-        content += "</table>";
-        this.append(content);
-      };
-      $.fn.deleteRow = function (txt, action) {
-        action = action || "initialize";
-        var no = 0;
-        $(".table tbody tr td").each(function (index) {
-          var tt = $(".table tbody tr td:eq(" + index + ")").text();
-          if (tt == txt) {
-            no = index;
-          }
-        });
-        if (action == "deletelastrow") {
-          $(".table tbody tr:last").remove();
-        } else if (action == "deletefirstrow") {
-          $(".table tbody tr:first").remove();
-        } else if (action == "deleterow") {
-          $(".table tbody tr:eq(" + no + ")", this).remove();
-        }
-      };
-      $.fn.addRow = function (slno, action) {
-        action = action || "initialize";
-        var content = "";
-        var sl = parseInt(slno) + 1;
-        var numCols = $(".table tbody").find("tr")[0].cells.length;
-        if (action == "addlastrow") {
-          var j = 0;
-          content += "<tr><td>" + sl + "</td>";
-          for (i = 1; i < numCols; i++, j++) {
-            content +=
-              "<td>" +
-              $(".addvalueBox input[type=text]:eq(" + j + ")").val() +
-              "</td>";
-          }
-          content += "</tr>";
-          console.log(content);
-          $(".table tr:last").after(content);
-        }
-      };
-    })(jQuery);
-    $(document).ready(function () {
-      $(".containerr").createTable({
-        thead: [
-          "Mecanico Encargado",
-          "Porcentaje de Mecanico",
-          "Placa",
-          "Marca Vehiculo",
-          "Vin Vehiculo",
-          "Modelo Vehiculo",
-          "Fecha en que se solicito el Pedido/s",
-          "Servicio",
-          "Producto",
-          "Total"
-        ],
-        tbody: [
-          [, ,],
-          [, ,],
-          [, ,],
-          [, ,],
-          [, ,],
-          [, ,]
-        ]
-      });
-      //remove table row
-      $("button").click(function () {
-        var getSelection = $(this).attr("data-action");
-        var gettxt = $("#rowno").val();
-        $(".containerr").deleteRow(gettxt, getSelection);
-      });
-      //add table row
-      $("button").click(function () {
-        var getSelection = $(this).attr("data-action");
-        var slno = $(".table tbody tr:last td:first").text();
-        $(".containerr").addRow(slno, getSelection);
-      });
+    const addRowButton = document.querySelector('[data-action="addrow"]');
+    const deleteFirstRowButton = document.querySelector('[data-action="deletefirstrow"]');
+    const deleteLastRowButton = document.querySelector('[data-action="deletelastrow"]');
+    const tableBody = document.getElementById('tabla-body');
+
+    addRowButton.addEventListener('click', function () {
+      const mecanicoSelect = document.getElementById('mecanico-select');
+      const porcentajeInput = document.getElementById('porcentaje-input');
+      const marcaSelect = document.getElementById('marca-select');
+      const modeloInput = document.getElementById('modelo-input');
+      const matriculaInput = document.getElementById('matricula-input');
+      const vinInput = document.getElementById('vin-input');
+      const fechaInput = document.getElementById('fecha-input');
+      const servicioSelect = document.getElementById('servicio-select');
+      const productoSelect = document.getElementById('producto-select');
+      const totalInput = document.getElementById('total-input');
+
+      const newRow = document.createElement('tr');
+
+      const mecanicoCell = document.createElement('td');
+      mecanicoCell.textContent = mecanicoSelect.value;
+      newRow.appendChild(mecanicoCell);
+
+      const porcentajeCell = document.createElement('td');
+      porcentajeCell.textContent = porcentajeInput.value;
+      newRow.appendChild(porcentajeCell);
+
+      const marcaCell = document.createElement('td');
+      marcaCell.textContent = marcaSelect.value;
+      newRow.appendChild(marcaCell);
+
+      const modeloCell = document.createElement('td');
+      modeloCell.textContent = modeloInput.value;
+      newRow.appendChild(modeloCell);
+
+      const matriculaCell = document.createElement('td');
+      matriculaCell.textContent = matriculaInput.value;
+      newRow.appendChild(matriculaCell);
+
+      const vinCell = document.createElement('td');
+      vinCell.textContent = vinInput.value;
+      newRow.appendChild(vinCell);
+
+      const fechaCell = document.createElement('td');
+      fechaCell.textContent = fechaInput.value;
+      newRow.appendChild(fechaCell);
+
+      const servicioCell = document.createElement('td');
+      servicioCell.textContent = servicioSelect.value;
+      newRow.appendChild(servicioCell);
+
+      const productoCell = document.createElement('td');
+      productoCell.textContent = productoSelect.value;
+      newRow.appendChild(productoCell);
+
+
+      const totalCell = document.createElement('td');
+      totalCell.textContent = totalInput.value;
+      newRow.appendChild(totalCell);
+
+      tableBody.appendChild(newRow);
+
+      // Limpiar los campos de entrada
+      mecanicoSelect.value = '';
+      porcentajeInput.value = '';
+      marcaSelect.value = '';
+      modeloInput.value = '';
+      matriculaInput.value = '';
+      vinInput.value = '';
+      fechaInput.value = '';
+      servicioSelect.value = '';
+      productoSelect.value = '';
+      totalInput.value = '';
+    });
+
+    deleteFirstRowButton.addEventListener('click', function () {
+      const firstRow = tableBody.querySelector('tr');
+      if (firstRow) {
+        tableBody.removeChild(firstRow);
+      }
+    });
+
+    deleteLastRowButton.addEventListener('click', function () {
+      const lastRow = tableBody.querySelector('tr:last-child');
+      if (lastRow) {
+        tableBody.removeChild(lastRow);
+      }
     });
   </script>
 </body>
