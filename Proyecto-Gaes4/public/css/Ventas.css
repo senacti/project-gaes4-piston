@@ -263,7 +263,10 @@ aside .sidebar .message-count{
 
 /*============ Seccion Principal ========== */
 main{
-  margin-top:1.4rem ;
+  margin-top:5rem ;
+  margin-right: -80rem;
+  
+  
 }
 /*============ Ubicacion y contorno del horario ========== */
 main .date{
@@ -307,196 +310,12 @@ main .insights > div span{
    font-size: 2rem ;
 
 }
-main .insights > div.expenses span{
-    background: coral;
 
-}
-
-main .insights > div.saves span{
-    background: var(--color-success);
-
-}
-/*============  Fin  Colores de los iconos de los tres iconos jaja ========== */
-
-/*============  Espaciado entre la barra de progreso y el total de cada cuadro ========== */
-main .insights > div .middle{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-
-}
-
-main .insights h3{
-    margin: -2rem 0 0.1rem;
-    font-size: 2rem;
-    margin-left: 7.3rem;
-    margin-top: -1rem;
-}
-
-
-main .insights .progress{
-    position: relative;
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-
-}
 
 /*============  Ventas por Servicios ========== */
 
 
-.sapo {
-    max-width: 35px;
-    margin: -1rem;
-    margin-left: 0rem;
-    padding: 2rem;
-    background-color: none;
-    border-radius: 10px;
-    border: none;
 
-    
-    
-}
-
-.sapo .sapo1 {
-    border-collapse: collapse;
-    width: 20rem;
-}
-
-.sapo th, .sapo td {
-    text-align: center;
-    padding: 0.5rem;
-    
-}
-
-.sapo th {
-    background-color: none ;
-}
-
-.sapo .sapo3 tr:nth-child(even) {
-    background-color: none;
-}
-
-.sapo button {
-    background-color: var(--color-warning);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    
-}
-/*============ Fin Ventas por Servicios ========== */
-
-
-
-/*============  Ventas por productos  ========== */
-
-
-.Perro {
-    max-width:1rem;
-    margin: -0.5rem;
-    margin-left: -0.3rem;
-    padding: 2rem;
-    background-color: none;
-    border-radius: 10px;
-    border: none;
-
-    
-    
-}
-
-.Perro .Perro1 {
-    border-collapse: collapse;
-    width: 20rem;
-}
-
-.Perro th, td {
-    text-align: center;
-    padding: 0.5rem;
-    
-}
-
-.Perro th {
-    background-color: none ;
-}
-
-.Perro .sapo3 tr:nth-child(even) {
-    background-color: none;
-}
-
-.Perro button {
-    background-color: var(--color-warning);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    
-}
-
-/*============  Fin Ventas por productos  ========== */
-
-/*============  Ventas por Facturas  ========== */
-
-.gato {
-    max-width: 17rem;
-    margin: -0.5rem;
-    margin-left: 0.5rem;
-    padding: 1rem;
-    background-color: none;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: -3rem;
-
-    
-    
-}
-
-.gato .gato1 {
-    border-collapse: collapse;
-    width: 20rem;
-}
-
-.gato th, td {
-    text-align: center;
-    padding: 0.5rem;
-    
-}
-
-.gato th {
-    background-color: none ;
-}
-
-.gato .gato3 tr:nth-child(even) {
-    background-color: none;
-}
-
-.gato button {
-    background-color: var(--color-red);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    
-}
 
 /*============  Fin Ventas por Facturas  ========== */
 

@@ -23,9 +23,7 @@
         }
     </style>
 
-<style class="home">
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-</style>
+
 
 
 </head>
@@ -44,24 +42,26 @@
     <a href="#about">Acerca de Nosotros</a>
     <a href="#products">Nuestro Portafolio</a>
     <a href="#contact">Contactanos</a>
+
+
+
+
+    
     
 </nav>
 
-<!--Tener muy en cuenta para el Remove jaja-->
-<div class="icons">
-    <div class="fas fa-search" id="search-btn"></div>
-    
-   <div class="search-form">
-    <input type="search" id="search-box" placeholder="Busca aqui....">
-    <label for="search-box" class="fas fa-search"></label>
-    
- <!--Tener muy en cuenta para el Remove jaja-->
-    
-</div> 
 
 
-<button class='loginbtn' onclick="document.getElementById('login-form').style.display='block'"style="width:auto;"><div class="fas fa-user"></div></button>
+<!--Seccion Log-IN -->
 
+<div class="navbar">
+    <div>
+    <a href="{{ url('/login') }}"> Ingresar </a>
+
+<a href="{{ url('/register') }}"> Registrarse </a>
+    </div>
+
+<!--Seccion Log-IN -->
 
 
 <div class="fas fa-bars" id="menu-btn"></div>
@@ -71,74 +71,6 @@
 
 
 </header>
-
-<!--Seccion Log-IN -->
-<section class="home" id="home">
-    <div id="btn3"></div>
-    <div id='login-form' class="login-page">
-    <div class="form">
-    <div class="text-center" id="text">
-      <h6 class="title"><span>Ingresar  </span> Registrarse</h6>
-      <input type="checkbox" class="checkbox" id="reg-log" >
-      <label for="reg-log"></label>
-      <div class="card-3d-wrap">
-        <div class="card-3d-wrapper">
-          <!-- card front -->
-          <form id="login" class="card-front">
-            <div class="center-wrap">
-              <h4 class="heading-1">Accede a tu cuenta</h4>
-              <span class="icon-close"><ion-icon name="close-outline"></ion-icon> </span>
-              <div class="form-group-1">
-            
-                <input type="email" class="form-style" placeholder="E-mail" id="usuario" required>
-                <span class="material-symbols-outlined">alternate_email</span>
-              </div>
-              <div class="form-group-1">
-                <input type="password" class="form-style" placeholder="Tu Contraseña" id="clave"required>
-                <span class="material-symbols-outlined">lock</span>
-              </div>
-              
-              <a href="Dashboard.html"  type='submit' class='btn3'onclick="loguear()" required> Ingresar</a>
-            
-              <p class="text-center"><a href="#" class="link">¿Olvido su contraseña?</a></p>
-            </div>
-          </form>
-          <!-- card back -->
-          <form id="register" class="card-back">
-            <div class="center-wrap">
-                <span class="icon-close">
-                    <ion-icon name="close-outline"></ion-icon>
-                </span>
-              <h4 class="heading-2">Registrate</h4>
-              <div class="form-group-2">
-                <input type="text" class="form-style" placeholder="Nombre Completo" required>
-                <span class="material-symbols-outlined">person</span>
-              </div>
-              <div class="form-group-2">
-                <input type="email" class="form-style" placeholder="E-mail" required>
-                <span class="material-symbols-outlined">alternate_email</span>
-              </div>
-              <div class="form-group-2">
-                <input type="password" class="form-style" placeholder="Tu contraseña" required>
-                <span class="material-symbols-outlined">lock</span>
-              </div>
-
-              <div class="remember-forgot"></div>
-        
-            <button type='submit' class='btn4' onclick="loguear()">Registrate</button>
-            </div>
-
-            
-        </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-</section>
 
 
 
