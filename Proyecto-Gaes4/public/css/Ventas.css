@@ -768,3 +768,41 @@ justify-content: center;
 
 
    }
+   /* Estilos para pantallas pequeñas */
+@media (max-width: 767px) {
+    body {
+      font-size: 12px;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  
+    /* Agrega aquí los estilos específicos para pantallas pequeñas */
+  }
+  
+  /* Estilos para pantallas medianas */
+  @media (min-width: 768px) and (max-width: 991px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .container {
+      padding: 20px;
+    }
+  
+    /* Agrega aquí los estilos específicos para pantallas medianas */
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media (min-width: 992px) {
+    body {
+      font-size: 16px;
+    }
+  
+    .container {
+      padding: 30px;
+    }
+  
+    /* Agrega aquí los estilos específicos para pantallas grandes */
+  }
