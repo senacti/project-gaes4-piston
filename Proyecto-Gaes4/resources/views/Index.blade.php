@@ -92,7 +92,7 @@
                                     <div class="col-xs-4"></div>
                                 </div>
                             </div>
-                            <div class="col-md-20 offset-md-7 mt-1">
+                            <div class="col-md-10 offset-md-7 mt-1">
                                 <button class="btn btn-danger pull-right" data-action="deletelastrow">Borra la última
                                     fila</button>
                                 <button class="btn btn-danger pull-right" data-action="deletefirstrow">Borra la primera

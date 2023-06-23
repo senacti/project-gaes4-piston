@@ -1,0 +1,50 @@
+﻿40041,Baterias,44,Reparacion y revision electrico,20001,2005
+40042,Alternadores,14,Reparacion y revision electrico,20002,2006
+40043,Motores de Arranque,17,Reparacion y revision electrico,20003,2007
+40044,Dirección Hidraudica,50,Direccion,20004,2008
+40045,Dirección Electrica,49,Direccion,20005,2009
+40046,Bomba de Presion,17,Direccion,20006,2010
+40047,Tuberías,4,Direccion,20007,2011
+40048,Rotula Axial,54,Direccion,20008,2012
+40049,Rotula de Dirección,6,Direccion,20009,2013
+40050,Liquido Hidraulico,11,Direccion,20010,2014
+40051,Correa de Distribucion,6,Direccion,20011,2015
+40052,Correa Auxiliar y Tensores,13,Direccion,20012,2016
+40053,Bomba de Agua,23,Direccion,20013,2017
+40054,Bombas y Inyectores,3,Direccion,20014,2018
+40055,Embrague y Bimasa,38,Direccion,20015,2019
+40056,Sistema de Lubricacion,37,Direccion,20016,2020
+40057,Sistema de Enfriamiento,20,Direccion,20017,2021
+40058,Turbo de Intercooler,18,Direccion,20018,2022
+40059,Auto-Diagnosis,36,Direccion,20019,2023
+40060,Juntas Homocinéticas,38,Transmision,20020,2024
+40061,Arbol de Transmision,11,Transmision,20021,2025
+40062,Palieres,5,Transmision,20022,2026
+40063,Juntas de Cardan,32,Transmision,20023,2027
+40064,Rodamientos,9,Transmision,20024,2028
+40065,Guarda Polvos,43,Transmision,20025,2029
+40066,Amortiguadores y muelles,24,Reparacion y mantenimiento suspensión,20026,2030
+40067,Barras Estabilizadoras,29,Reparacion y mantenimiento suspensión,20027,2031
+40068,Silentblocks y cojinetes elásticos,29,Reparacion y mantenimiento suspensión,20028,2032
+40069,Rótulas,38,Reparacion y mantenimiento suspensión,20029,2033
+40070,Mangueta y Buje,29,Reparacion y mantenimiento suspensión,20030,2034
+40071,Tirante de Suspensión,58,Reparacion y mantenimiento suspensión,20031,2035
+40072,Topes de Suspensión,12,Reparacion y mantenimiento suspensión,20032,2036
+40073,Aceite ,34,Mecanica rapida,20033,2037
+40074,Filtros,35,Mecanica rapida,20034,2038
+40075,Pastillas de freno,9,Mecanica rapida,20035,2039
+40076,Disco de freno,36,Mecanica rapida,20036,2040
+40077,Neumáticos para furgonetas,8,Mecanica rapida,20037,2041
+40078,Neumáticos cara blanca,47,Mecanica rapida,20038,2042
+40079,Escobillas,10,Mecanica rapida,20039,2043
+40080,Luces,22,Mecanica rapida,20040,2044
+40081,Neumáticos para 4×4,7,Mecanica rapida,20041,2045
+40082,Neumáticos para SUV,18,Mecanica rapida,20042,2046
+40083,Llantas,8,Mecanica rapida,20043,2047
+40084,Neumaticos para vehiculo comercial,24,Mecanica rapida,20044,2048
+40085,Fundas para asientos de coche,17,Accesorios para el automovil,20045,2049
+40086,Bombillas para coche,35,Accesorios para el automovil,20046,2050
+40087,Parasoles,49,Accesorios para el automovil,20047,2051
+40088,Fundas para volantes,47,Accesorios para el automovil,20048,2052
+40089,Escobilla para coche o camion,48,Accesorios para el automovil,20049,2053
+40090,Tapacubos,60,Accesorios para el automovil,20050,2054
