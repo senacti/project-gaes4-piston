@@ -27,11 +27,7 @@
 
 <body>
     <div class="container">
-        <!--------Esta es toda la interfaz :D---------->
         <aside>
-
-            <!-------- El Logo ---------->
-
             <div class="top">
                 <div class="logo">
                     <img src="{{ asset('Imagenes/Please.png') }}" alt="">
@@ -39,11 +35,8 @@
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">close</span>
-
                 </div>
             </div>
-
-            <!--------Los iconos :D---------->
             <div class="sidebar">
                 <a href="{{ url('/dashboard') }}" class="active">
 
@@ -57,14 +50,12 @@
                     <h3>Clientes</h3>
 
                 </a>
-
                 <a href="{{ url('/productosyservicios') }}">
                     <span class="material-icons-sharp">inventory</span>
                     <h3>Productos y Servicios</h3>
                     <span class="message-count">0</span>
                     <!-------- El contador de los productos ---------->
                 </a>
-
                 <a href="{{ url('/mecanicos') }}">
                     <span class="material-symbols-rounded">plumbing</span>
                     <h3>Mecanicos</h3>
@@ -75,146 +66,105 @@
                     <h3>Ventas</h3>
 
                 </a>
-
                 <a href="{{ url('/historialeinformes') }}">
                     <span class="material-symbols-rounded">history </span>
                     <h3>Historial de ventas e informes</h3>
-
                 </a>
                 <a href="{{ url('/error500') }}">
                     <span class="material-symbols-rounded">add </span>
                     <h3>Añadir Modulos</h3>
-
                     <a href="#">
                         <span class="material-icons-sharp">logout</span>
                         <h3>Salir</h3>
                     </a>
-                    <!--------Fin  Los iconos :D---------->
+                    <!--------Fin  Los iconos ---------->
             </div>
         </aside>
-
-        <!--------Fin de la  interfaz :D---------->
-        <!--------=======================================---------->
-        <!--------Seccion principal :D---------->
-        <!--------Seccion de las tres cuadros :D---------->
         <main>
-
-            <!--------  Interfaz del Administrador :D   ---------->
-            <div class="right">
-                <!--------  La clase top  :D ---------->
-                <div class="top">
-                    <button id="menu-btn">
-                        <span class="material-symbols-rounded">list</span>
-                    </button>
-                    <div class="theme-toggler">
-                        <span class="material-symbols-rounded active">brightness_6</span>
-                        <span class="material-symbols-rounded">dark_mode</span>
-                    </div>
-                    <div class="profile">
-                        <div class="info">
-                            <p>Hola,<b> Abril</b></p>
-                            <small class="text-muted">Admin</small>
-                        </div>
-                        <div class="profile-photo">
-                            <img src="{{ asset('Imagenes/descarga.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-                <!--------Titulo---------->
-                <h1>Clientes</h1>
-                <!--------Esta seccion obviamente si o si tiene que ser modificable para los demas modulos osease los tres cuadrados del dashboard---------->
-
-                <!--------Este es el almanaque osease el calendario---------->
-                <div class="date">
-                    <input type="date">
-                </div>
-
-                <div class="insights">
-                    <div class="sapito">
-                        <div class="containerr">
-                            <div class="form-group clearfix">
+            <!--------  Interfaz del Administrador ---------->
+            <h1>Clientes</h1>
+            <div class="recent'order">
+                <div class="containerr">
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-7">
                                 <div class="row">
-                                    <div class="col-sm-7">
-                                        <div class="row">
-                                            <div class="col-xs-4"></div>
-                                        </div>
+                                    <div class="col-xs-4"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-20 offset-md-7 mt-1">
+                                <button class="btn btn-danger pull-right" data-action="deletelastrow">Borra la última
+                                    fila</button>
+                                <button class="btn btn-danger pull-right" data-action="deletefirstrow">Borra la primera
+                                    fila</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <div class="row addvalueBox">
+                                    <div class="col-sm-4 mt-1">
+                                        <select class="form-control" id="identificacion-select">
+                                            <option value="">Seleccionar Identificacion</option>
+                                            <option value="Cedula Ciudadania">Cedula Ciudadania</option>
+                                            <option value="Cedula Extranjeria">Cedula Extranjeria</option>
+                                            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                                        </select>
                                     </div>
-                                    <div class= "botones">
-                                    <div class="col-md-20 offset-md-10">
-                                        <button class="btn btn-danger pull-right" data-action="deletelastrow">Borra la
-                                            última fila</button>
-                                        <button class="btn btn-danger pull-right" data-action="deletefirstrow">Borra la
-                                            primera fila</button>
+                                    <div class="col-md-4 mt-1">
+                                        <input type="text" placeholder="Ingresar identificacion" class="form-control"
+                                            id="identificacion-input" min="1" max="100" />
                                     </div>
+                                    <div class="col-md-4 mt-1">
+                                        <input type="text" placeholder="Nombre completo" class="form-control"
+                                            id="nombre-input" />
+                                    </div>
+                                    <div class="col-md-4 mt-1">
+                                        <input type="date" class="form-control" id="fecha-input" />
+                                    </div>
+                                    <div class="col-md-4 mt-1">
+                                        <input type="text" placeholder="Direccion" class="form-control"
+                                            id="direccion-input" />
+                                    </div>
+                                    <div class="col-md-4 mt-1">
+                                        <input type="text" placeholder="Telefono" class="form-control"
+                                            id="telefono-input" />
+                                    </div>
+                                    <div class="col-md-4 mt-1">
+                                        <input type="text" placeholder="Ciudad" class="form-control"
+                                            id="ciudad-input" />
+                                    </div>
+                                    <div class="col-md-4 mt-1">
+                                        <input type="text" placeholder="Email" class="form-control"
+                                            id="email-input" />
+                                    </div>
+                                    <div class="col-sm-20 offset-sm-20 mt-1">
+                                        <button class="btn btn-success pull-right"
+                                            data-action="addrow">Añadir</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group clearfix">
-                                <div class="row">
-                                    <div class="col-sm-7">
-                                        <div class="row addvalueBox">
-                                            <div class="col-sm-6">
-                                                <select class="form-control" id="identificacion-select">
-                                                    <option value="">Seleccionar Identificacion</option>
-                                                    <option value="Cedula Ciudadania">Cedula Ciudadania</option>
-                                                    <option value="Cedula Extranjeria">Cedula Extranjeria</option>
-                                                    <option value="Tarjeta de identidad">Tarjeta de identidad</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Ingresar identificacion"
-                                                    class="form-control" id="identificacion-input" min="1"
-                                                    max="100" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Nombre completo"
-                                                    class="form-control" id="nombre-input" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="date" class="form-control" id="fecha-input" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Direccion" class="form-control"
-                                                    id="direccion-input" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Telefono" class="form-control"
-                                                    id="telefono-input" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Ciudad" class="form-control"
-                                                    id="ciudad-input" />
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" placeholder="Email" class="form-control"
-                                                    id="email-input" />
-                                            </div>
-                                            <div class="col-sm-20 offset-sm-20">
-                                                <button class="btn btn-success pull-right"
-                                                    data-action="addrow">Añadir</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Identificacion</th>
-                                                    <th>Numero de identificacion</th>
-                                                    <th>Nombre completo</th>
-                                                    <th>Fecha de nacimiento</th>
-                                                    <th>Direccion</th>
-                                                    <th>Telefono</th>
-                                                    <th>Ciudad</th>
-                                                    <th>Email</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tabla-body">
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                            <div class="col-md-10 mt-2">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Identificacion</th>
+                                            <th>Numero de identificacion</th>
+                                            <th>Nombre completo</th>
+                                            <th>Fecha de nacimiento</th>
+                                            <th>Direccion</th>
+                                            <th>Telefono</th>
+                                            <th>Ciudad</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla-body">
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+                    </div>
         </main>
     </div>
 
