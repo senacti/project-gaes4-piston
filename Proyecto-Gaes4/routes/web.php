@@ -49,6 +49,7 @@ Route::get('/login', function () {
 });
 
 Auth::routes();
+Route::get('/cliente/pdf', [App\Http\Controllers\ClienteController::class, 'pdf'])->name('cliente.pdf');
+Route::resource('clientes','App\Http\Controllers\ClienteController');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
