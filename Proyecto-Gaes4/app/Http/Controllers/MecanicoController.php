@@ -13,14 +13,14 @@ class MecanicoController extends Controller
      */
     public function index()
     {
-        $mecanicos=Mecanico::all();
+        $mecanicos=Mecanico::paginate(5);
         return view('mecanico.index')->with('mecanicos',$mecanicos);
         
     }
  public function pdf(){
-    $mecanicos=Mecanico::all();
-    $pdf = Pdf::loadView('mecanico.pdf',\compact('mecanicos'));
-    return $pdf->stream();
+    $mecanicos=Mecanico::paginate();
+    $pdf = Pdf::loadView('mecanico.pdf',['mecanicos'=>$mecanicos]);
+    return $pdf->stream('PDFMecanicos-'.time().'.pdf');
  }
     /**
      * Show the form for creating a new resource.
@@ -50,7 +50,7 @@ class MecanicoController extends Controller
 
        $mecanicos->save();
 
-       return redirect('/mecanicos');
+       return redirect('mecanicos')->with('mensaje','Mecanico agregado con exito!');
 
        
     }
@@ -93,7 +93,7 @@ class MecanicoController extends Controller
      
             $mecanico->save();
      
-            return redirect('/mecanicos');
+            return redirect('mecanicos')->with('mensaje','Mecanico actualizado con exito!');
          
     }
 
@@ -104,6 +104,6 @@ class MecanicoController extends Controller
     {
         $mecanico= Mecanico::find($id);
         $mecanico->delete();
-        return redirect('/mecanicos');
+        return redirect('mecanicos')->with('mensaje','Mecanico eliminado con exito!');
     }
 }
