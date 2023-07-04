@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,200,1,200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,300,1,200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,500,1,200" />
+    <title>DashboardPiston</title>
+    <link rel="stylesheet" href="{{asset('css/Dashboard.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <!--------Esta es toda la interfaz :D---------->
+       <aside>
+
+        <!-------- El Logo ---------->
+            
+            <div class="top">
+                <div class="logo">
+                    <img src="Imagenes/Please.png" alt="">
+                    <h2><span class="danger">PIS</span>TON</h2>
+                </div>
+                <div class="close" id="close-btn">
+                <span class="material-icons-sharp">close</span>
+
+                </div>
+            </div> 
+
+             <!--------Los iconos :D---------->
+             <div class="sidebar">
+                <a href="Dashboard.html" class="active">
+                    
+                        <span class="material-symbols-rounded">dashboard</span>
+                        <h3>Dashboard</h3>
+    
+                    </a>
+    
+                    <a href="Index.html" >
+                        <span class="material-icons-sharp">people</span>
+                        <h3>Clientes</h3>
+    
+                    </a>
+                    
+                    <a href="Productos.html">
+                        <span class="material-icons-sharp">inventory</span>
+                        <h3>Productos y Servicios</h3>
+                        <span class="message-count">0</span> 
+                         <!-------- El contador de los productos ---------->
+                    </a>
+                
+                    <a href="Mecanicos.html">
+                        <span class="material-symbols-rounded">plumbing</span>
+                        <h3>Mecanicos</h3>
+    
+                    </a>
+                    <a href="ventas.html">
+                        <span class="material-symbols-outlined">add_task</span>
+                        <h3>Ventas</h3>
+    
+                    </a>
+
+                    <a href="Historial de ventas y Informes.html">
+                        <span class="material-symbols-rounded">history </span>
+                        <h3>Historial de ventas y informes</h3>
+    
+                    </a>
+                    <a href="Error500.html"> 
+                        <span class="material-symbols-rounded">add </span>
+                        <h3>Añadir Modulos</h3>
+
+                    <a href="#">
+                        <span class="material-icons-sharp">logout</span>
+                        <h3>Salir</h3>
+                </a>
+            <!--------Fin  Los iconos :D---------->
+            </div>
+        </aside>
+
+         <!--------Fin de la  interfaz :D---------->
+ <!--------=======================================---------->
+       <!--------Seccion principal :D---------->
+        <!--------Seccion de las tres cuadros :D---------->
+      <main>
+          <!--------Titulo---------->
+          <h1>Dashboard</h1>
+          <!--------Esta seccion obviamente si o si tiene que ser modificable para los demas modulos osease los tres cuadrados del dashboard---------->
+         
+                <!--------Este es el almanaque osease el calendario---------->
+                     <div class="date">
+                         <input type="date">
+                     </div>
+                     <!--------Contenido de los tres cuadrados, iconos, informacion importante---------->
+                      <!--------Contenido ventas obtenidas---------->
+                     <div class="insights">
+                         <div class="sales">
+                             <span class="material-symbols-outlined">monetization_on</span>
+                               <div class="middle">
+                                 <div class="left">
+                                 <h3>Ventas totales</h3>
+                                 <h1>$2.000.000</h1>
+                                 </div> 
+                                  <!--------Proceso para el tena de los porcentajes es decir las graficas circulares que hay que tener en cuenta para el modulo del Dashboard o ventas imagen circular svg ---------->
+                                 <div class="progress">
+                                    <svg>
+                                        <circle cx="38" cy="38" r="36"> </circle>
+                                    </svg>
+                                    <div class="number">
+                                        <p>81%</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                 <!-------- Subtitulo ---------->
+                                <small class="text-muted">Ultimas 24 horas</small>
+                               </div> 
+                                <!--------Fin  Contenido de los tres cuadrados, iconos, informacion importante---------->
+          <!--------==================================================================================================================================---------->
+                           <!--------Contenido gastos obtenidas---------->
+                            <div class="expenses">
+                             <span class="material-symbols-outlined">shopping_cart_checkout</span>
+                               <div class="middle">
+                                 <div class="left">
+                                 <h3>Gastos totales</h3>
+                                 <h1>$2.000.000</h1>
+                                 </div> 
+                                  <!--------Proceso para el tena de los porcentajes es decir las graficas circulares que hay que tener en cuenta para el modulo del Dashboard o ventas imagen circular svg ---------->
+                                 <div class="progress">
+                                    <svg>
+                                        <circle cx="38" cy="38" r="36"> </circle>
+                                    </svg>
+                                    <div class="number">
+                                        <p>44%</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                 <!-------- Subtitulo ---------->
+                                <small class="text-muted">Ultimas 24 horas</small>
+                               </div> 
+           <!--------==================================================================================================================================---------->
+                           <!--------Contenido gastos obtenidas---------->
+                           <div class="saves">
+                            <span class="material-symbols-outlined">savings</span>
+                              <div class="middle">
+                                <div class="left">
+                                <h3>Ingreso totales</h3>
+                                <h1>$2.000.000</h1>
+                                </div> 
+                                 <!--------Proceso para el tena de los porcentajes es decir las graficas circulares que hay que tener en cuenta para el modulo del Dashboard o ventas imagen circular svg ---------->
+                                <div class="progress">
+                                   <svg>
+                                       <circle cx="38" cy="38" r="36"> </circle>
+                                   </svg>
+                                   <div class="number">
+                                       <p>74%</p>
+                                   </div>
+                                 </div>
+                               </div>
+                        <!-------- Subtitulo ---------->
+
+                               <small class="text-muted">Ultimas 24 horas</small>
+                              </div> 
+
+                         </div>
+                    <!--------Fin de la Seccion de las tres cuadros :D---------->      
+   
+        <!--------Informacion Cliente vehiculo la tabla :D---------->      
+              
+        <div class="recent-order">
+            <h2>Informacion Cliente / Vehiculo</h2>
+            <table>
+                 <!-------- Tablas ---------->
+                <thead>
+                    <tr>
+                        <th>Datos del cliente</th>
+                        <th>VIN del Vehiculo</th>
+                        <th>Placa del Vehiculo</th>
+                        <th>Marca del Vehiculo</th>
+                        <th>Modelo del Vehiculo</th>
+                        <th>Servicio/s solicitado/s</th>
+                        <th>Fecha en que se inicio el pedido/s</th>
+                        <th>Fecha en que se finaliza el pedido/s</th>
+                        <th>Estatus</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Felipe Barrios</td>
+                        <td>ABDCEFG</td>
+                        <td>AD474A</td>
+                        <td>Mazda</td>
+                        <td>Mazda Furai Sport</td>
+                        <td>Cambio de Aceite</td>
+                        <td>10/01/2024</td>
+                        <td>20/01/2024</td>
+                        <td class="warning">Pendiente</td>
+                        <td class="primary" ><a href="#">Mas detalles</a></td>
+                    </tr>
+                   
+                     <!-------- Fin tablas ---------->
+                </tbody>
+             <!-------- Subtitulo ---------->
+            </table>
+            <a href="#">Muestrame mas</a>
+        </div>
+                     
+         </main>
+             <!-------- Fin de la seccion principal :D ---------->
+        <!--------  Interfaz del Administrador :D   ---------->
+      <div class="right">
+         <!--------  La clase top  :D ---------->
+        <div class="top">
+            <button id="menu-btn">
+                <span class="material-symbols-rounded">list</span>
+            </button>
+            <div class="theme-toggler">
+                <span class="material-symbols-rounded active">brightness_6</span>
+                <span class="material-symbols-rounded">dark_mode</span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Hola,<b>Abril</b></p>
+                    <small class="text-muted">Admin</small>
+                </div>
+            <div class="profile-photo">
+                <img src="Imagenes/descarga.jpg">
+            </div>
+            </div>
+        </div>
+       <!-------- Fin de la clase top  :D ---------->
+       <!-------- Cuadro de la Derecha :D ---------->
+       <div class="recent-updates">
+        <h2>Detalles del servicio</h2>
+        <div class="updates">
+            <p> 
+               debitis, est asperiores autem in perferendis reprehenderit voluptas ad? Non maxime atque quo adipisci ex voluptates repudiandae, distinctio mollitia est perferendis, aperiam possimus cupiditate ad neque, dolorem delectus quae quod. Nobis quam doloribus repellendus tempora dolorum ipsa ut voluptates deserunt aut, delectus eos quod ducimus expedita velit perspiciatis ea repudiandae unde perferendis vitae enim aliquid animi nemo necessitatibus maiores. Reprehenderit commodi ipsam animi accusamus id reiciendis, rem porro dicta temporibus, mollitia totam recusandae quibusdam repellat!</p>
+        </div>
+
+       </div>
+<!-------- Fin Cuadro de la Derecha :D ---------->
+<!--------  Cuadro abajo de la Derecha :D ---------->
+<div class="receipt">
+    <h2>Factura Servicio</h2>
+    <div class="item">
+     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur, itaque expedita. Corrupti deleniti labore possimus tempore, eaque eum reiciendis nulla vero? Distinctio ratione illo nobis officia vero reprehenderit nemo ullam eaque incidunt tempora unde corporis similique magni sit aperiam itaque natus, quibusdam voluptas tenetur delectus, ea blanditiis debitis praesentium. Exercitationem ullam labore veritatis autem. Architecto pariatur commodi recusandae, voluptatum molestias, mollitia, quia magnam dolorum quos eveniet amet corrupti excepturi odio similique repellendus! Sit illum vitae animi. Corrupti, at. Quo repellat dicta necessitatibus harum consequatur et veniam, suscipit corrupti temporibus eaque labore facere animi ad. Ab exercitationem eius illum, saepe accusamus quo vero minima animi totam maxime unde commodi iusto cum.</p>        
+    </div>
+  </div>          
+
+
+
+
+
+
+
+      </div>
+
+
+    </div>  
+
+<script src="{{ asset('js/Script1.js') }}"></script>
+<script src="{{ asset('js/orders.js') }}"></script>
+
+</body>
+</html>
+                  
