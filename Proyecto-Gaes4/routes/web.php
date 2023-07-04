@@ -1,12 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Dompdf\Dompdf;
-
+use App\Http\Controllers\ProductosController;
 
 Route::get('/', function () {
     return view("index1");
 });
+
+Route::resource('productosservicios', ProductosController::class)->middleware('auth');
+
+Route::patch('/productosservicios/{productosservicio}', [ProductosController::class, 'update'])->name('productosservicios.update')->middleware('auth');
+
+Route::get('/home', [ProductosController::class, 'index'])->name('home')->middleware('auth');
+
+
+
+Route::get('/productosservicios.pdf', [ProductosController::class, 'pdf'])->name('productosservicios.pdf');
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view("Dashboard");
@@ -48,8 +61,18 @@ Route::get('/login', function () {
     return view("login");
 });
 
+Route::post('/guardar-venta', 'VentaController@guardar');
+
 Auth::routes();
-Route::get('/cliente/pdf', [App\Http\Controllers\ClienteController::class, 'pdf'])->name('cliente.pdf');
-Route::resource('clientes','App\Http\Controllers\ClienteController');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

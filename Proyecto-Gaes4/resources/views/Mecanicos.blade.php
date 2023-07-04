@@ -68,186 +68,111 @@
 
 
 
-<main>
-  <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="UTF-8">
-      <title>Taller Mecánico - Ventas</title>
-    </head>
-    <body>
-        
-      <h1>Asignar Mecanicos</h1>
-      <div class="recent'order">
-        <div class="containerr">
-          <div class="form-group clearfix">
-            <div class="row">
-              <div class="col-sm-7">
-                <div class="row">
-                  <div class="col-xs-4"></div>
-                </div>
-              </div>
-              <div class="col-md-10 offset-md-7 mt-1">
-                <button class="btn btn-danger pull-right" data-action="deletefirstrow1">Borrar la primera fila</button>
-                <button class="btn btn-danger pull-right" data-action="deletelastrow1">Borrar la última fila</button>
-              </div>
-            </div>
-          </div>
-          <div class="form-group clearfix">
-            <div class="row">
-              <div class="col-sm-7">
-                <div class="row addvalueBox">
-                  <div class="col-sm-4 mt-1">
-                    <select class="form-control" id="nombre-producto-select">
-                      <option value="">Seleccionar Mecanicos</option>
-                      <option value="Producto 1">Juan Felipe Barrios Hidalgo</option>
-                      <option value="Producto 2">Julian David Barrios Hidalgo</option>
-                      <option value="Producto 3">Me llamo Marcelo</option>
-                    </select>
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="text" placeholder="ID Mecanicos" class="form-control" id="id-producto-input"/>
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="text" placeholder="Nombre" class="form-control" id="cantidad-producto-input" />
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="text" placeholder="Apellido" class="form-control" id="descripcion-input" />
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="text" placeholder="Direccion" class="form-control" id="id-categoria-input" />
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="number" placeholder="Telefono" class="form-control" id="id-ventas-input" />
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="text" placeholder="E-mail" class="form-control" id="id-ventas-input" />
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="text" placeholder="Ciudad" class="form-control" id="id-ventas-input" />
-                  </div>
-                  <div class="col-md-4 mt-1">
-                    <input type="text" placeholder="Especialidad" class="form-control" id="id-ventas-input" />
-                  </div>
-                  <div class="col-sm-20 offset-sm-20 mt-1">
-                    <button class="btn btn-success pull-right" data-action="addrow1">Añadir</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-10 mt-2">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>MECANICOS</th>
-                      <th>ID MECANICOS</th>
-                      <th>NOMBRE MECANICOS</th>
-                      <th>APELLIDO</th>
-                      <th>DIRECCION</th>
-                      <th>TELEFONO</th>
-                      <th>EMAIL</th>
-                      <th>CIUDAD</th>
-                      <th>ESPECIALIDAD</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tabla-body1">
-                  </tbody>
-                </table>
-                <div class="col-sm-20 offset-sm-20 mt-1">
-                  <button class="btn btn-primary pull-right" data-action="finalizarventa1">Finalizar Venta</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </main>
-</div>
 
+
+    <main>
+        <!DOCTYPE html>
+        <html lang="es">
+          <head>
+            <meta charset="UTF-8">
+            <title>Taller Mecánico - Ventas</title>
+          </head>
+          <body>
+            <h1>Asignar Mecanicos</h1>
+            <div class="recent'order">
+              <div class="containerr">
+                <div class="form-group clearfix">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      <div class="row">
+                        <div class="col-xs-4"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-10 offset-md-7 mt-1">
+                      <button class="btn btn-danger pull-right" data-action="deletefirstrow1">Borrar la primera fila</button>
+                      <button class="btn btn-danger pull-right" data-action="deletelastrow1">Borrar la última fila</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      <div class="row addvalueBox">
+                        <div class="col-sm-4 mt-1">
+                          <select class="form-control" id="nombre-producto-select">
+                            <option value="">Seleccionar Mecanicos</option>
+                            <option value="Producto 1">Juan Felipe Barrios Hidalgo</option>
+                            <option value="Producto 2">Julian David Barrios Hidalgo</option>
+                            <option value="Producto 3">Me llamo Marcelo</option>
+                          </select>
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="ID Mecanicos" class="form-control" id="id-producto-input"/>
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="Nombre" class="form-control" id="cantidad-producto-input" />
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="Apellido" class="form-control" id="descripcion-input" />
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="Dirección" class="form-control" id="direccion-input" />
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="Teléfono" class="form-control" id="telefono-input" />
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="Email" class="form-control" id="email-input" />
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="Ciudad" class="form-control" id="ciudad-input" />
+                        </div>
+                        <div class="col-md-4 mt-1">
+                          <input type="text" placeholder="Especialidad" class="form-control" id="especialidad-input" />
+                        </div>
+                        <div class="col-sm-20 offset-sm-20 mt-1">
+                          <button class="btn btn-success pull-right" data-action="addrow1">Añadir</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-20">
+                      <div class="col-sm-20 addvalueBox1">
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>ID Mecanicos</th>
+                              <th>Nombre</th>
+                              <th>Apellido</th>
+                              <th>Dirección</th>
+                              <th>Teléfono</th>
+                              <th>Email</th>
+                              <th>Ciudad</th>
+                              <th>Especialidad</th>
+                            </tr>
+                          </thead>
+                          <tbody id="display">
+                            <tr>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.js"></script>
+            <script src="main.js"></script>
+          </body>
+        </html>
+      </main>
       
-
-      <script>
-        const addRowButton1 = document.querySelector('[data-action="addrow1"]');
-        const deleteFirstRowButton1 = document.querySelector('[data-action="deletefirstrow1"]');
-        const deleteLastRowButton1 = document.querySelector('[data-action="deletelastrow1"]');
-        const finalizeSaleButton1 = document.querySelector('[data-action="finalizarventa1"]');
-        const tableBody1 = document.getElementById('tabla-body1');
-
-        addRowButton1.addEventListener('click', function () {
-          const mecanicoSelect = document.getElementById('mecanico-select');
-          const idInput = document.getElementById('id-input');
-          const nombreInput = document.getElementById('nombre-input');
-          const apellidosInput = document.getElementById('apellidos-input');
-          const direccionInput = document.getElementById('direccion-input');
-          const telefonoInput = document.getElementById('telefono-input');
-          const emailInput = document.getElementById('email-input');
-          const ciudadInput = document.getElementById('ciudad-input');
-          const especialidadInput = document.getElementById('especialidad-input');
-
-          const newRow = document.createElement('tr');
-
-          const mecanicoCell = document.createElement('td');
-          mecanicoCell.textContent = mecanicoSelect.value;
-          newRow.appendChild(mecanicoCell);
-
-          const idCell = document.createElement('td');
-          idCell.textContent = idInput.value;
-          newRow.appendChild(idCell);
-
-          const nombreVarCell = document.createElement('td');
-          nombreCell.textContent = nombreInput.value;
-          newRow.appendChild(nombreCell);
-
-          const apellidosCell = document.createElement('td');
-          apellidosCell.textContent = apellidosInput.value;
-          newRow.appendChild(apellidosCell);
-
-          const direccionCell = document.createElement('td');
-          direccionCell.textContent = direccionInput.value;
-          newRow.appendChild(direccionCell);
-
-          const telefonoCell = document.createElement('td');
-          telefonoCell.textContent = telefonoInput.value;
-          newRow.appendChild(telefonoCell);
-
-          const emailCell = document.createElement('td');
-          emailCell.textContent = emailInput.value;
-          newRow.appendChild(emailCell);
-
-          const ciudadCell = document.createElement('td');
-          ciudadCell.textContent = ciudadInput.value;
-          newRow.appendChild(ciudadCell);
-
-          const especialidadCell = document.createElement('td');
-          especialidadCell.textContent = especialidadInput.value;
-          newRow.appendChild(especialidadCell);
-
-
-          tableBody.appendChild(newRow);
-
-          // Limpiar los campos de entrada
-          mecanicoSelect.value = '';
-          idInput.value = '';
-          nombreInput.value = '';
-          apellidosInput.value = '';
-          direccionInput.value = '';
-          telefonoInput.value = '';
-          emailInput.value = '';
-          ciudadInput.value = '';
-          especialidadInput.value = '';
-        });
-
-        deleteFirstRowButton.addEventListener('click', function() {
-            const firstRow = tableBody.querySelector('tr');
-            if (firstRow) {
-                tableBody.removeChild(firstRow);
-            }
-        });
-
-        deleteLastRowButton.addEventListener('click', function() {
-            const lastRow = tableBody.querySelector('tr:last-child');
-            if (lastRow) {
-                tableBody.removeChild(lastRow);
-            }
-        });
-      </script>
-    </body>
-  </html>
