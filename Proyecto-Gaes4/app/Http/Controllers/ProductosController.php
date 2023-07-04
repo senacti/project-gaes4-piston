@@ -114,6 +114,6 @@ class ProductosController extends Controller
     {
         $Productosservicio = Productos::findOrFail($id);
         $Productosservicio->delete();
-        return redirect('productosservicios')->with('Mensaje', 'Producto eliminado con éxito');
+        return redirect('productosservicios')->with('Mensaje', 'Producto inhabilitado con éxito');
     }
 }

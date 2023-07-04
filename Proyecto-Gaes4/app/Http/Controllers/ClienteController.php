@@ -98,6 +98,6 @@ class ClienteController extends Controller
         $articulo = Cliente::find($id);        
         $articulo->delete();
 
-        return redirect('clientes')->with('mensaje','Cliente eliminado con exito!');
+        return redirect('clientes')->with('mensaje','Cliente inhabilitado con exito!');
     }
 }

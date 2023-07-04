@@ -104,6 +104,6 @@ class MecanicoController extends Controller
     {
         $mecanico= Mecanico::find($id);
         $mecanico->delete();
-        return redirect('mecanicos')->with('mensaje','Mecanico eliminado con exito!');
+        return redirect('mecanicos')->with('mensaje','Mecanico inhabilitado con exito!');
     }
 }

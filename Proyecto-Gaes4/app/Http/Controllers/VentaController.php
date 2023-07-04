@@ -13,13 +13,13 @@ class VentaController extends Controller
     public function index()
     {
         //
-        $datos['ventas']=Venta::paginate(5);
+        $datos['ventas']=Venta::paginate(2);
         return view('venta.index',$datos );
     }
 
     public function pdf()
     {
-        $ventas = Venta::paginate(5);
+        $ventas = Venta::paginate(2);
         $pdf = PDF::loadView('venta.pdf',['ventas'=>$ventas]);
         return $pdf->stream('PDFVentas-'.time().'.pdf');
     }
@@ -137,6 +137,6 @@ class VentaController extends Controller
     {
         $Venta = venta::findOrFail($id);
         $Venta->delete();
-        return redirect()->route('venta.index')->with('mensaje','Venta eliminada con exito');
+        return redirect()->route('venta.index')->with('mensaje','Venta inhabilitado con exito');
     }
 }
