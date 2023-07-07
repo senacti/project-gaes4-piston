@@ -14,13 +14,13 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        $datosProductosservicios['productosservicios'] = Productos::paginate(3);
+        $datosProductosservicios['productosservicios'] = Productos::paginate();
         return view('productosservicios.index', $datosProductosservicios);
     }
 
     public function pdf()
     {
-        $productosservicio = Productos::paginate(5);
+        $productosservicio = Productos::paginate();
         $pdf = PDF::loadView('productosservicios.pdf2',['productosservicios'=>$productosservicio]);
         return $pdf->stream('PDFProductos-'.time().'.pdf');
     }

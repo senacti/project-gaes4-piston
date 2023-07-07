@@ -1,3 +1,5 @@
+@extends('layouts.plantillabase3')
+@section('contenido')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,12 +106,12 @@
   <div class="col-md-9">
     <form>
       <div class="form-group col-md-3">
-        <label for="criterio1">Fecha del pedido</label>
+        <label for="criterio1">FECHA DE PEDIDO</label>
         <input type="date" class="form-control" name="criterio1" id="criterio1">
       </div>
       <br>
       <div class="form-group col-md-3">
-        <label for="criterio2">Nombre del mecánico</label>
+        <label for="criterio2">NOMBRE DEL MECANICO</label>
         <input type="text" class="form-control" name="criterio2" id="criterio2">
       </div>
     </form>
@@ -124,7 +126,7 @@
 </script>
     &nbsp;
 <br>
-    <table class="table table-lite table-striped">
+    <table id="example" class="table table-striped" style="width: 100%">
         <thead class="thead-light">
             <tr>
                 <th>ID VENTA</th>
@@ -171,3 +173,4 @@
     </table>
 {!! $ventas->links() !!}
     </main>
+    @endsection

@@ -11,7 +11,7 @@ class VentaController extends Controller
 {
     public function index()
     {
-        $datos['ventas'] = Venta::where('inhabilitado', false)->paginate(10);
+        $datos['ventas'] = Venta::where('inhabilitado', false)->paginate();
         return view('venta.index', $datos);
     }
     
