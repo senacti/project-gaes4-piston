@@ -15,38 +15,17 @@ class ClienteController extends Controller
     {
         $clientes = Cliente::all();
         return view('cliente.index')->with('clientes',$clientes);
-        $clientes['clientes'] = Cliente::where('inhabilitado', false)->paginate(10);
-        return view('clientes.index', $clientes);
+
         //
     }
 
-    public function pdf(Request $request)
-    {
-        $criterio1 = $request->input('criterio1');
-        $criterio2 = $request->input('criterio2');
-    
-        $clientes= Cliente::where('inhabilitado', false); // Filtrar solo las ventas habilitadas
-    
-        // Aplica los criterios de filtrado si se proporcionaron
-        if ($criterio1) {
-            $clientes->whereDate('fecha_de_nacimiento', $criterio1);
-        }
-        if ($criterio2) {
-            $clientes->where('identificacion', $criterio2);
-        }
-    
-        $clientes = $clientes->paginate(10);
-    
-        $pdf = PDF::loadView('cliente.pdf', ['clientes' => $clientes]);
-        return $pdf->stream('PDFClientes-' . time() . '.pdf');
-    }
 
-   /* public function pdf(){
+    public function pdf(){
         $clientes=Cliente::all();
         $pdf = Pdf::loadView('cliente.pdf', compact('clientes'));
         return $pdf->stream();
 
-    }*/
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -108,32 +87,17 @@ class ClienteController extends Controller
         $cliente->telefono = $request->get('telefono');
         $cliente->email = $request->get('email');
         $cliente->ciudad = $request->get('ciudad');
-
-        $cliente->save();
         return redirect('clientes')->with('mensaje','Cliente actualizado con exito!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-
-
-   /*  public function destroy($id)
+    public function destroy(string $id)
     {
-        $cliente = Cliente::find($id);        
-        $cliente->delete();
+        $articulo = Cliente::find($id);        
+        $articulo->delete();
 
         return redirect('clientes')->with('mensaje','Cliente inhabilitado con exito!');
-    }*/
-    public function destroy($id)
-    {
-        $cliente = Cliente::findOrFail($id);
-        $cliente->inhabilitado = true;
-        $cliente->save();
-        //return redirect()->route('clientes')->with('mensaje', 'Venta inhabilitada con éxito');
-        return redirect('clientes')->with('Mensaje', 'Producto inhabilitado con éxito');
     }
-
-
-
 }

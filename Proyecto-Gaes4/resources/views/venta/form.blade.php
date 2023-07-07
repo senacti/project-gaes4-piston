@@ -27,8 +27,11 @@
 
 <div class="modal-body">
     <div class="mb-3">
-        <label for="" class="form-label">Porcenjate</label>
-        <input type="text" class="form-control" name="Porcentaje" 
+        <label for="" class="form-label">Porcentaje</label>
+        <input type="number" min="0" max="100" class="form-control" name="Porcentaje" 
+        required oninvalid="this.setCustomValidity
+        ('Por favor ingresa un número válido para el porcentaje del mecánico, entre 1% y 100%.')" 
+        oninput="this.setCustomValidity('')" 
         value="{{ isset($venta->Porcentaje)?$venta->Porcentaje:old('Porcentaje') }}" id="" aria-describedby="helpId" placeholder="">
     </div>
 </div>
@@ -36,23 +39,38 @@
 <div class="modal-body">
     <div class="mb-3">
         <label for="" class="form-label">Marca del vehiculo</label>
-        <input type="text" class="form-control" name="MarcaDelVehiculo" 
-        value="{{ isset($venta->MarcaDelVehiculo)?$venta->MarcaDelVehiculo:old('MarcaDelVehiculo') }}" id="" aria-describedby="helpId" placeholder="">
+        <input type="text" class="form-control" name="MarcaDelVehiculo" required oninvalid="this.setCustomValidity('Por favor ingresa una marca de vehiculo para este campo.')" 
+        oninput="this.setCustomValidity('')" id="MarcaDelVehiculo" aria-describedby="helpId" placeholder=""
+        value="{{ isset($venta->MarcaDelVehiculo)?$venta->MarcaDelVehiculo:old('MarcaDelVehiculo') }}">
+        <script>
+            const input = document.querySelector('#MarcaDelVehiculo');
+            input.addEventListener('input', () => {
+                if (!/^[a-zA-Z0-9' ']*$/.test(input.value)) {
+                    input.setCustomValidity('No ingreses caracteres especiales como (!/^*$/@#) por favor, ingresa solo letras y espacios.');
+                } else {
+                    input.setCustomValidity('');
+                }
+            });
+        </script>
     </div>
 </div>
 
 <div class="modal-body">
     <div class="mb">
         <label for="" class="form-label">Modelo del vehiculo</label>
-        <input type="text" class="form-control" name="ModeloVehiculo" 
-        value="{{ isset($venta->ModeloVehiculo)?$venta->ModeloVehiculo:old('ModeloVehiculo') }}" id="" aria-describedby="helpId" placeholder="">
+        <input type="text" class="form-control" name="ModeloVehiculo" pattern="[a-zA-Z0-9]+" 
+        maxlength="10" minlength="0" required oninvalid="this.setCustomValidity('Por favor ingresa por favor un modelo válido para este campo.')" 
+        oninput="this.setCustomValidity('')" 
+        id="ModeloVehiculo" aria-describedby="helpId" placeholder="" value="{{ isset($venta->ModeloVehiculo)?$venta->ModeloVehiculo:old('ModeloVehiculo') }}">
     </div>
 </div>
 
 <div class="modal-body">
     <div class="mb">
         <label for="" class="form-label">Matricula de vehiculo</label>
-        <input type="text" class="form-control" name="Matricula"
+        <input type="text" class="form-control" name="Matricula" pattern="[A-Z0-9]+"
+        maxlength="6" minlength="0"  required oninvalid="this.setCustomValidity('Por favor ingresa por favor una matricula válida,  recuerda que una matricula es en mayusculas')"
+        oninput="this.setCustomValidity('')" 
          value="{{ isset($venta->Matricula)?$venta->Matricula:old('Matricula') }}" id="" aria-describedby="helpId" placeholder="">
     </div>
 </div>
@@ -60,40 +78,92 @@
 <div class="modal-body">
     <div class="mb">
         <label for="" class="form-label">Vin del vehiculo</label>
-        <input type="text" class="form-control" name="Vin"
+        <input type="text" class="form-control" name="Vin" pattern="[A-Z0-9]+"
+        maxlength="17" minlength="0"  required oninvalid="this.setCustomValidity('Por favor ingresa por favor un vin válido, recuerda que un vin en mayusculas')"
+        oninput="this.setCustomValidity('')" 
          value="{{ isset($venta->Vin)?$venta->Vin:old('Vin') }}" id="" aria-describedby="helpId" placeholder="">
     </div>
 </div>
-
 <div class="modal-body">
     <div class="mb">
-    {{ isset($venta->FechaDeSolicitud)?$venta->FechaDeSolicitud:old('') }}
+    {{ isset($venta->FechaDeSolicitud)?$venta->FechaDeSolicitud:old('FechaDeSolicitud') }}
         <label for="" class="form-label">Fecha en que hace la venta</label>
-        <input type="date" class="form-control" name="FechaDeSolicitud" value="FechaDeSolicitud" id="" aria-describedby="helpId" placeholder="">
+        <input type="date" class="form-control" name="FechaDeSolicitud" 
+        required oninvalid="this.setCustomValidity('Por favor ingresa por favor una fecha válida')"
+        oninput="this.setCustomValidity('')"
+        value="FechaDeSolicitud" id="" aria-describedby="helpId" placeholder="" min="2023-01-01">
     </div>
 </div>
-
+<br>
 <div class="modal-body">
     <div class="mb">
-        <label for="" class="form-label">Servicio</label>
-        <input type="text" class="form-control" name="Servicio"
-         value="{{ isset($venta->Servicio)?$venta->Servicio:old('Servicio') }}" id="" aria-describedby="helpId" placeholder="">
+        <label class="form-label">Servicio</label>
+        <div>
+            <label>
+                <input type="checkbox" name="Servicio[]" value="Ninguno" {{ isset($venta->Servicio) && is_array($venta->Servicio) && in_array('Ninguno', $venta->Servicio) ? 'checked' : '' }}>
+                Ninguno
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="Servicio[]" value="Cambio de llantas" {{ isset($venta->Servicio) && is_array($venta->Servicio) && in_array('Cambio de llantas', $venta->Servicio) ? 'checked' : '' }}>
+                Cambio de llantas
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="Servicio[]" value="Alineacion" {{ isset($venta->Servicio) && is_array($venta->Servicio) && in_array('Alineacion', $venta->Servicio) ? 'checked' : '' }}>
+                Alineacion
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="Servicio[]" value="Cambio de luces" {{ isset($venta->Servicio) && is_array($venta->Servicio) && in_array('Cambio de luces', $venta->Servicio) ? 'checked' : '' }}>
+                Cambio de luces
+            </label>
+        </div>
+        <!-- Si deseas agregar más checkboxes, sigue el mismo patrón -->
     </div>
 </div>
-
+<br>
 <div class="modal-body">
     <div class="mb">
-        <label for="" class="form-label">Producto</label>
-        <input type="text" class="form-control" name="Producto"
-         value="{{ isset($venta->Producto)?$venta->Producto:old('Producto') }}" id="" aria-describedby="helpId" placeholder="">
+        <label class="form-label">Productos</label>
+        <div>
+            <label>
+                <input type="checkbox" name="Producto[]" value="Ninguno" {{ isset($venta->Producto) && is_array($venta->Producto) && in_array('Ninguno', $venta->Producto) ? 'checked' : '' }}>
+                Ninguno
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="Producto[]" value="llantas" {{ isset($venta->Producto) && is_array($venta->Producto) && in_array('llantas', $venta->Producto) ? 'checked' : '' }}>
+                llantas
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="Producto[]" value="Aceite" {{ isset($venta->Producto) && is_array($venta->Producto) && in_array('Aceite', $venta->Producto) ? 'checked' : '' }}>
+                Aceite
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox" name="Producto[]" value="luces" {{ isset($venta->Producto) && is_array($venta->Producto) && in_array('luces', $venta->Producto) ? 'checked' : '' }}>
+                luces
+            </label>
+        </div>
+        <!-- Si deseas agregar más checkboxes, sigue el mismo patrón -->
     </div>
 </div>
-
+<br>
 <div class="modal-body">
     <div class="mb">
-        <label for="" class="form-label">Total</label>
-        <input type="text" class="form-control" name="Total"
-         value="{{ isset($venta->Total)?$venta->Total:old('Total') }}" id="" aria-describedby="helpId" placeholder="">
+        <label for="" class="form-label">Precio</label>
+        <input type="text" class="form-control" name="Total" pattern="[0-9]+" min="-0" max="99999999"
+        required oninvalid="this.setCustomValidity('Por favor ingresa por favor un precio valido')"
+        oninput="this.setCustomValidity('')"
+        value="{{ isset($venta->Total)?$venta->Total:old('Total') }}" id="" aria-describedby="helpId" placeholder="">
     </div>
 </div>
 

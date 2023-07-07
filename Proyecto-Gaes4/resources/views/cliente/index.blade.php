@@ -90,54 +90,8 @@
 </div>
 @endif 
 
-            
-
-
-
-
-
-
-            <div class="row">
-              <div class="col-md-20">
-                <a href="{{ url('clientes/create') }}" >
-                  <button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#create">
-                    REGISTRAR NUEVO CLIENTE
-                  </button>
-                </a>
-                <form action="{{ route('cliente.pdf') }}" method="GET" target="_blank"  style="display: inline-block;">
-                  <input type="hidden" name="criterio1" id="hiddenCriterio1">
-                  <input type="hidden" name="criterio2" id="hiddenCriterio2">
-                  <button type="submit" class="btn btn-dark"  data-toggle="modal" data-target="#create">PDF</button>
-                </form>
-              </div>
-              <br>
-              <br>
-              <div class="col-md-9">
-                <form>
-                  <div class="form-group col-md-3">
-                    <label for="criterio1">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" name="criterio1" id="criterio1">
-                  </div>
-                  <br>
-                  <div class="form-group col-md-3">
-                    <label for="criterio2">Identificacion</label>
-                    <input type="number" class="form-control" name="criterio2" id="criterio2">
-                  </div>
-                </form>
-              </div>
-            </div>
-            <script>
-              // Copiar los valores de los campos de entrada a los campos ocultos al enviar el formulario
-              document.querySelector('[action="{{ route('cliente.pdf') }}"]').addEventListener('submit', function(event) {
-                document.querySelector('#hiddenCriterio1').value = document.querySelector('#criterio1').value;
-                document.querySelector('#hiddenCriterio2').value = document.querySelector('#criterio2').value;
-              });
-            </script>
-                &nbsp;
-
-
-
-
+            <a href="clientes/create" class="btn btn-warning">REGISTRAR NUEVO CLIENTE</a>
+            <a href="{{ route('cliente.pdf') }}" class="btn btn-dark" target="_blank">PDF</a>
             <table class="table table-lite table-striped mt-4">
                 <thead class="thead-light">
                     <tr>
@@ -154,7 +108,6 @@
                 </thead>
                 <tbody>
                     @foreach ($clientes as $cliente)
-                    @if(!$cliente->inhabilitado)
                     <tr>
                         <td>{{ $cliente->id }}</td>
                         <td>{{ $cliente->identificacion }}</td>
@@ -165,8 +118,7 @@
                         <td>{{ $cliente->email }}</td>
                         <td>{{ $cliente->ciudad }}</td>
                         <td>
-                            <form action="{{ route('clientes.destroy', $cliente->id) }}" class="d-inline" method="POST"
-                              onsubmit="return confirm('¿Estas seguro de inhabilitar este cliente?')">
+                            <form action="{{ route('clientes.destroy', $cliente->id) }}" method="POST">
                                 <a href="/clientes/{{ $cliente->id }}/edit" class="btn btn-warning">Editar</a>
                                 @csrf
                                 @method('DELETE')
@@ -174,11 +126,15 @@
                             </form>
                         </td>
                     </tr>
-                    @endif
                     @endforeach
                 </tbody>
             </table>
         
-     
-       
+        <script>
+            var res = function() {
+                var not = confirm("¿Estas seguro de eliminar a este usuario?");
+                return not;
+            }
+        </script>
+        
     </main>
