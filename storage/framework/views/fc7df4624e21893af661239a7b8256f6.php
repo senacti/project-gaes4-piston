@@ -1,1 +1,0 @@
-Mostrar lista productos<?php /**PATH C:\xampp\htdocs\Proyecto-Gaes4\resources\views/productosyservicios/productosyservicios.blade.php ENDPATH**/ ?>
