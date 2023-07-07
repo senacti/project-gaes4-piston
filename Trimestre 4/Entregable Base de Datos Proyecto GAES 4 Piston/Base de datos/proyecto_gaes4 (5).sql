@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2023 a las 09:04:47
+-- Tiempo de generación: 07-07-2023 a las 15:18:41
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -229,78 +229,6 @@ INSERT INTO `categoria_servicios` (`ID_CATEGORIA_SERVICIOS`, `NOMBRE_CATEGORIA_S
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clientes`
---
-
-CREATE TABLE `clientes` (
-  `ID_CLIENTES` int(10) NOT NULL,
-  `NOMBRE` varchar(45) DEFAULT NULL,
-  `FECHA_DE_NACIMIENTO` varchar(45) DEFAULT NULL,
-  `DIRECCION` varchar(45) DEFAULT NULL,
-  `TELEFONO` int(10) DEFAULT NULL,
-  `EMAIL` varchar(45) DEFAULT NULL,
-  `CIUDAD` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`ID_CLIENTES`, `NOMBRE`, `FECHA_DE_NACIMIENTO`, `DIRECCION`, `TELEFONO`, `EMAIL`, `CIUDAD`) VALUES
-(900901, 'SANDRA  ANDRADE PRIETO', '04/08/1990', 'Diagonal 27 No. 137 - 8', 2635874, 'olgavictoriaandradevaron@elempresario.net.co', 'Bogota'),
-(900902, 'CLAUDIA MARCELA SIERRA CARDOZO', '12/12/1976', 'Avenida 106 No. 45 - 14', 2653149, 'claudiamarcelasierracardozo@micorreovirtual.c', 'Cali'),
-(900903, 'ALVARO  VELA ALVIS', '07/25/1987', 'Avenida 89 No. 130 - 152', 2653327, 'alvarovelaalvis@micolombia.com.co', 'Bogota'),
-(900904, 'ARMANDO  USECHE AVILA', '01/17/1953', 'Calle 187 No. 25 - 158', 2653389, 'armandousecheavila@micolombia.com.co', 'Cucuta'),
-(900905, 'CARLOS VICENTE TELLEZ BONILLA', '08/08/1947', 'Calle 45 No. 69 - 33', 2653992, 'carlosvicentetellezbonilla@losingenieros.com.', 'Bogota'),
-(900906, 'JUAN DE DIOS  GONGORA PALMA', '08/20/1948', 'Carrera 57 No. 198 - 75', 2657196, 'juandediosgongorapalma@elempresario.net.co', 'Medellin'),
-(900907, 'ALEXANDRA MILENA VERA ALFONSO', '11/05/1945', 'Carrera 162 No. 182 - 181', 2658459, 'alexandramilenaveraalfonso@losingenieros.com.', 'Bogota'),
-(900908, 'OSCAR FABIAN ACOSTA VILLANUEVA', '09/02/1945', 'Diagonal 41 No. 121 - 51', 2659854, 'oscarfabianacostavillanueva@micorreovirtual.c', 'Cali'),
-(900909, 'FAVIO ARMANDO PEREZ FRANCO', '09/02/1954', 'Carrera 136 No. 111 - 72', 2660898, 'favioarmandoperezfranco@micorreovirtual.com', 'Medellin'),
-(900910, 'MARIA NURY CAMPOS SALAZAR', '06/30/1965', 'Calle 138 No. 84 - 26', 2664478, 'marianurycampossalazar@micolombia.com.co', 'Bogota'),
-(900911, 'JUAN CAMILO GONZALEZ PAEZ', '05/20/1977', 'Carrera 111 No. 183 - 70', 2664858, 'juancamilogonzalezpaez@losingenieros.com.co', 'Cucuta'),
-(900912, 'JUAN MANUEL GOMEZ PARADA', '05/10/1957', 'Carrera 79 No. 43 - 155', 2666419, 'juanmanuelgomezparada@micorreovirtual.com', 'Bogota'),
-(900913, 'JOSE RUBEN GUZMAN OVIEDO', '12/17/1971', 'Calle 5 No. 63 - 10', 2666606, 'joserubenguzmanoviedo@miempresa.com.co', 'Medellin'),
-(900914, 'MANUEL CESAR CHARRY RODRIGUEZ', '10/27/1958', 'Diagonal 18 No. 4 - 90', 2669641, 'manuelcesarcharryrodriguez@miempresa.com.co', 'Medellin'),
-(900915, 'CONSUELO AMALIA SARMIENTO CARRASCO', '05/22/1960', 'Calle 128 No. 106 - 76', 2670757, 'consueloamaliasarmientocarrasco@miempresa.com', 'Cali'),
-(900916, 'WILMER ARLEY LEON MENGUAL', '07/17/1962', 'Carrera 123 No. 70 - 1', 2670808, 'wilmerarleyleonmengual@miempresa.com.co', 'Cucuta'),
-(900917, 'NIDIA LORENA ARCINIEGAS TRUJILLO', '09/14/1945', 'Transversal 24 No. 200 - 183', 2673099, 'nidialorenaarciniegastrujillo@losmedicos.com.', 'Bogota'),
-(900918, 'AMPARO  VARON ARBELAEZ', '05/01/1951', 'Transversal 152 No. 49 - 103', 2675228, 'amparovaronarbelaez@miempresa.com.co', 'Bogota'),
-(900919, 'PEDRO JOSE MORENO HERRERA', '06/30/1951', 'Avenida 169 No. 80 - 184', 2681452, 'pedrojosemorenoherrera@losmedicos.com.co', 'Medellin'),
-(900920, 'ANDRES GEOVANNI VARGAS ARCE', '12/14/1954', 'Calle 167 No. 29 - 109', 2682067, 'andresgeovannivargasarce@elempresario.net.co', 'Cali'),
-(900921, 'ROBERTO  MENDOZA LAVERDE', '11/10/1976', 'Calle 147 No. 46 - 4', 2682353, 'robertomendozalaverde@miempresa.com.co', 'Bogota'),
-(900922, 'MARTHA LUCIA BONILLA SEGURA', '02/17/1978', 'Avenida 14 No. 146 - 144', 2683543, 'marthaluciabonillasegura@losingenieros.com.co', 'Bogota'),
-(900923, 'NESTOR IVAN ARDILA TRONCOSO', '11/09/1988', 'Carrera 40 No. 97 - 70', 2683748, 'nestorivanardilatroncoso@losmedicos.com.co', 'Cucuta'),
-(900924, 'MYRIAM JANETH AROCA TOQUICA', '03/15/1987', 'Carrera 84 No. 16 - 140', 2685953, 'myriamjanetharocatoquica@miempresa.com.co', 'Cali'),
-(900925, 'BLANCA EMMA URBANO BARRERO', '08/01/1977', 'Avenida 172 No. 36 - 109', 2686061, 'blancaemmaurbanobarrero@miempresa.com.co', 'Cali'),
-(900926, 'DIANA PATRICIA RODRIGUEZ CONTRERAS', '11/08/1960', 'Calle 140 No. 106 - 200', 2686804, 'dianapatriciarodriguezcontreras@losingenieros', 'Bogota'),
-(900927, 'ALVARO ENRIQUE VEGA ALZATE', '01/16/1985', 'Calle 129 No. 119 - 91', 2694761, 'alvaroenriquevegaalzate@micorreovirtual.com', 'Bogota'),
-(900928, 'MYRIAM  AVENDAÑO TAPIERO', '12/02/1954', 'Calle 164 No. 145 - 174', 2695195, 'myriamavendañotapiero@miempresa.com.co', 'Bogota'),
-(900929, 'XIOMARA ANDREA LEGUIZAMO MIRANDA', '02/03/1976', 'Transversal 200 No. 22 - 55', 2697291, 'xiomaraandrealeguizamomiranda@micorreovirtual', 'Medellin'),
-(900930, 'OSCAR  ALDANA VIDAL', '11/14/1987', 'Calle 74 No. 128 - 152', 2698547, 'oscaraldanavidal@losingenieros.com.co', 'Bogota'),
-(900931, 'OSCAR JULIAN PARRA GONZALEZ', '08/10/1946', 'Transversal 89 No. 57 - 2', 2700739, 'oscarjulianparragonzalez@elempresario.net.co', 'Bogota'),
-(900932, 'FRANCISCO JAVIER PEÑA GODOY', '01/02/1969', 'Calle 114 No. 45 - 138', 2704559, 'franciscojavierpeñagodoy@losmedicos.com.co', 'Medellin'),
-(900933, 'SENA  LUIS MACHADO', '03/06/1988', 'Avenida 124 No. 1 - 123', 2706527, 'senaluismachado@micorreovirtual.com', 'Cali'),
-(900934, 'PAULA ANDREA NIETO HERNANDEZ', '12/13/1969', 'Carrera 158 No. 155 - 103', 2710088, 'paulaandreanietohernandez@micolombia.com.co', 'Bogota'),
-(900935, 'CONSUELO LEONOR SANCHEZ CASTAÑEDA', '10/28/1960', 'Carrera 138 No. 135 - 171', 2715491, 'consueloleonorsanchezcastañeda@micolombia.com', 'Bogota'),
-(900936, 'CARMEN  TAPIA CAMPO', '08/20/1959', 'Carrera 47 No. 86 - 143', 2715848, 'carmentapiacampo@losmedicos.com.co', 'Medellin'),
-(900937, 'ANGELA ROSA VANEGAS ARTEAGA', '10/20/1949', 'Calle 124 No. 3 - 37', 2717240, 'angelarosavanegasarteaga@micolombia.com.co', 'Bogota'),
-(900938, 'RICARDO MAURICIO MENESES LASTRA', '07/21/1971', 'Avenida 130 No. 72 - 65', 2717591, 'ricardomauriciomeneseslastra@losmedicos.com.c', 'Cali'),
-(900939, 'LINDA ROCIO GALEANO PUERTA', '04/10/1959', 'Carrera 22 No. 14 - 138', 2720376, 'lindarociogaleanopuerta@elempresario.net.co', 'Medellin'),
-(900940, 'LUIS YADIR CUELLAR REINA', '07/05/1986', 'Calle 7 No. 71 - 191', 2720391, 'luisyadircuellarreina@micolombia.com.co', 'Cali'),
-(900941, 'CARLOS HUGO TORRES BOCANEGRA', '11/27/1980', 'Carrera 197 No. 135 - 199', 2720586, 'carloshugotorresbocanegra@miempresa.com.co', 'Cali'),
-(900942, 'JUSTO  GARCIA PINZON', '07/16/1989', 'Calle 44 No. 126 - 126', 2721579, 'justogarciapinzon@miempresa.com.co', 'Cucuta'),
-(900943, 'ALVARO ERNESTO VASQUEZ ARANZALEZ', '01/15/1958', 'Calle 18 No. 70 - 199', 2723856, 'alvaroernestovasquezaranzalez@losmedicos.com.', 'Bogota'),
-(900944, 'DAGGER  SALDAÑA CASTILLO', '10/06/1951', 'Transversal 64 No. 49 - 7', 2725331, 'daggersaldañacastillo@miempresa.com.co', 'Bogota'),
-(900945, 'RICARDO  MOLINA LANDAZABAL', '04/28/1956', 'Carrera 106 No. 168 - 83', 2727435, 'ricardomolinalandazabal@micorreovirtual.com', 'Medellin'),
-(900946, 'ALBERTO FEDERICO VILLARRAGA AGUIAR', '04/18/1951', 'Transversal 113 No. 14 - 9', 2727728, 'albertofedericovillarragaaguiar@miempresa.com', 'Medellin'),
-(900947, 'CLAUDIA LILIANA SOTO CARDEÑO', '11/27/1987', 'Avenida 148 No. 120 - 66', 2728810, 'claudialilianasotocardeño@micorreovirtual.com', 'Cali'),
-(900948, 'FRANCISCO ANTONIO PEÑALOZA GARCIA', '12/24/1957', 'Calle 3 No. 53 - 200', 2730417, 'franciscoantoniopeñalozagarcia@losingenieros.', 'Cali'),
-(900949, 'DORA TERESA REYES DIAZ', '12/28/1946', 'Calle 190 No. 186 - 190', 2730893, 'dorateresareyesdiaz@micolombia.com.co', 'Bogota'),
-(900950, 'MARIA DERLY CASTAÑO RUEDA', '09/28/1970', 'Diagonal 96 No. 25 - 127', 2734887, 'mariaderlycastañorueda@losmedicos.com.co', 'Bogota');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `cronograma`
 --
 
@@ -444,6 +372,22 @@ INSERT INTO `estado_orden_trabajo` (`ID_ESTADO_ORDEN_TRABAJO`, `TERMINADO`, `ATR
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `gestion_clientes`
 --
 
@@ -516,46 +460,31 @@ INSERT INTO `gestion_clientes` (`ID_GESTION_CLIENTES`, `AÑADIR_CLIENTE`, `EDITA
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `mecanicos`
+-- Estructura de tabla para la tabla `migrations`
 --
 
-CREATE TABLE `mecanicos` (
-  `ID_MECANICOS` int(10) NOT NULL,
-  `NOMBRE` varchar(45) DEFAULT NULL,
-  `APELLIDO` varchar(45) DEFAULT NULL,
-  `DIRECCION` varchar(45) DEFAULT NULL,
-  `TELEFONO` varchar(10) DEFAULT NULL,
-  `EMAIL` varchar(45) DEFAULT NULL,
-  `CIUDAD` varchar(45) DEFAULT NULL,
-  `ESPECIALIDAD` varchar(45) DEFAULT NULL,
-  `ID_USUARIO` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `mecanicos`
+-- Volcado de datos para la tabla `migrations`
 --
 
-INSERT INTO `mecanicos` (`ID_MECANICOS`, `NOMBRE`, `APELLIDO`, `DIRECCION`, `TELEFONO`, `EMAIL`, `CIUDAD`, `ESPECIALIDAD`, `ID_USUARIO`) VALUES
-(0, 'Juan', 'Perez', 'Calle 123, Bogotá', '2147483647', 'vlopez@example.com', 'Bogotá', 'Electricidad automotriz', 1501),
-(20002, 'Maria', 'Rodriguez', 'Avenida X, Medellín', '2147483647', 'amartinez@example.com', 'Medellín', 'Reparación de frenos', 1502),
-(20003, 'Carlos', 'Lopez', 'Calle Y, Cali', '2147483647', 'cagarcia@example.com', 'Cali', 'Transmisión automática', 1503),
-(20004, 'Ana', 'Martinez', 'Avenida Z, Barranquilla', '2147483647', 'srodriguez@example.com', 'Barranquilla', 'Mecánica de motores', 1504),
-(20005, 'Luis', 'Garcia', 'Calle 456, Cartagena', '2147483647', 'vlopez@example.com', 'Bogotá', 'Electricidad automotriz', 1505),
-(20006, 'Laura', 'Gonzalez', 'Avenida W, Bucaramanga', '2147483647', 'dperez@example.com', 'Medellín', 'Reparación de frenos', 1506),
-(20007, 'Pedro', 'Sanchez', 'Calle 789, Santa Marta', '2147483647', 'lmartinez@example.com', 'Cali', 'Transmisión automática', 1507),
-(20008, 'Sofia', 'Fernandez', 'Avenida V, Pereira', '2147483647', 'jgarcia@example.com', 'Barranquilla', 'Mecánica de motores', 1508),
-(20009, 'Daniel', 'Ramirez', 'Calle 012, Manizales', '2147483647', 'srodriguez@example.com', 'Bogotá', 'Electricidad automotriz', 1509),
-(20010, 'Carolina', 'Torres', 'Avenida U, Cali', '2147483647', 'dlopez@example.com', 'Medellín', 'Reparación de frenos', 1510),
-(20011, 'Oscar', 'Flores', 'Calle 345, Bogotá', '2147483647', 'cmartinez@example.com', 'Cali', 'Transmisión automática', 1511),
-(20012, 'Andrea', 'Jimenez', 'Avenida X, Medellín', '2147483647', 'agarcia@example.com', 'Barranquilla', 'Mecánica de motores', 1512),
-(20013, 'Alejandro', 'Herrera', 'Calle Y, Barranquilla', '2147483647', 'vrodriguez@example.com', 'Bogotá', 'Electricidad automotriz', 1513),
-(20014, 'Valentina', 'Diaz', 'Avenida Z, Cali', '2147483647', 'sperez@example.com', 'Medellín', 'Reparación de frenos', 1514),
-(20015, 'Manuel', 'Moreno', 'Calle 456, Bogotá', '2147483647', 'lgarcia@example.com', 'Cali', 'Transmisión automática', 1515),
-(20016, 'Camila', 'Castro', 'Avenida W, Medellín', '2147483647', 'jrodriguez@example.com', 'Barranquilla', 'Mecánica de motores', 1516),
-(20017, 'Felipe', 'Silva', 'Calle 789, Cali', '2147483647', 'slopez@example.com', 'Bogotá', 'Electricidad automotriz', 1517),
-(20018, 'Victoria', 'Valencia', 'Avenida V, Barranquilla', '2147483647', 'dmartinez@example.com', 'Medellín', 'Reparación de frenos', 1518),
-(20019, 'David', 'Navarro', 'Calle 012, Bogotá', '2147483647', 'cgarcia@example.com', 'Cali', 'Transmisión automática', 1519),
-(20020, 'Isabella', 'Rojas', 'Avenida X, Medellín', '2147483647', 'arodriguez@example.com', 'Barranquilla', 'Mecánica de motores', 1520);
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+(3, '2014_10_12_100000_create_password_resets_table', 1),
+(4, '2014_10_12_200000_add_two_factor_columns_to_users_table', 1),
+(5, '2019_08_19_000000_create_failed_jobs_table', 1),
+(6, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(7, '2023_07_01_014230_create_clientes_table', 1),
+(8, '2023_07_03_192525_create_sessions_table', 1),
+(9, '2023_07_03_195800_create_mecanicos_table', 1),
+(10, '2023_07_06_023645_ventas', 1),
+(11, '2023_07_06_053051_add_inhabilitado_to_ventas_table', 1);
 
 -- --------------------------------------------------------
 
@@ -633,73 +562,45 @@ INSERT INTO `orden_trabajo` (`ID_ORDEN_TRABAJO`, `AÑADIR_ORDEN`, `ASIGNAR_MECAN
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
-CREATE TABLE `productos` (
-  `ID_PRODUCTOS` int(10) NOT NULL,
-  `NOMBRE_PRODUCTO` varchar(45) DEFAULT NULL,
-  `CANTIDAD_PRODUCTO` varchar(45) DEFAULT NULL,
-  `DESCRIPCION` varchar(45) DEFAULT NULL,
-  `ID_CATEGORIA_DE_PRODUCTOS` int(10) DEFAULT NULL,
-  `ID_VENTAS` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `productos`
+-- Estructura de tabla para la tabla `password_reset_tokens`
 --
 
-INSERT INTO `productos` (`ID_PRODUCTOS`, `NOMBRE_PRODUCTO`, `CANTIDAD_PRODUCTO`, `DESCRIPCION`, `ID_CATEGORIA_DE_PRODUCTOS`, `ID_VENTAS`) VALUES
-(0, 'Baterias', '44', 'Reparacion y revision electrico', 20001, 2005),
-(40042, 'Alternadores', '14', 'Reparacion y revision electrico', 20002, 2006),
-(40043, 'Motores de Arranque', '17', 'Reparacion y revision electrico', 20003, 2007),
-(40044, 'Dirección Hidraudica', '50', 'Direccion', 20004, 2008),
-(40045, 'Dirección Electrica', '49', 'Direccion', 20005, 2009),
-(40046, 'Bomba de Presion', '17', 'Direccion', 20006, 2010),
-(40047, 'Tuberías', '4', 'Direccion', 20007, 2011),
-(40048, 'Rotula Axial', '54', 'Direccion', 20008, 2012),
-(40049, 'Rotula de Dirección', '6', 'Direccion', 20009, 2013),
-(40050, 'Liquido Hidraulico', '11', 'Direccion', 20010, 2014),
-(40051, 'Correa de Distribucion', '6', 'Direccion', 20011, 2015),
-(40052, 'Correa Auxiliar y Tensores', '13', 'Direccion', 20012, 2016),
-(40053, 'Bomba de Agua', '23', 'Direccion', 20013, 2017),
-(40054, 'Bombas y Inyectores', '3', 'Direccion', 20014, 2018),
-(40055, 'Embrague y Bimasa', '38', 'Direccion', 20015, 2019),
-(40056, 'Sistema de Lubricacion', '37', 'Direccion', 20016, 2020),
-(40057, 'Sistema de Enfriamiento', '20', 'Direccion', 20017, 2021),
-(40058, 'Turbo de Intercooler', '18', 'Direccion', 20018, 2022),
-(40059, 'Auto-Diagnosis', '36', 'Direccion', 20019, 2023),
-(40060, 'Juntas Homocinéticas', '38', 'Transmision', 20020, 2024),
-(40061, 'Arbol de Transmision', '11', 'Transmision', 20021, 2025),
-(40062, 'Palieres', '5', 'Transmision', 20022, 2026),
-(40063, 'Juntas de Cardan', '32', 'Transmision', 20023, 2027),
-(40064, 'Rodamientos', '9', 'Transmision', 20024, 2028),
-(40065, 'Guarda Polvos', '43', 'Transmision', 20025, 2029),
-(40066, 'Amortiguadores y muelles', '24', 'Reparacion y mantenimiento suspensión', 20026, 2030),
-(40067, 'Barras Estabilizadoras', '29', 'Reparacion y mantenimiento suspensión', 20027, 2031),
-(40068, 'Silentblocks y cojinetes elásticos', '29', 'Reparacion y mantenimiento suspensión', 20028, 2032),
-(40069, 'Rótulas', '38', 'Reparacion y mantenimiento suspensión', 20029, 2033),
-(40070, 'Mangueta y Buje', '29', 'Reparacion y mantenimiento suspensión', 20030, 2034),
-(40071, 'Tirante de Suspensión', '58', 'Reparacion y mantenimiento suspensión', 20031, 2035),
-(40072, 'Topes de Suspensión', '12', 'Reparacion y mantenimiento suspensión', 20032, 2036),
-(40073, 'Aceite ', '34', 'Mecanica rapida', 20033, 2037),
-(40074, 'Filtros', '35', 'Mecanica rapida', 20034, 2038),
-(40075, 'Pastillas de freno', '9', 'Mecanica rapida', 20035, 2039),
-(40076, 'Disco de freno', '36', 'Mecanica rapida', 20036, 2040),
-(40077, 'Neumáticos para furgonetas', '8', 'Mecanica rapida', 20037, 2041),
-(40078, 'Neumáticos cara blanca', '47', 'Mecanica rapida', 20038, 2042),
-(40079, 'Escobillas', '10', 'Mecanica rapida', 20039, 2043),
-(40080, 'Luces', '22', 'Mecanica rapida', 20040, 2044),
-(40081, 'Neumáticos para 4×4', '7', 'Mecanica rapida', 20041, 2045),
-(40082, 'Neumáticos para SUV', '18', 'Mecanica rapida', 20042, 2046),
-(40083, 'Llantas', '8', 'Mecanica rapida', 20043, 2047),
-(40084, 'Neumaticos para vehiculo comercial', '24', 'Mecanica rapida', 20044, 2048),
-(40085, 'Fundas para asientos de coche', '17', 'Accesorios para el automovil', 20045, 2049),
-(40086, 'Bombillas para coche', '35', 'Accesorios para el automovil', 20046, 2050),
-(40087, 'Parasoles', '49', 'Accesorios para el automovil', 20047, 2051),
-(40088, 'Fundas para volantes', '47', 'Accesorios para el automovil', 20048, 2052),
-(40089, 'Escobilla para coche o camion', '48', 'Accesorios para el automovil', 20049, 2053),
-(40090, 'Tapacubos', '60', 'Accesorios para el automovil', 20050, 2054);
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -928,6 +829,41 @@ INSERT INTO `servicios` (`ID_SERVICIOS`, `NOMBRE_SERVICIOS`, `PRECIO`, `ID_CATEG
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` varchar(255) NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `payload` longtext NOT NULL,
+  `last_activity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `two_factor_secret` text DEFAULT NULL,
+  `two_factor_recovery_codes` text DEFAULT NULL,
+  `two_factor_confirmed_at` timestamp NULL DEFAULT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -941,6 +877,14 @@ CREATE TABLE `usuario` (
   `CIUDAD` varchar(45) DEFAULT NULL,
   `FECHA_DE_NACIMIENTO` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`ID_USUARIO`, `NOMBRE`, `APELLIDO`, `DIRECCION`, `TELEFONO`, `EMAIL`, `CIUDAD`, `FECHA_DE_NACIMIENTO`) VALUES
+(0, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(1, 'David', 'Abril', 'Cl 5 No. 50-103 LOCAL 2, C.P 76001', 1312313, 'david@gmail.com', 'BOGOTA D.C', '13/09/2002');
 
 -- --------------------------------------------------------
 
@@ -1011,81 +955,6 @@ INSERT INTO `vehiculo` (`ID_VEHICULO`, `VIN`, `MODELO`, `COLOR`) VALUES
 (2749, 'amdhg049', 'Mitsubishi', 'negro'),
 (2750, 'amdhg050', 'Mitsubishi', 'blanco');
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ventas`
---
-
-CREATE TABLE `ventas` (
-  `ID_VENTAS` int(10) NOT NULL,
-  `GANANCIAS` varchar(45) DEFAULT NULL,
-  `PRODUCTOS_VENDIDOS` varchar(45) DEFAULT NULL,
-  `SERVICIOS_REALIZADOS` varchar(45) DEFAULT NULL,
-  `FECHA` varchar(45) DEFAULT NULL,
-  `VALOR_TOTAL` varchar(45) DEFAULT NULL,
-  `VALOR_SERVICIO` varchar(45) DEFAULT NULL,
-  `VALOR_PRODUCTO` varchar(45) DEFAULT NULL,
-  `ID_CLIENTE` int(10) DEFAULT NULL,
-  `ID_VEHICULO` int(10) DEFAULT NULL,
-  `ID_SERVICIOS` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `ventas`
---
-
-INSERT INTO `ventas` (`ID_VENTAS`, `GANANCIAS`, `PRODUCTOS_VENDIDOS`, `SERVICIOS_REALIZADOS`, `FECHA`, `VALOR_TOTAL`, `VALOR_SERVICIO`, `VALOR_PRODUCTO`, `ID_CLIENTE`, `ID_VEHICULO`, `ID_SERVICIOS`) VALUES
-(2006, '365', '3', '23', '01/28/2020', '419359', '422', '365', 900902, 2702, 94414),
-(2007, '117', '11', '25', '11/21/2020', '1408017', '206', '117', 900903, 2703, 94415),
-(2008, '7', '15', '33', '10/02/2021', '91490', '9', '7', 900904, 2704, 94416),
-(2009, '159', '19', '8', '11/12/2022', '927432', '255', '159', 900905, 2705, 94417),
-(2010, '32', '26', '27', '02/21/2022', '195020', '47', '32', 900906, 2706, 94418),
-(2011, '97', '35', '3', '02/27/2022', '618864', '153', '97', 900907, 2707, 94419),
-(2012, '263', '31', '8', '05/07/2020', '3637067', '437', '263', 900908, 2708, 94420),
-(2013, '57', '11', '1', '04/01/2021', '717508', '82', '57', 900909, 2709, 94421),
-(2014, '525', '21', '20', '07/12/2021', '6086860', '651', '525', 900910, 2710, 94422),
-(2015, '263', '44', '44', '08/30/2022', '422335', '437', '263', 900911, 2711, 94423),
-(2016, '97', '7', '12', '06/05/2020', '1008401', '153', '97', 900912, 2712, 94424),
-(2017, '32', '8', '38', '05/22/2021', '298033', '47', '32', 900913, 2713, 94425),
-(2018, '91', '6', '23', '12/25/2020', '310893', '154', '91', 900914, 2714, 94426),
-(2019, '7', '32', '42', '11/17/2021', '26945', '9', '7', 900915, 2715, 94427),
-(2020, '57', '37', '18', '11/18/2021', '816401', '82', '57', 900916, 2716, 94428),
-(2021, '263', '25', '24', '04/30/2020', '634377', '437', '263', 900917, 2717, 94429),
-(2022, '97', '6', '26', '11/04/2022', '1134585', '153', '97', 900918, 2718, 94430),
-(2023, '525', '13', '49', '07/22/2022', '3343963', '651', '525', 900919, 2719, 94431),
-(2024, '525', '9', '17', '06/21/2021', '2456364', '651', '525', 900920, 2720, 94432),
-(2025, '550', '76', '75', '12/30/2021', '800908', '284', '636', 900921, 2721, 94433),
-(2026, '35', '86', '49', '10/19/2022', '706494', '464', '267', 900922, 2722, 94434),
-(2027, '430', '93', '71', '09/14/2022', '677710', '926', '565', 900923, 2723, 94435),
-(2028, '193', '85', '31', '06/02/2023', '566647', '26', '2', 900924, 2724, 94436),
-(2029, '977', '18', '26', '08/03/2023', '796859', '821', '268', 900925, 2725, 94437),
-(2030, '894', '10', '2', '05/13/2020', '225989', '771', '504', 900926, 2726, 94438),
-(2031, '753', '43', '21', '07/16/2020', '629296', '33', '532', 900927, 2727, 94439),
-(2032, '202', '13', '81', '08/05/2020', '460400', '529', '934', 900928, 2728, 94440),
-(2033, '323', '38', '48', '09/04/2020', '382812', '131', '100', 900929, 2729, 94441),
-(2034, '870', '64', '25', '09/25/2020', '211808', '162', '534', 900930, 2730, 94442),
-(2035, '3', '98', '14', '08/05/2021', '901985', '960', '637', 900931, 2731, 94443),
-(2036, '996', '80', '17', '11/02/2021', '939002', '659', '161', 900932, 2732, 94444),
-(2037, '497', '66', '30', '11/18/2021', '415687', '413', '164', 900933, 2733, 94445),
-(2038, '357', '39', '96', '12/08/2021', '441420', '697', '259', 900934, 2734, 94446),
-(2039, '992', '76', '42', '01/11/2022', '130750', '770', '905', 900935, 2735, 94447),
-(2040, '448', '17', '26', '01/18/2022', '536258', '130', '175', 900936, 2736, 94448),
-(2041, '553', '28', '20', '02/23/2022', '334893', '993', '278', 900937, 2737, 94449),
-(2042, '320', '43', '85', '03/10/2022', '11090', '108', '623', 900938, 2738, 94450),
-(2043, '287', '32', '96', '04/28/2022', '676567', '480', '987', 900939, 2739, 94451),
-(2044, '971', '90', '57', '05/24/2022', '400138', '721', '885', 900940, 2740, 94452),
-(2045, '79', '87', '100', '07/14/2022', '764323', '670', '42', 900941, 2741, 94453),
-(2046, '21', '83', '78', '09/06/2022', '341830', '886', '134', 900942, 2742, 94454),
-(2047, '653', '96', '34', '09/21/2022', '365247', '273', '429', 900943, 2743, 94455),
-(2048, '354', '65', '30', '09/27/2022', '336590', '800', '728', 900944, 2744, 94456),
-(2049, '791', '53', '9', '11/22/2022', '526634', '208', '523', 900945, 2745, 94457),
-(2050, '639', '48', '14', '12/23/2022', '645720', '291', '485', 900946, 2746, 94458),
-(2051, '812', '14', '78', '01/20/2023', '605563', '634', '291', 900947, 2747, 94459),
-(2052, '557', '74', '40', '02/03/2023', '328110', '639', '55', 900948, 2748, 94460),
-(2053, '237', '54', '42', '02/08/2023', '622724', '848', '706', 900949, 2749, 94461),
-(2054, '897', '6', '17', '02/28/2023', '438443', '663', '813', 900950, 2750, 94462);
-
 --
 -- Índices para tablas volcadas
 --
@@ -1109,12 +978,6 @@ ALTER TABLE `categoria_servicios`
   ADD PRIMARY KEY (`ID_CATEGORIA_SERVICIOS`);
 
 --
--- Indices de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`ID_CLIENTES`);
-
---
 -- Indices de la tabla `cronograma`
 --
 ALTER TABLE `cronograma`
@@ -1127,16 +990,23 @@ ALTER TABLE `estado_orden_trabajo`
   ADD PRIMARY KEY (`ID_ESTADO_ORDEN_TRABAJO`);
 
 --
+-- Indices de la tabla `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
 -- Indices de la tabla `gestion_clientes`
 --
 ALTER TABLE `gestion_clientes`
   ADD PRIMARY KEY (`ID_GESTION_CLIENTES`);
 
 --
--- Indices de la tabla `mecanicos`
+-- Indices de la tabla `migrations`
 --
-ALTER TABLE `mecanicos`
-  ADD PRIMARY KEY (`ID_MECANICOS`);
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `orden_trabajo`
@@ -1145,10 +1015,24 @@ ALTER TABLE `orden_trabajo`
   ADD PRIMARY KEY (`ID_ORDEN_TRABAJO`);
 
 --
--- Indices de la tabla `productos`
+-- Indices de la tabla `password_resets`
 --
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`ID_PRODUCTOS`);
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indices de la tabla `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indices de la tabla `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
 -- Indices de la tabla `proveedor`
@@ -1175,6 +1059,21 @@ ALTER TABLE `servicios`
   ADD PRIMARY KEY (`ID_SERVICIOS`);
 
 --
+-- Indices de la tabla `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sessions_user_id_index` (`user_id`),
+  ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -1187,21 +1086,32 @@ ALTER TABLE `vehiculo`
   ADD PRIMARY KEY (`ID_VEHICULO`);
 
 --
--- Indices de la tabla `ventas`
---
-ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`ID_VENTAS`),
-  ADD KEY `ID_SERVICIOS` (`ID_SERVICIOS`);
-
---
--- Restricciones para tablas volcadas
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- Filtros para la tabla `ventas`
+-- AUTO_INCREMENT de la tabla `failed_jobs`
 --
-ALTER TABLE `ventas`
-  ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`ID_SERVICIOS`) REFERENCES `servicios` (`ID_SERVICIOS`);
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
