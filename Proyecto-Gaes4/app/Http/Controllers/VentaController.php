@@ -84,10 +84,15 @@ class VentaController extends Controller
 }
 
 public function edit($id)
-    {
-        $venta = Venta::findOrFail($id);
-        return view('venta.edit', compact('venta'));
-    }
+{
+    $venta = Venta::findOrFail($id);
+
+    // Convierte la cadena de servicios en un arreglo
+    $venta->Servicio = explode(PHP_EOL, $venta->Servicio);
+    $venta->Producto = explode(PHP_EOL, $venta->Producto);
+
+    return view('venta.edit', compact('venta'));
+}
 
 
 

@@ -93,7 +93,7 @@
         REGISTRAR NUEVA VENTA
       </button>
     </a>
-    <form action="{{ route('venta.pdf') }}" method="GET" style="display: inline-block;">
+    <form action="{{ route('venta.pdf') }}" method="GET" style="display: inline-block;" target="_blank">
       <input type="hidden" name="criterio1" id="hiddenCriterio1">
       <input type="hidden" name="criterio2" id="hiddenCriterio2">
       <button type="submit" class="btn btn-dark" data-toggle="modal" data-target="#create">PDF</button>
