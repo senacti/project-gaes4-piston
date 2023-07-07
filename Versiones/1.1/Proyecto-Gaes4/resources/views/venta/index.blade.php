@@ -32,7 +32,7 @@
         <a class="active">
           <span class="material-symbols-rounded">dashboard</span>
           <h3>Dashboard</h3>
-        
+
         <a href="{{ url('/clientes') }}">
           <span class="material-icons-sharp">people</span>
           <h3>Clientes</h3>
@@ -40,7 +40,7 @@
         <a href="{{ url('/productosservicios') }}">
           <span class="material-icons-sharp">inventory</span>
           <h3>Productos</h3>
-          
+
         </a>
         <a href="{{ url('/mecanicos') }}">
           <span class="material-symbols-rounded">plumbing</span>
@@ -57,9 +57,9 @@
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
         document.getElementById('logout-form').submit();" {{ __('Logout') }}>
           <span class="material-icons-sharp">logout</span>
-          <h3>Salir</h3> 
+          <h3>Salir</h3>
         </a>
-        
+
 
 
 
@@ -77,14 +77,15 @@
       </div>
     </aside>
     <main>
+        
 <h1>TABLA VENTAS</h1>
 <br>
 @if(Session::has('mensaje'))
 <div class="alert alert-success">
   <strong>
-{{ Session::get('mensaje')}}</strong> 
+{{ Session::get('mensaje')}}</strong>
 </div>
-@endif 
+@endif
 
 <div class="row">
   <div class="col-md-20">
@@ -142,7 +143,7 @@
             </tr>
         </thead>
         <tbody id="tabla-body">
-            
+
                 @foreach ( $ventas as $venta )
             <tr>
                 <td>{{ $venta->id }}</td>

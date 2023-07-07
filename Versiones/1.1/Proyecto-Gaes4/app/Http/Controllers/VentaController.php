@@ -14,8 +14,8 @@ class VentaController extends Controller
         $datos['ventas'] = Venta::where('inhabilitado', false)->paginate(10);
         return view('venta.index', $datos);
     }
-    
-    
+
+
     public function pdf(Request $request)
 {
     $criterio1 = $request->input('criterio1');
