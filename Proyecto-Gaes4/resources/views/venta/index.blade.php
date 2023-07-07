@@ -1,3 +1,5 @@
+@extends('layouts.plantillabase3')
+@section('contenido')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +68,7 @@
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ route('logout') }}"
              onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
+                  document.getElementById('logout-form').submit();">
               {{ __('Logout') }}
           </a>
 
@@ -86,20 +88,45 @@
 </div>
 @endif 
 
-<a href="{{ url('venta/create') }}">
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#create">
+<div class="row">
+  <div class="col-md-20">
+    <a href="{{ url('venta/create') }}">
+      <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#create">
         REGISTRAR NUEVA VENTA
-    </button></a>
-
-    <a href="{{ route('venta.pdf') }}" target="_blank">
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#create">
-        PDF
-    </button></a>
+      </button>
+    </a>
+    <form action="{{ route('venta.pdf') }}" method="GET" style="display: inline-block;" target="_blank">
+      <input type="hidden" name="criterio1" id="hiddenCriterio1">
+      <input type="hidden" name="criterio2" id="hiddenCriterio2">
+      <button type="submit" class="btn btn-dark" data-toggle="modal" data-target="#create">PDF</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <div class="col-md-9">
+    <form>
+      <div class="form-group col-md-3">
+        <label for="criterio1">FECHA DE PEDIDO</label>
+        <input type="date" class="form-control" name="criterio1" id="criterio1">
+      </div>
+      <br>
+      <div class="form-group col-md-3">
+        <label for="criterio2">NOMBRE DEL MECANICO</label>
+        <input type="text" class="form-control" name="criterio2" id="criterio2">
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  // Copiar los valores de los campos de entrada a los campos ocultos al enviar el formulario
+  document.querySelector('[action="{{ route('venta.pdf') }}"]').addEventListener('submit', function(event) {
+    document.querySelector('#hiddenCriterio1').value = document.querySelector('#criterio1').value;
+    document.querySelector('#hiddenCriterio2').value = document.querySelector('#criterio2').value;
+  });
+</script>
     &nbsp;
 <br>
-<br>
-
-    <table class="table table-lite table-striped">
+    <table id="example" class="table table-striped" style="width: 100%">
         <thead class="thead-light">
             <tr>
                 <th>ID VENTA</th>
@@ -134,10 +161,10 @@
                 <td>
 
                         <a href="{{ route('venta.edit', $venta->id) }}" class="btn btn-warning">Editar</a>
-                        <form action="{{ route('venta.destroy', $venta->id) }}" class="d-inline" method="post">
+                        <form action="{{ route('venta.destroy', $venta->id) }}" class="d-inline" method="post" onsubmit="return confirm ('Estas seguro de inhabilitar esta venta?')">
                         @csrf
                         @method('DELETE')
-                        <input  class="btn btn-danger" type="submit" onclick="return confirm ('Estas seguro de eliminar esta venta?')" value="Borrar">
+                        <button class="btn btn-danger" type="submit"> Borrar</button>
                         </form>
                 </td>
             </tr>
@@ -146,4 +173,4 @@
     </table>
 {!! $ventas->links() !!}
     </main>
-
+    @endsection
