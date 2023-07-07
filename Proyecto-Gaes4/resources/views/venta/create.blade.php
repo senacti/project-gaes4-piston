@@ -1,4 +1,4 @@
-@extends('layouts.plantillabase')
+@extends('layouts.plantillabase3')
 @section('contenido')
 <div class="container">
 
