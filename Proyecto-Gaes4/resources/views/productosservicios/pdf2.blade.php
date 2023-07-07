@@ -25,7 +25,7 @@
                         <td>{{ $productosservicio->NOMBRE_PRODUCTO }}</td>
                         <td>{{ $productosservicio->CANTIDAD_PRODUCTO }}</td>
                         <td>{{ $productosservicio->DESCRIPCION }}</td>
-                        <td>{{ $productosservicio->ID_CATEGORIA_DE_PRODUCTOS }}</td>
+                        <td>{{ $productosservicio->CATEGORIA_PRODUCTOS }}</td>
                     </tr>
                         
                     </tr>

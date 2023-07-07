@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 
+
 class ProductosController extends Controller
 {
     /**
@@ -14,18 +15,31 @@ class ProductosController extends Controller
      */
     public function index()
     {
-        $datosProductosservicios['productosservicios'] = Productos::paginate(3);
+        $datosProductosservicios['productosservicios'] = Productos::where('inhabilitado', false)->paginate(3);
         return view('productosservicios.index', $datosProductosservicios);
     }
-
-    public function pdf()
+    
+    public function pdf(Request $request)
     {
-        $productosservicio = Productos::paginate(5);
-        $pdf = PDF::loadView('productosservicios.pdf2',['productosservicios'=>$productosservicio]);
-        return $pdf->stream('PDFProductos-'.time().'.pdf');
+        $criterio1 = $request->input('criterio1');
+        $criterio2 = $request->input('criterio2');
+    
+        $productosservicios = Productos::where('inhabilitado', false);
+    
+        if ($criterio1) {
+            $productosservicios->where('NOMBRE_PRODUCTO', $criterio1);
+        }
+    
+        if ($criterio2) {
+            $productosservicios->where('CATEGORIA_PRODUCTOS', $criterio2);
+        }
+    
+        $productosservicios = $productosservicios->paginate(10);
+    
+        $pdf = PDF::loadView('productosservicios.pdf2', compact('productosservicios'));
+        return $pdf->stream('PDFProductosservicios-' . time() . '.pdf2');
     }
-
-
+    
 
 
 
@@ -37,25 +51,30 @@ class ProductosController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $campos = [
-            'NOMBRE_PRODUCTO' => 'required|string|max:50',
-            'CANTIDAD_PRODUCTO' => 'required|string|max:100',
-            'DESCRIPCION' => 'required|string|max:100',
-            'ID_CATEGORIA_DE_PRODUCTOS' => 'required|string|max:100',
-        ];
+/**
+ * Store a newly created resource in storage.
+ */
+public function store(Request $request)
+{
+    $campos = [
+        'NOMBRE_PRODUCTO' => 'required|string|max:50',
+        'CANTIDAD_PRODUCTO' => 'required|string|max:100',
+        'DESCRIPCION' => 'required|string|max:100',
+        'CATEGORIA_PRODUCTOS' => 'required|string|max:100',
+        'PRECIO_PRODUCTO' => 'required|numeric|',
+    ];
 
-        $mensaje = ['required' => 'El :attribute es requerido'];
+    $mensaje = ['required' => 'El :attribute es requerido'];
 
-        $this->validate($request, $campos, $mensaje);
+    $this->validate($request, $campos, $mensaje);
 
-        $datosProductosservicios = $request->except('_token');
+    $datosProductosservicios = $request->except('_token');
 
-        Productos::create($datosProductosservicios);
+    Productos::create($datosProductosservicios);
 
-        return redirect('productosservicios')->with('Mensaje', 'Producto agregado con éxito');
-    }
+    return redirect('productosservicios')->with('Mensaje', 'Producto agregado con éxito');
+}
+
 
     /**
      * Show the form for editing the specified resource.
@@ -74,38 +93,32 @@ class ProductosController extends Controller
 
 
 
-
-
-
-
-
-    public function update(Request $request, $id)
-    {
-
-
+     public function update(Request $request, $id)
+     {
         $campos = [
             'NOMBRE_PRODUCTO' => 'required|string|max:50',
             'CANTIDAD_PRODUCTO' => 'required|string|max:100',
             'DESCRIPCION' => 'required|string|max:100',
-            'ID_CATEGORIA_DE_PRODUCTOS' => 'required|string|max:10',
-
+            'CATEGORIA_PRODUCTOS' => 'nullable|string|max:100|regex:/^[A-Za-z0-9\s]+$/',
+            'PRECIO_PRODUCTO' => 'required|numeric',
         ];
-
-        $mensaje = ['required' => 'La :attribute es requerido',        
-        'CANTIDAD_PRODUCTO'. 'required' => 'La cantidad es requerida', 
-        'DESCRIPCION'. 'required' => 'La descripcion es requerida',
-        'ID_CATEGORIA_DE_PRODUCTOS'. 'required' => 'La categoria es requerida'
-
-    ];
-
-
+        
+        $mensaje = [
+            'required' => 'El campo :attribute es requerido',
+            'CANTIDAD_PRODUCTO.required' => 'La cantidad es requerida',
+            'DESCRIPCION.required' => 'La descripción es requerida',
+            'CATEGORIA_PRODUCTOS.required' => 'La categoría es requerida',
+            'PRECIO_PRODUCTO.required' => 'El precio es requerido',
+        ];
+        
         $this->validate($request, $campos, $mensaje);
-
-
-        $datosProductosservicios = $request->except(['_token', '_method']);
-        Productos::where('id', '=', $id)->update($datosProductosservicios);
-        return redirect('productosservicios')->with('Mensaje', 'Producto actualizado con éxito');
-    }
+        
+     
+         $datosProductosservicios = $request->except(['_token', '_method']);
+         Productos::where('id', '=', $id)->update($datosProductosservicios);
+         return redirect('productosservicios')->with('Mensaje', 'Producto actualizado con éxito');
+     }
+     
 
     /**
      * Remove the specified resource from storage.
@@ -113,7 +126,13 @@ class ProductosController extends Controller
     public function destroy($id)
     {
         $Productosservicio = Productos::findOrFail($id);
-        $Productosservicio->delete();
+        $Productosservicio->inhabilitado = true;
+        $Productosservicio->save();
         return redirect('productosservicios')->with('Mensaje', 'Producto inhabilitado con éxito');
     }
 }
+
+
+
+
+

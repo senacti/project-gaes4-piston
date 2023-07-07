@@ -227,7 +227,7 @@
     <a href="#contact">Contactanos</a>
 
     </div>
- <div class="credit">Creado por <span> Juan Felipe Barrios Hidalgo</span> / Sena - Sena Servicio Nacional de Aprendizaje </div>
+ <div class="credit">Creado por <span>GAES 4</span> / Sena - Sena Servicio Nacional de Aprendizaje </div>
 </section>
 <script src="{{ asset('js/Carrusel.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>

@@ -52,8 +52,8 @@
           <span class="material-symbols-outlined">add_task</span>
           <h3>Ventas</h3>
         </a>
-        <a href="{{ url('/error500') }}">
-          <span class="material-symbols-rounded">add </span>
+        <a href="{{ url('/Errores') }}">
+        <span class="material-symbols-rounded">add </span>
           <h3>Añadir Módulos</h3>
         </a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault();

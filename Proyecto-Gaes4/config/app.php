@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,7 +182,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        'PDF' => Barryvdh\Dompdf\facade::class,
-    ])->toArray(),
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        ])->toArray(),
 
 ];
