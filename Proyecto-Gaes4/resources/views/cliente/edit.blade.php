@@ -8,12 +8,12 @@
   @method('PUT')
 <div class="mb-3">
   <label for="" class="form-label">Identificacion</label>
-  <input id="identificacion" name="identificacion" type="number" value="{{$cliente->identificacion}}" required="" pattern="[0-9]+" min="0" max="999999999999" class="form-control" tabindex="1"
+  <input id="identificacion" name="identificacion" type="number" pattern="[0-9]+" value="{{$cliente->identificacion}}" required="" pattern="[0-9]+" min="99999999" max="999999999999" class="form-control" tabindex="1"
   required oninvalid="this.setCustomValidity('Por favor ingresa un número identificacion válido.')" oninput="this.setCustomValidity('')">    
 </div>
 <div class="mb-3">
   <label for="" class="form-label">Nombres</label>
-  <input id="nombres" name="nombres" type="text" value="{{$cliente->nombres}}" required="" minlength="1" maxlength="50" class="form-control" tabindex="2"
+  <input id="nombres" name="nombres" type="text" value="{{$cliente->nombres}}" required="" pattern="^[a-zA-Z' ']+$" minlength="1" maxlength="50" class="form-control" tabindex="2"
   required oninvalid="this.setCustomValidity('Por favor ingresa un nombre válido.')" oninput="this.setCustomValidity('')">
 </div>
 <div class="mb-3">
@@ -28,12 +28,12 @@
 </div>
 <div class="mb-3">
   <label for="" class="form-label">Telefono</label>
-  <input id="telefono" name="telefono" type="number" value="{{$cliente->telefono}}" required="" pattern="[0-9]+" min="0" max="999999999999" class="form-control" tabindex="3"
+  <input id="telefono" name="telefono" type="number" value="{{$cliente->telefono}}" required="" pattern="[0-9]+" min="9999999" max="999999999999" class="form-control" tabindex="3"
   required oninvalid="this.setCustomValidity('Por favor ingresa un numero de telefono v{alido.')" oninput="this.setCustomValidity('')">
 </div>
 <div class="mb-3">
   <label for="email" class="form-label">Email</label>
-  <input id="email" name="email" type="email" value="{{$cliente->email}}"  minlength="1" maxlength="50" class="form-control" required="" tabindex="3" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+  <input id="email" name="email" type="email" value="{{$cliente->email}}"   minlength="1" maxlength="50" class="form-control" required="" tabindex="3" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
   required oninvalid="this.setCustomValidity('Por favor ingresa tu email.')" oninput="this.setCustomValidity('')">
 </div>
 <div class="mb-3">
