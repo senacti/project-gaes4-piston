@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSessionsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSessionsLabel_id}"/>
+                    <h:outputText value="#{sessionsController.selected.id}" title="#{bundle.ViewSessionsTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewSessionsLabel_userId}"/>
+                    <h:outputText value="#{sessionsController.selected.userId}" title="#{bundle.ViewSessionsTitle_userId}"/>
+                    <h:outputText value="#{bundle.ViewSessionsLabel_ipAddress}"/>
+                    <h:outputText value="#{sessionsController.selected.ipAddress}" title="#{bundle.ViewSessionsTitle_ipAddress}"/>
+                    <h:outputText value="#{bundle.ViewSessionsLabel_userAgent}"/>
+                    <h:outputText value="#{sessionsController.selected.userAgent}" title="#{bundle.ViewSessionsTitle_userAgent}"/>
+                    <h:outputText value="#{bundle.ViewSessionsLabel_payload}"/>
+                    <h:outputText value="#{sessionsController.selected.payload}" title="#{bundle.ViewSessionsTitle_payload}"/>
+                    <h:outputText value="#{bundle.ViewSessionsLabel_lastActivity}"/>
+                    <h:outputText value="#{sessionsController.selected.lastActivity}" title="#{bundle.ViewSessionsTitle_lastActivity}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sessionsController.destroyAndView}" value="#{bundle.ViewSessionsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSessionsEditLink}"/>
+                <br />
+                <h:commandLink action="#{sessionsController.prepareCreate}" value="#{bundle.ViewSessionsCreateLink}" />
+                <br />
+                <h:commandLink action="#{sessionsController.prepareList}" value="#{bundle.ViewSessionsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSessionsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

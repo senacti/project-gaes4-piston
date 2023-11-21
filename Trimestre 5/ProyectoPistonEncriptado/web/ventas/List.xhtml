@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:panelGroup rendered="#{not userController.isMecanico()}">
+                <h:outputText value="#{bundle.ListVentasTitle}"></h:outputText>
+            </h:panelGroup>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup rendered="#{not userController.isMecanico()}">
+                <h:form styleClass="jsfcrud_list_form">
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+                    <h:outputText escape="false" value="#{bundle.ListVentasEmpty}" rendered="#{ventasController.items.rowCount == 0}"/>
+                    <h:panelGroup rendered="#{ventasController.items.rowCount > 0}">
+                        <h:outputText value="#{ventasController.pagination.pageFirstItem + 1}..#{ventasController.pagination.pageLastItem + 1}/#{ventasController.pagination.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{ventasController.previous}" value="#{bundle.Previous} #{ventasController.pagination.pageSize}" rendered="#{ventasController.pagination.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{ventasController.next}" value="#{bundle.Next} #{ventasController.pagination.pageSize}" rendered="#{ventasController.pagination.hasNextPage}"/>&nbsp;
+                        <h:dataTable value="#{ventasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_id}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_mecanico}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.mecanico}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_porcentaje}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.porcentaje}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_marcaDelVehiculo}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.marcaDelVehiculo}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_modeloVehiculo}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.modeloVehiculo}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_matricula}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.matricula}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_vin}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.vin}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_fechaDeSolicitud}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fechaDeSolicitud}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_servicio}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.servicio}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_producto}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.producto}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListVentasTitle_total}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.total}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+
+                                <h:commandLink action="#{ventasController.prepareView}" value="#{bundle.ListVentasViewLink}" styleClass="my-button"/>
+                                <h:outputText />
+                                <h:commandLink action="#{ventasController.prepareEdit}" value="#{bundle.ListVentasEditLink}" styleClass="my-buttonn"/>
+                                <h:outputText />
+                                <h:commandLink action="#{ventasController.destroy}" value="#{bundle.ListVentasDestroyLink}" styleClass="my-buttonnn"/>
+                                <h:outputText  />
+
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                    <br />
+                    <h:commandLink action="#{ventasController.prepareCreate}" value="#{bundle.ListVentasCreateLink}" style="text-decoration: none; padding: 5px 10px; background-color: #3498db; color: #fff; border: none; cursor: pointer; border-radius: 4px;"/>
+                    <br />
+                    <br />
+
+                </h:form>
+            </h:panelGroup>
+            
+             <h:panelGroup rendered="#{not userController.isAdministrador() and userController.isLoggedIn()}">
+                <div class="error-bodycont">
+                    <div class="container">
+                        <div class="error">
+                            <h1>5</h1>
+                            <h2>error</h2>
+                            <p>Acceso Denegado <br /> ¡No tienes el permiso para acceder a esta página!</p>
+                            <h:link class="bubbly-button" outcome="/home" value="Volver al Inicio"/>
+                        </div>
+                    </div>
+                </div>
+            </h:panelGroup>
+            
+        </ui:define>
+    </ui:composition>
+
+</html>

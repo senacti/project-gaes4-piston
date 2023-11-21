@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:panelGroup rendered="#{not userController.isMecanico()}">
+                <h:outputText value="Panel de control"></h:outputText>
+            </h:panelGroup>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup rendered="#{not userController.isMecanico()}">
+                <h1>Bienvenido al sistema de Servicentro la 22 administrador!</h1>  
+            </h:panelGroup>
+            <h:panelGroup rendered="#{not userController.isAdministrador() and userController.isLoggedIn()}">
+                <div class="error-bodycont">
+                    <div class="container">
+                        <div class="error">
+                            <h1>5</h1>
+                            <h2>error</h2>
+                            <p>Acceso Denegado <br /> ¡No tienes el permiso para acceder a esta página!</p>
+                            <h:link class="bubbly-button" outcome="/home" value="Volver al Inicio"/>
+                        </div>
+                    </div>
+                </div>
+            </h:panelGroup>
+        </ui:define>
+
+
+
+    </ui:composition>
+
+</html>
