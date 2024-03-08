@@ -43,15 +43,19 @@ return new class extends Migration
             $table->date('fecha_venta');
             $table->decimal('total_venta');
 
-
-
-
-
-
-
-
+            $table->boolean('desactivado')->default(false); // Por defecto, la venta estará activa
 
             $table->timestamps();
+
+
+
+
+
+
+
+
+
+            
             $table->foreign('nombre_servicio_id')->references('id')->on('servicios')
             ->onDelete("cascade");
             $table->foreign('precio_servicio_id')->references('id')->on('servicios')

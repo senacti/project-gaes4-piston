@@ -35,13 +35,13 @@ class Cliente extends Model
 {
 
     static $rules = [
-		'cedula_cliente' => 'required',
-		'nombre_cliente' => 'required',
-		'apellido_cliente' => 'required',
-		'direccion' => 'required',
-		'telefono' => 'required',
-		'email' => 'required',
-		'ciudad' => 'required',
+		'cedula_cliente' => 'required|numeric|digits:10',
+		'nombre_cliente' => 'required|regex:/^[A-Za-z\s]+$/|max:20',
+		'apellido_cliente' => 'required|regex:/^[A-Za-z\s]+$/|max:20',
+		'direccion' => 'required|regex:/^[a-zA-Z0-9#\s-]+$/|max:30',
+        'telefono' => 'required|numeric|digits:10',
+		'email' => 'required|email|max:30',
+		'ciudad' => 'required|alpha|max:10',
 		'vehiculo_marca_id' => 'required',
 		'vehiculo_modelo_id' => 'required',
 		'vehiculo_matricula_id' => 'required',
@@ -55,7 +55,8 @@ class Cliente extends Model
      *
      * @var array
      */
-    protected $fillable = ['cedula_cliente','nombre_cliente','apellido_cliente','direccion','telefono','email','ciudad','vehiculo_marca_id','vehiculo_modelo_id','vehiculo_matricula_id','vehiculo_color_id'];
+    protected $fillable = ['cedula_cliente','nombre_cliente','apellido_cliente','direccion','telefono',
+    'email','ciudad','vehiculo_marca_id','vehiculo_modelo_id','vehiculo_matricula_id','vehiculo_color_id','desactivado'];
 
 
     /**
@@ -73,6 +74,21 @@ class Cliente extends Model
     {
         return $this->hasMany('App\Models\Tarea', 'nombre_cliente_id', 'id');
         return $this->hasMany('App\Models\Tarea', 'apellido_cliente_id', 'id');
+    }
+
+    public function scopeActivas($query)
+    {
+        return $query->where('desactivado', false);
+    }
+    
+    public function desactivar()
+    {
+        $this->update(['desactivado' => true]);
+    }
+    
+    public function activar()
+    {
+        $this->update(['desactivado' => false]);
     }
 
 

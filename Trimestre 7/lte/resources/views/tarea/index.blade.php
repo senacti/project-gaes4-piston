@@ -17,14 +17,47 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Aqui podras encargar cada una de las labores de los empleados:') }}
+                                {{ __('') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('tareas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Ingresar Tarea') }}
-                                </a>
-                              </div>
+                            
+
+                            <div class="float-right">
+    <form action="{{ route('tarea.index') }}" method="get">
+        <div class="input-group mb-3">
+            <label for="nombre_empleado_id" class="mr-2">Nombre del Empleado:</label>
+            <input type="text" name="nombre_empleado_id" class="form-control" placeholder="Nombre del Empleado" value="{{ request('nombre_empleado_id') }}">
+
+            <label for="vehiculo_matricula_id" class="ml-2 mr-2">Matricula del vehiculo:</label>
+            <input type="text" name="vehiculo_matricula_id" class="form-control" placeholder="Matricula del vehiculo" value="{{ request('vehiculo_matricula_id') }}">
+
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Filtrar</button>
+                <a href="{{ route('tarea.index') }}" class="btn btn-secondary">Limpiar</a>
+            </div>
+        </div>
+    </form>
+
+    <div class="text-right">
+
+    <a href="{{ route('tareas.desactivadas') }}" class="btn btn-primary btn-sm" data-placement="right">
+                                 {{ __('Tareas Desabilitadas') }}
+                             </a>
+
+    <a href="{{ route('tarea.pdf') }}" class="btn btn-warning btn-sm" data-placement="right">
+        {{ __('Reporte PDF') }}
+    </a>
+
+    <a href="{{ route('tarea.export') }}" class="btn btn-success btn-sm" data-placement="right">
+        {{ __('Reporte Excel') }}
+    </a>
+
+    <a href="{{ route('tareas.create') }}" class="btn btn-primary btn-sm ml-2" data-placement="left">
+        {{ __('Ingresar Tarea') }}
+    </a>
+</div>
+</div>
+
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -96,13 +129,19 @@
 											<td>{{ $tarea->comentarios }}</td>
 
                                             <td>
-                                                <form action="{{ route('tareas.destroy',$tarea->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('tareas.show',$tarea->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('tareas.edit',$tarea->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Desactivar') }}</button>
-                                                </form>
+                                                
+                                                <form action="{{ route('tareas.desactivar', $tarea->id) }}" method="POST">                                
+    <a class="btn btn-sm btn-primary" href="{{ route('tareas.show', $tarea->id) }}">
+        <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
+    </a>
+    <a class="btn btn-sm btn-success" href="{{ route('tareas.edit', $tarea->id) }}">
+        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+    </a>
+
+                    @csrf
+                @method('PATCH')
+                <button type="submit"class="btn btn-sm btn-warning">Deshabilitar</button>
+            </form>
                                             </td>
                                         </tr>
                                     @endforeach

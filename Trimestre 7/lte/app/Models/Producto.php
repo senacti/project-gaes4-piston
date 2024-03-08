@@ -21,9 +21,9 @@ class Producto extends Model
 {
 
     static $rules = [
-		'nombre_producto' => 'required',
-		'cantidad_productos' => 'required',
-		'precio_producto' => 'required',
+        'nombre_producto' => 'required|regex:/^[A-Za-z\s]+$/|max:20',
+		'cantidad_productos' => 'required|numeric|max:999999999999',
+		'precio_producto' => 'required|numeric|max:999999999999999',
     ];
 
     protected $perPage = 20;
@@ -33,7 +33,7 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre_producto','cantidad_productos','precio_producto'];
+    protected $fillable = ['nombre_producto','cantidad_productos','precio_producto','desactivado'];
 
     public function tareas()
     {
@@ -47,6 +47,21 @@ class Producto extends Model
         return $this->hasMany('App\Models\Venta', 'precio_producto_id', 'id');
         return $this->hasMany('App\Models\Venta', 'cantidad_producto_id', 'id');
         return $this->hasMany('App\Models\Venta', 'nombre_producto_id', 'id');
+    }
+
+    public function scopeActivas($query)
+    {
+        return $query->where('desactivado', false);
+    }
+    
+    public function desactivar()
+    {
+        $this->update(['desactivado' => true]);
+    }
+    
+    public function activar()
+    {
+        $this->update(['desactivado' => false]);
     }
 
 

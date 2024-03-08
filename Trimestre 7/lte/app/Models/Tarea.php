@@ -60,17 +60,17 @@ class Tarea extends Model
 		'nombre_empleado_id' => 'required',
 		'apellido_empleado_id' => 'required',
 		'especialidad_id' => 'required',
-		'estatus' => 'required',
-		'disponibilidad' => 'required',
-		'Comision' => 'required',
+        'estatus' => 'required|regex:/^[A-Za-z\s]+$/|max:10',
+        'disponibilidad' => 'required|regex:/^[A-Za-z\s]+$/|max:15',
+		'Comision' => 'required|numeric|between:1,100|regex:/^\d{1,13}(\.\d{1,2})?$/',
 		'nombre_cliente_id' => 'required',
 		'apellido_cliente_id' => 'required',
 		'vehiculo_marca_id' => 'required',
 		'vehiculo_modelo_id' => 'required',
 		'vehiculo_matricula_id' => 'required',
 		'vehiculo_color_id' => 'required',
-		'total_reparacion' => 'required',
-		'total_comision' => 'required',
+		'total_reparacion' => 'required|numeric|max:9999999999999.99',
+		'total_comision' => 'required|numeric|between:1,100|regex:/^\d{1,13}(\.\d{1,2})?$/',
 		'comentarios' => 'required',
     ];
 
@@ -81,7 +81,9 @@ class Tarea extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre_servicio_id','precio_servicio_id','nombre_producto_id','cantidad_producto_id','precio_producto_id','nombre_empleado_id','apellido_empleado_id','especialidad_id','estatus','disponibilidad','Comision','nombre_cliente_id','apellido_cliente_id','vehiculo_marca_id','vehiculo_modelo_id','vehiculo_matricula_id','vehiculo_color_id','total_reparacion','total_comision','comentarios'];
+    protected $fillable = ['nombre_servicio_id','precio_servicio_id','nombre_producto_id','cantidad_producto_id','precio_producto_id','nombre_empleado_id',
+    'apellido_empleado_id','especialidad_id','estatus','disponibilidad','Comision','nombre_cliente_id','apellido_cliente_id','vehiculo_marca_id',
+    'vehiculo_modelo_id','vehiculo_matricula_id','vehiculo_color_id','total_reparacion','total_comision','comentarios','desactivado'];
 
 
     /**
@@ -127,7 +129,21 @@ class Tarea extends Model
         return $this->hasMany('App\Models\Venta', 'total_comision_id', 'id');
     }
 
-
+    public function scopeActivas($query)
+    {
+        return $query->where('desactivado', false);
+    }
+    
+    public function desactivar()
+    {
+        $this->update(['desactivado' => true]);
+    }
+    
+    public function activar()
+    {
+        $this->update(['desactivado' => false]);
+    }
+    
 
 
 

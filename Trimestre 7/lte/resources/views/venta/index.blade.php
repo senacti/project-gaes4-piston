@@ -17,14 +17,56 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Aqui podras registrar cada una de las ventas realizadas del taller:') }}
+                                {{ __('') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('ventas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Ingresar Venta') }}
-                                </a>
-                              </div>
+                             
+                        
+                    <div class="float-right">
+    <form action="{{ route('venta.index') }}" method="get">
+        <div class="input-group mb-3">
+            <label for="nombre_empleado_id" class="mr-2">Nombre del Empleado:</label>
+            <input type="text" name="nombre_empleado_id" class="form-control" placeholder="Nombre del Empleado" value="{{ request('nombre_empleado_id') }}">
+
+            <label for="vehiculo_matricula_id"class="ml-2 mr-2">Matricula del vehiculo:</label>
+            <input type="text" name="vehiculo_matricula_id" class="form-control" placeholder="Matricula del vehiculo" value="{{ request('vehiculo_matricula_id') }}">
+            
+            <label for="fecha_venta" class="ml-2 mr-2">Fecha de Venta:</label>
+            <input type="date" name="fecha_venta" class="form-control" placeholder="Fecha de Venta" value="{{ request('fecha_venta') }}">
+            
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Filtrar</button>
+                <a href="{{ route('venta.index') }}" class="btn btn-secondary">Limpiar</a>
+            </div>
+        </div>
+    </form>
+
+                        
+    
+        
+        
+   
+                        <div class="text-right"> <!-- Alineación a la derecha -->
+
+                            <a href="{{ route('ventas.desactivadas') }}" class="btn btn-primary btn-sm" data-placement="right">
+                                 {{ __('Ventas Inhabilitadas') }}
+                             </a>
+
+                             <a href="{{ route('venta.pdf') }}" class="btn btn-warning btn-sm" data-placement="right">
+                                 {{ __('Reporte PDF') }}
+                             </a>
+
+                            <a href="{{ route('venta.export') }}" class="btn btn-success btn-sm" data-placement="right">
+                                 {{ __('Reporte Excel') }}
+                             </a>
+
+                             <a href="{{ route('ventas.create') }}" class="btn btn-primary btn-sm" data-placement="right">
+                                 {{ __('Ingresar Venta') }}
+                             </a>
+
+
+                        </div>
+                        </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -90,13 +132,25 @@
 											<td>{{ $venta->total_venta }}</td>
 
                                             <td>
-                                                <form action="{{ route('ventas.destroy',$venta->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('ventas.show',$venta->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('ventas.edit',$venta->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Desactivar') }}</button>
-                                                </form>
+                                           
+    
+    
+
+             
+            <form action="{{ route('ventas.desactivar', $venta->id) }}" method="POST">                                
+    <a class="btn btn-sm btn-primary" href="{{ route('ventas.show', $venta->id) }}">
+        <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
+    </a>
+    <a class="btn btn-sm btn-success" href="{{ route('ventas.edit', $venta->id) }}">
+        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+    </a>
+
+                    @csrf
+                @method('PATCH')
+                <button type="submit"class="btn btn-sm btn-warning">Deshabilitar</button>
+            </form>
+
+                                                
                                             </td>
                                         </tr>
                                     @endforeach

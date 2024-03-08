@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('email',45);
             $table->string('ciudad',45);
             $table->string('especialidad',45);
+            $table->boolean('desactivado')->default(false); // Por defecto, la venta estará activa
             $table->timestamps();
         });
     }

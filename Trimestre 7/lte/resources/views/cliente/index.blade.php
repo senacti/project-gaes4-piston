@@ -20,14 +20,51 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Aqui podras ver y agregar tanto la informacion personal de nuestros clientes como las
-                            de sus vehiculos') }}
+                            {{ __('') }}
                         </span>
 
-                         <div class="float-right">
-                            <a href="{{ route('clientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                        <div class="float-right">
+
+                          <form action="{{ route('clientes.index') }}" method="get">
+        <div class="input-group mb-3">
+            <label for="nombre_cliente" class="mr-2">Nombre del cliente:</label>
+            <input type="text" name="nombre_cliente" class="form-control" placeholder="Nombre del cliente" value="{{ request('nombre_cliente') }}">
+
+            <label for="cedula_cliente"class="ml-2 mr-2">Cedula del cliente:</label>
+            <input type="text" name="cedula_cliente" class="form-control" placeholder="Cedula del cliente" value="{{ request('cedula_cliente') }}">
+            
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Filtrar</button>
+                <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Limpiar</a>
+            </div>
+        </div>
+    </form>
+
+                        
+
+                        <div class="text-right"> <!-- Alineación a la derecha -->
+
+                             <a href="{{ route('clientes.desactivadas') }}" class="btn btn-primary btn-sm" data-placement="right">
+                                 {{ __('Clientes Desabilitados') }}
+                             </a>
+
+                             <a href="{{ route('clientes.pdf') }}" class="btn btn-warning btn-sm "  data-placement="left">
+                              {{ __('Reporte PDF') }}
+
+                            </a>
+
+                            <a href="{{ route('export.clientes') }}" class="btn btn-success btn-sm "  data-placement="left">
+                              {{ __('Reporte EXCEL') }}
+                            </a>
+
+                            <a href="{{ route('clientes.create') }}" class="btn btn-primary btn-sm "  data-placement="left">
                               {{ __('Ingresar cliente') }}
                             </a>
+
+                            
+
+                            
+                            
                           </div>
                     </div>
                 </div>
@@ -77,13 +114,19 @@
                                         <td>{{ $cliente->Vehiculo->Vehiculo_color }}</td>
 
                                         <td>
-                                            <form action="{{ route('clientes.destroy',$cliente->id) }}" method="POST">
-                                                <a class="btn btn-sm btn-primary " href="{{ route('clientes.show',$cliente->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                <a class="btn btn-sm btn-success" href="{{ route('clientes.edit',$cliente->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
-                                            </form>
+
+                                            <form action="{{ route('clientes.desactivar', $cliente->id) }}" method="POST">                                
+    <a class="btn btn-sm btn-primary" href="{{ route('clientes.show', $cliente->id) }}">
+        <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
+    </a>
+    <a class="btn btn-sm btn-success" href="{{ route('clientes.edit', $cliente->id) }}">
+        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+    </a>
+
+                    @csrf
+                @method('PATCH')
+                <button type="submit"class="btn btn-sm btn-warning">Deshabilitar</button>
+            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -155,4 +198,34 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+
 @stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

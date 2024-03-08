@@ -27,6 +27,7 @@ return new class extends Migration
             $table->BigInteger('vehiculo_modelo_id')->unsigned();
             $table->BigInteger('vehiculo_matricula_id')->unsigned();
             $table->BigInteger('vehiculo_color_id')->unsigned();
+            $table->boolean('desactivado')->default(false); // Por defecto, la venta estará activa
 
 
 

@@ -20,20 +20,51 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('Aqui podras ver la informacion basica de los mecanicos') }}
+                            {{ __('') }}
                         </span>
 
-                         <div class="float-right">
-                            <a href="{{ route('mecanicos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                            <div class="float-right">
+                         
+    <form action="{{ route('mecanicos.index') }}" method="get">
+        <div class="input-group mb-3">
+            <label for="cedula" class="mr-2">Cedula del empleado:</label>
+            <input type="text" name="cedula" class="form-control" placeholder="Cedula del empleado" value="{{ request('cedula') }}">
+
+            <label for="especialidad"class="ml-2 mr-2">Especialidad del mecanico:</label>
+            <input type="text" name="especialidad" class="form-control" placeholder="Especialidad mecanico" value="{{ request('especialidad') }}">
+            
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Filtrar</button>
+                <a href="{{ route('mecanicos.index') }}" class="btn btn-secondary">Limpiar</a>
+            </div>
+        </div>
+    </form>
+
+                        <div class="text-right"> <!-- Alineación a la derecha -->
+                         
+                            
+                            <a href="{{ route('mecanicos.desactivadas') }}" class="btn btn-primary btn-sm" data-placement="right">
+                                 {{ __('Mecanicos Desabilitados') }}
+                             </a>
+
+                            <a href="{{ route('mecanicos.pdf') }}" class="btn btn-warning btn-sm "  data-placement="left">
+                              {{ __('Reporte PDF') }}
+
+                            </a>
+
+                            <a href="{{ route('mecanicos.export') }}" class="btn btn-success btn-sm "  data-placement="left">
+                              {{ __('Reporte EXCEL') }}
+
+                            </a>
+                            
+                            <a href="{{ route('mecanicos.create') }}" class="btn btn-primary btn-sm "  data-placement="left">
                               {{ __('Ingresar Empleado') }}
 
                             </a>
 
-                         <form action="{{ route('mecanico.pdf') }}" method="GET" style="display: inline-block;">
-                                <input type="hidden" name="criterio1" id="hiddenCriterio1">
-                                <input type="hidden" name="criterio2" id="hiddenCriterio2">
-                                <button type="submit" class="btn btn-dark btn-sm float-right"  data-placement="left data-toggle="modal" data-target="#create">PDF</button>
-                              </form>
+                            
+
+                
 
                           </div>
                     </div>
@@ -78,13 +109,20 @@
                                         <td>{{ $mecanico->especialidad }}</td>
 
                                         <td>
-                                            <form action="{{ route('mecanicos.destroy', $mecanico->id) }}" class="d-inline" method="POST" onsubmit="return confirm ('Estas seguro de inhabilitar este dato?')">
-                                                <a class="btn btn-sm btn-primary " href="{{ route('mecanicos.show',$mecanico->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                <a class="btn btn-sm btn-success" href="{{ route('mecanicos.edit',$mecanico->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash" onclick="return res()"></i> {{ __('Eliminar') }}</button>
-                                            </form>
+                                            
+
+                                             <form action="{{ route('mecanicos.desactivar', $mecanico->id) }}" method="POST">                                
+    <a class="btn btn-sm btn-primary" href="{{ route('mecanicos.show', $mecanico->id) }}">
+        <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
+    </a>
+    <a class="btn btn-sm btn-success" href="{{ route('mecanicos.edit', $mecanico->id) }}">
+        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+    </a>
+
+                    @csrf
+                @method('PATCH')
+                <button type="submit"class="btn btn-sm btn-warning">Deshabilitar</button>
+            </form>
                                         </td>
                                     </tr>
                                 @endforeach

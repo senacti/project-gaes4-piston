@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('vehiculo_modelo');
             $table->string('Vehiculo_matricula');
             $table->string('Vehiculo_color');
+            $table->boolean('desactivado')->default(false); // Por defecto, la venta estará activa
             $table->timestamps();
         });
     }
