@@ -20,49 +20,14 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                         <span id="card_title">
-                            {{ __('') }}
+                            {{ __('Aqui podras registrar de manera general los vehiculos ingresados al taller') }}
                         </span>
 
-                        <div class="float-right">
-                         
-    <form action="{{ route('vehiculos.index') }}" method="get">
-        <div class="input-group mb-3">
-            <label for="vehiculo_modelo" class="mr-2">Modelo del vehiculo:</label>
-            <input type="text" name="vehiculo_modelo" class="form-control" placeholder="Modelo del vehiculo" value="{{ request('vehiculo_modelo') }}">
-
-            <label for="Vehiculo_matricula"class="ml-2 mr-2">Matricula del vehiculo:</label>
-            <input type="text" name="Vehiculo_matricula" class="form-control" placeholder="Matricula del vehiculo" value="{{ request('Vehiculo_matricula') }}">
-            
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Filtrar</button>
-                <a href="{{ route('vehiculos.index') }}" class="btn btn-secondary">Limpiar</a>
-            </div>
-        </div>
-    </form>
-
                          <div class="float-right">
-
-
-                             <a href="{{ route('vehiculos.desactivadas') }}" class="btn btn-primary btn-sm" data-placement="right">
-                                 {{ __('Vehiculos Desabilitados') }}
-                             </a>
-
-                             <a href="{{ route('vehiculos.pdf') }}" class="btn btn-warning btn-sm "  data-placement="left">
-                              {{ __('Reporte PDF') }}
-                            </a>
-
-                            <a href="{{ route('export.vehiculos') }}" class="btn btn-success btn-sm "  data-placement="left">
-                              {{ __('Reporte EXCEL') }}
-                            </a>
-
-                            
-
-                            <a href="{{ route('vehiculos.create') }}" class="btn btn-primary btn-sm "  data-placement="left">
+                            <a href="{{ route('vehiculos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                               {{ __('Ingresar vehiculo') }}
                             </a>
-
                           </div>
-                          
                     </div>
                 </div>
                 @if ($message = Session::get('success'))
@@ -97,20 +62,13 @@
                                         <td>{{ $vehiculo->Vehiculo_color }}</td>
 
                                         <td>
-                            
-
-                                             <form action="{{ route('vehiculos.desactivar', $vehiculo->id) }}" method="POST">                                
-    <a class="btn btn-sm btn-primary" href="{{ route('vehiculos.show', $vehiculo->id) }}">
-        <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
-    </a>
-    <a class="btn btn-sm btn-success" href="{{ route('vehiculos.edit', $vehiculo->id) }}">
-        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-    </a>
-
-                    @csrf
-                @method('PATCH')
-                <button type="submit"class="btn btn-sm btn-warning">Deshabilitar</button>
-            </form>
+                                            <form action="{{ route('vehiculos.destroy',$vehiculo->id) }}" method="POST">
+                                                <a class="btn btn-sm btn-primary " href="{{ route('vehiculos.show',$vehiculo->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('vehiculos.edit',$vehiculo->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

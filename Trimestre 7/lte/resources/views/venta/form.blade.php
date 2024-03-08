@@ -90,7 +90,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('fecha_venta') }}
-            {{ Form::date('fecha_venta', $venta->fecha_venta, ['class' => 'form-control' . ($errors->has('fecha_venta') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Venta']) }}
+            {{ Form::text('fecha_venta', $venta->fecha_venta, ['class' => 'form-control' . ($errors->has('fecha_venta') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Venta']) }}
             {!! $errors->first('fecha_venta', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

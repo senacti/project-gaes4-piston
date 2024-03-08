@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\productosExport;
 use App\Models\Producto;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 
 /**
  * Class ProductoController
@@ -19,51 +16,13 @@ class ProductoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function index(Request $request)
+    public function index()
     {
-        $query = Producto::query();
-    
-        // Filtro por nombre de cliente
-        if ($request->filled('nombre_producto')) {
-            $query->where('nombre_producto', 'like', '%' . $request->nombre_producto . '%');
-        }
-    
-        // Filtro por matrícula de vehículo
-        if ($request->filled('telefono')) {
-           $query->where('telefono', 'like', '%' . $request->telefono . '%');
-       }
-       
-       $query->where('desactivado', false);
-        $productos = $query->paginate();
-    
+        $productos = Producto::paginate();
+
         return view('producto.index', compact('productos'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
-
-    public function desactivar($id)
-     {
-         $producto = Producto::findOrFail($id);
-         $producto->desactivar();
-     
-         return redirect()->route('productos.index')->with('success', 'producto desactivada correctamente.');
-     }
-     
-     public function activar($id)
-     {
-         $producto = Producto::findOrFail($id);
-         $producto->activar();
-     
-         return redirect()->route('productos.index')->with('success', 'producto activada correctamente.');
-     }
-     
-     
-     public function mostrarDesactivadas()
-     {
-         $productosDesactivadas = Producto::where('desactivado', true)->paginate(20); // Ajusta el número según tus necesidades
-     
-         return view('producto.activar', compact('productosDesactivadas'));
-     }
 
     /**
      * Show the form for creating a new resource.
@@ -84,25 +43,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(Producto::$rules, [
-
-            
-            "nombre_producto.required"  => '• Debe ingresar el nombre del producto.',
-            "nombre_producto.regex"  => '• El campo no debe tener numeros ni sombolos solo letras.',
-            "nombre_producto.max"  => '• El maximo de caraceteres son 10.',
-
-            "cantidad_productos.required"  => '• Debe ingresar la catidad de productos.',
-            "cantidad_productos.numeric"  => '• El campo no puede tener simbolos como letras, solo numeros.',
-            "cantidad_productos.max"  => '• El maximo de caraceteres son 999999.',
-
-            "precio_producto.required"  => '• Debe ingresar el precio del producto.',
-            "precio_producto.numeric"  => '• El campo no puede tener simbolos como letras, solo numeros.',
-            "precio_producto.max"  => '• El maximo de caracteres son 99999.',
-
-            
-
-            
-        ]);
+        request()->validate(Producto::$rules);
 
         $producto = Producto::create($request->all());
 
@@ -145,25 +86,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        $request->validate(Producto::$rules, [
-
-            
-            "nombre_producto.required"  => '• Debe ingresar el nombre del producto.',
-            "nombre_producto.regex"  => '• El campo no debe tener numeros ni sombolos solo letras.',
-            "nombre_producto.max"  => '• El maximo de caraceteres son 20.',
-
-            "cantidad_productos.required"  => '• Debe ingresar la catidad de productos.',
-            "cantidad_productos.numeric"  => '• El campo no puede tener simbolos como letras, solo numeros.',
-            "cantidad_productos.max"  => '• El maximo de caraceteres son 999999.',
-
-            "precio_producto.required"  => '• Debe ingresar el precio del producto.',
-            "precio_producto.numeric"  => '• El campo no puede tener simbolos como letras, solo numeros.',
-            "precio_producto.max"  => '• El maximo de caracteres son 99999.',
-
-            
-
-            
-        ]);
+        request()->validate(Producto::$rules);
 
         $producto->update($request->all());
 
@@ -182,28 +105,5 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index')
             ->with('success', 'Producto deleted successfully');
-    }
-
-    public function import(Request $request)
-{
-   dd('TODO');
-}
-
-    
-
-
-    public function export()
-    {
-        return Excel::download(new productosExport, 'Productos.csv');
-    }
-
-    public function pdf()
-    {
-         // Obtener solo los clientes no desactivados
-         $productos = Producto::where('desactivado', false)->get();
-         
-        $pdf = Pdf::loadView('producto.pdf', compact('productos'));
-        return $pdf->setPaper('a4', 'landscape')->stream('Reporte_productos.pdf');
-        
     }
 }

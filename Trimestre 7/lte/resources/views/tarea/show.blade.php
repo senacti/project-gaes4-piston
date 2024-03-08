@@ -22,7 +22,7 @@
                             <span class="card-title">{{ __('Mostrar') }} Tarea</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('tarea.index') }}"> {{ __('Atras') }}</a>
+                            <a class="btn btn-primary" href="{{ route('tareas.index') }}"> {{ __('Atras') }}</a>
                         </div>
                     </div>
 

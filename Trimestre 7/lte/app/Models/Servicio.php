@@ -20,8 +20,8 @@ class Servicio extends Model
 {
 
     static $rules = [
-        'nombre_servicio' => 'required|regex:/^[A-Za-z\s]+$/|max:25',
-		'precio_servicio' => 'required|numeric|max:999999999999999999',
+		'nombre_servicio' => 'required',
+		'precio_servicio' => 'required',
     ];
 
     protected $perPage = 20;
@@ -31,7 +31,7 @@ class Servicio extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre_servicio','precio_servicio','desactivado'];
+    protected $fillable = ['nombre_servicio','precio_servicio'];
 
     public function tareas()
     {
@@ -43,21 +43,6 @@ class Servicio extends Model
     {
         return $this->hasMany('App\Models\Venta', 'precio_servicio_id', 'id');
         return $this->hasMany('App\Models\Venta', 'nombre_servicio_id', 'id');
-    }
-
-    public function scopeActivas($query)
-    {
-        return $query->where('desactivado', false);
-    }
-    
-    public function desactivar()
-    {
-        $this->update(['desactivado' => true]);
-    }
-    
-    public function activar()
-    {
-        $this->update(['desactivado' => false]);
     }
 
 }

@@ -17,41 +17,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('') }}
+                                {{ __('Aqui podras registrar las entradas de los productos ofrecidos por el taller') }}
                             </span>
 
                              <div class="float-right">
-
-                             <form action="{{ route('productos.index') }}" method="get">
-        <div class="input-group mb-3">
-            <label for="nombre_producto" class="mr-2">Nombre del Producto:</label>
-            <input type="text" name="nombre_producto" class="form-control" placeholder="Nombre del Producto" value="{{ request('nombre_producto') }}">
-
-            
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Filtrar</button>
-                <a href="{{ route('productos.index') }}" class="btn btn-secondary">Limpiar</a>
-            </div>
-        </div>
-    </form>
-
-                        <div class="text-right"> <!-- Alineación a la derecha -->
-                               
-
-                                
-                                 <a href="{{ route('productos.desactivadas') }}" class="btn btn-primary btn-sm" data-placement="right">
-                                 {{ __('Productos Desabilitados') }}
-                             </a>
-
-                                <a href="{{ route('productos.pdf') }}" class="btn btn-warning btn-sm "  data-placement="left">
-                                  {{ __('Reporte PDF') }}
-                                </a>
-
-                                <a href="{{ route('productos.export') }}" class="btn btn-success btn-sm "  data-placement="left">
-                                  {{ __('Reporte EXCEL') }}
-                                </a>
-
-                                 <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm "  data-placement="left">
+                                <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Ingresar producto') }}
                                 </a>
                               </div>
@@ -87,19 +57,13 @@
 											<td>{{ $producto->precio_producto }}</td>
 
                                             <td>
-                                    
-                                                <form action="{{ route('productos.desactivar', $producto->id) }}" method="POST">                                
-    <a class="btn btn-sm btn-primary" href="{{ route('productos.show', $producto->id) }}">
-        <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
-    </a>
-    <a class="btn btn-sm btn-success" href="{{ route('productos.edit', $producto->id) }}">
-        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-    </a>
-
-                    @csrf
-                @method('PATCH')
-                <button type="submit"class="btn btn-sm btn-warning">Deshabilitar</button>
-            </form>
+                                                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

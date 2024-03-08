@@ -17,46 +17,13 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('') }}
+                                {{ __('Aqui podras registrar de manera general los servecios ofrecidos por el taller') }}
                             </span>
 
                              <div class="float-right">
-
-                                <form action="{{ route('servicios.index') }}" method="get">
-        <div class="input-group mb-3">
-            <label for="nombre_servicio" class="mr-2">Nombre del servicio:</label>
-            <input type="text" name="nombre_servicio" class="form-control" placeholder="Nombre del servicio" value="{{ request('nombre_servicio') }}">
-
-            
-            
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Filtrar</button>
-                <a href="{{ route('servicios.index') }}" class="btn btn-secondary">Limpiar</a>
-            </div>
-        </div>
-    </form>
-
-                                    <div class="text-right"> <!-- Alineación a la derecha -->
-
-
-                                 <a href="{{ route('servicios.desactivadas') }}" class="btn btn-primary btn-sm" data-placement="right">
-                                 {{ __('Servicios Desabilitados') }}
-                             </a>
-
-                                <a href="{{ route('servicios.pdf') }}" class="btn btn-warning btn-sm "  data-placement="left">
-                                  {{ __('Reportes PDF') }}
-                                </a>
-
-                                <a href="{{ route('servicios.export') }}" class="btn btn-success btn-sm "  data-placement="left">
-                                  {{ __('Reportes EXCEL') }}
-                                </a>
-
-                                <a href="{{ route('servicios.create') }}" class="btn btn-primary btn-sm "  data-placement="left">
+                                <a href="{{ route('servicios.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Ingresar servicio') }}
                                 </a>
-
-                                
-
                               </div>
                         </div>
                     </div>
@@ -88,19 +55,13 @@
 											<td>{{ $servicio->precio_servicio }}</td>
 
                                             <td>
-
-                                                <form action="{{ route('servicios.desactivar', $servicio->id) }}" method="POST">                                
-    <a class="btn btn-sm btn-primary" href="{{ route('servicios.show', $servicio->id) }}">
-        <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
-    </a>
-    <a class="btn btn-sm btn-success" href="{{ route('servicios.edit', $servicio->id) }}">
-        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-    </a>
-
-                    @csrf
-                @method('PATCH')
-                <button type="submit"class="btn btn-sm btn-warning">Deshabilitar</button>
-            </form>
+                                                <form action="{{ route('servicios.destroy',$servicio->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('servicios.show',$servicio->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('servicios.edit',$servicio->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

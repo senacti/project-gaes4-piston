@@ -18,7 +18,6 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('nombre_servicio');
             $table->decimal('precio_servicio',10,2);
-            $table->boolean('desactivado')->default(false); // Por defecto, la venta estará activa
             $table->timestamps();
         });
     }

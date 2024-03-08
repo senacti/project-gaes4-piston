@@ -44,7 +44,6 @@
             {{ Form::select('vehiculo_marca_id',$vehiculos, $cliente->vehiculo_marca_id, ['class' => 'form-control' . ($errors->has('vehiculo_marca_id') ? ' is-invalid' : ''), 'placeholder' => 'Vehiculo Marca Id']) }}
             {!! $errors->first('vehiculo_marca_id', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        
         <div class="form-group">
             {{ Form::label('vehiculo_modelo_id') }}
             {{ Form::select('vehiculo_modelo_id',$vehiculos2, $cliente->vehiculo_modelo_id, ['class' => 'form-control' . ($errors->has('vehiculo_modelo_id') ? ' is-invalid' : ''), 'placeholder' => 'Vehiculo Modelo Id']) }}

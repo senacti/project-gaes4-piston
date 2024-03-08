@@ -130,7 +130,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => true,
+    'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -358,8 +358,16 @@ return [
                         ],
                         [
                             'text'    => 'PQRS',
-                            'url'     => '#',
+                            'url'     => 'claims',
                             ],
+                            [
+                                'text'    => 'Contactanos',
+                                'url'     => 'contact',
+                                ],
+                                [
+                                    'text'    => 'Mensajes',
+                                    'url'     => 'messages',
+                                    ],
                 ],
             ],
 
@@ -401,13 +409,11 @@ return [
                     ],
                 ],
                 [
-                    'text'    => 'ventas',
+                    'text'    => 'Ventas',
                     'url'     => 'ventas',
                     'icon' => 'fas fa-fw fa-user',
-                    ]
 
-
-                
+                ],
 
 
 

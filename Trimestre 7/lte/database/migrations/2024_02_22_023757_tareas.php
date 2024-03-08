@@ -43,7 +43,6 @@ return new class extends Migration
             $table->decimal('total_reparacion');
             $table->decimal('total_comision');
             $table->string('comentarios',50);
-            $table->boolean('desactivado')->default(false); // Por defecto, la venta estará activa
 
 
 

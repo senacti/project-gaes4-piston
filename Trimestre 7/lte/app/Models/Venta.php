@@ -2,11 +2,7 @@
 
 namespace App\Models;
 
-
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx\Rels;
 
 /**
  * Class Venta
@@ -69,8 +65,8 @@ class Venta extends Model
 		'cantidad_producto_id' => 'required',
 		'precio_producto_id' => 'required',
 		'total_comision_id' => 'required',
-		'fecha_venta' => 'required|date|after_or_equal:2024-03-01', // Fecha después o igual al 1 de enero de 2024
-		'total_venta' => 'required|numeric|max:9999999999999.99',
+		'fecha_venta' => 'required',
+		'total_venta' => 'required',
     ];
 
     protected $perPage = 20;
@@ -80,7 +76,7 @@ class Venta extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre_empleado_id', 'apellido_empleado_id', 'especialidad_id', 'nombre_cliente_id', 'apellido_cliente_id', 'vehiculo_marca_id', 'vehiculo_modelo_id', 'vehiculo_matricula_id', 'vehiculo_color_id', 'nombre_servicio_id', 'precio_servicio_id', 'nombre_producto_id', 'cantidad_producto_id', 'precio_producto_id', 'total_comision_id', 'fecha_venta', 'total_venta', 'desactivado'];
+    protected $fillable = ['nombre_empleado_id','apellido_empleado_id','especialidad_id','nombre_cliente_id','apellido_cliente_id','vehiculo_marca_id','vehiculo_modelo_id','vehiculo_matricula_id','vehiculo_color_id','nombre_servicio_id','precio_servicio_id','nombre_producto_id','cantidad_producto_id','precio_producto_id','total_comision_id','fecha_venta','total_venta'];
 
 
     /**
@@ -88,67 +84,53 @@ class Venta extends Model
      */
     public function cliente()
     {
-        return $this->hasOne('App\Models\Cliente', 'id', 'apellido_cliente_id')
-                    ->orWhere('id', $this->attributes['nombre_cliente_id']);
+        return $this->hasOne('App\Models\Cliente', 'id', 'apellido_cliente_id');
+        return $this->hasOne('App\Models\Cliente', 'id', 'nombre_cliente_id');
     }
-    
+
     public function mecanico()
-{
-    $relation = $this->hasOne('App\Models\Mecanico', 'id', 'apellido_empleado_id');
+    {
+        return $this->hasOne('App\Models\Mecanico', 'id', 'apellido_empleado_id');
+        return $this->hasOne('App\Models\Mecanico', 'id', 'nombre_empleado_id');
+        return $this->hasOne('App\Models\Mecanico', 'id', 'especialidad_id');
 
-    if (isset($this->attributes['nombre_empleado_id'])) {
-        $relation->orWhere('id', $this->attributes['nombre_empleado_id']);
+
     }
 
-    if (isset($this->attributes['especialidad_id'])) {
-        $relation->orWhere('id', $this->attributes['especialidad_id']);
-    }
-
-    return $relation; // Asegúrate de devolver la relación después de aplicar las condiciones.
-}
-    
     public function producto()
     {
-        return $this->hasOne('App\Models\Producto', 'id', 'precio_producto_id')
-                    ->orWhere('id', $this->attributes['cantidad_producto_id'])
-                    ->orWhere('id', $this->attributes['nombre_producto_id']);
+        return $this->hasOne('App\Models\Producto', 'id', 'precio_producto_id');
+        return $this->hasOne('App\Models\Producto', 'id', 'cantidad_producto_id');
+        return $this->hasOne('App\Models\Producto', 'id', 'nombre_producto_id');
+
+
     }
-    
+
     public function servicio()
     {
-        return $this->hasOne('App\Models\Servicio', 'id', 'nombre_servicio_id')
-                    ->orWhere('id', $this->attributes['precio_servicio_id']);
+        return $this->hasOne('App\Models\Servicio', 'id', 'nombre_servicio_id');
+        return $this->hasOne('App\Models\Servicio', 'id', 'precio_servicio_id');
+
     }
-    
+
     public function tarea()
     {
         return $this->hasOne('App\Models\Tarea', 'id', 'total_comision_id');
     }
-    
+
     public function vehiculo()
     {
-        return $this->hasOne('App\Models\Vehiculo', 'id', 'vehiculo_matricula_id')
-            ->orWhere(function ($query) {
-                $query->where('id', $this->getAttribute('vehiculo_modelo_id'))
-                    ->orWhere('id', $this->getAttribute('vehiculo_color_id'))
-                    ->orWhere('id', $this->getAttribute('vehiculo_marca_id'));
-            });
+        return $this->hasOne('App\Models\Vehiculo', 'id', 'vehiculo_matricula_id');
+        return $this->hasOne('App\Models\Vehiculo', 'id', 'vehiculo_modelo_id');
+        return $this->hasOne('App\Models\Vehiculo', 'id', 'vehiculo_color_id');
+        return $this->hasOne('App\Models\Vehiculo', 'id', 'vehiculo_marca_id');
+
+
+
     }
 
-    public function scopeActivas($query)
-{
-    return $query->where('desactivado', false);
-}
 
-public function desactivar()
-{
-    $this->update(['desactivado' => true]);
-}
 
-public function activar()
-{
-    $this->update(['desactivado' => false]);
-}
 
 
 }

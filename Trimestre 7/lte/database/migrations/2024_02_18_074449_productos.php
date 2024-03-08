@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('nombre_producto',45);
             $table->integer('cantidad_productos');
             $table->decimal('precio_producto',10,2);
-            $table->boolean('desactivado')->default(false); // Por defecto, la venta estará activa
             $table->timestamps();
         });
     }
