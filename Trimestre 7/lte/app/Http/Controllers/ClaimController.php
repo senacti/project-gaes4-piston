@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Http\Request;
 use App\Models\Claim;
-
+use App\Notifications\SendEmailNotification;
+use Notification;
 class ClaimController extends Controller
 {
     public function showForm()
@@ -61,5 +62,47 @@ class ClaimController extends Controller
     return response()->json(['status' => $claim->status]);
 }
 
+
+public function send_mail($claim)
+{
+    $claims = Claim::find($claim);
+    return view('claims.send_mail', compact('claims'));
+
+
+}
+
+/*public function mail(Request $request, $claim)
+{
+    $claims = Claim::find($claim);
+    $details = [
+        'name' => $request-> name,
+        'email' => $request-> email,
+        'message' => $request-> message,
+    ];
+
+
+
+    Notification::send($claims, new SendEmailNotification($details));
+    return redirect()->back();
+}
+*/
+
+public function mail(Request $request, $claim)
+{
+    $claims = Claim::find($claim);
+    
+    $details = [
+        'name' => $request->name,
+        'message' => $request->message, // Adjusted to match the field name in your form
+    ];
+
+    // Instantiate the notification and pass the details
+    $notification = new SendEmailNotification($details);
+
+    // Send the notification to the $claims instance
+    Notification::send($claims, $notification);
+
+    return redirect()->back();
+}
 
 }

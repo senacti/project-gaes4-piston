@@ -3,10 +3,12 @@
 use App\Http\Controllers\ClaimController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MessageController;
+use App\Mail\HelloMail;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,14 @@ Route::get('/inicio', function () {
 //Claims
 Route::post('/submit-claim', [ClaimController::class, 'submit'])->name('submitClaim');
 Route::get('/claims', [ClaimController::class, 'index'])->name('claims.index');
+
+
+
+//Enviar Correo de PQR
+Route::get('/send_mail/{id}', [ClaimController::class, 'send_mail']);
+Route::post('/mail/{id}', [ClaimController::class, 'mail'])->name('mail');  
+
+//Estado PQR
 Route::post('/update-status/{claim}', [ClaimController::class, 'updateStatus'])->name('claim.updateStatus');
 Route::post('/update-status/{claim}', [ClaimController::class, 'updateStatus'])->name('claim.updateStatus');
 

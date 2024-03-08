@@ -38,7 +38,8 @@
                                         <th scope="col">Asunto</th>
                                         <th scope="col">Mensaje</th>
                                         <th scope="col">Fecha de Creación</th>
-                                        <th scope="col">Acciones</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Enviar Correo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,12 +55,16 @@
                                             <!-- claims.blade.php -->
                                             <td>
                                                 <div>
-                                                    <span>estado: </span>
+                                                    <span></span>
                                                     <button class="btn btn-sm btn-primary status-btn"
                                                         data-claim-id="{{ $claim->id }}">{{ $claim->status }}</button>
 
                                                 </div>
                                             </td>
+
+                                            <td>
+                                                <a class="btn btn-sm btn-primary status-btn"  href="{{url('send_mail' , $claim->id)}}">enviar correo</a>
+                                            </td>    
                                         </tr>
                                     @endforeach
                                 </tbody>
