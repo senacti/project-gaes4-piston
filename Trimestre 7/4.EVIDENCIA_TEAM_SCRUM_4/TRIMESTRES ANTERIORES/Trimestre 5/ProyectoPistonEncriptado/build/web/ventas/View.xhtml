@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewVentasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <br />
+                <h:panelGrid columns="2" style="width:150%;">
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_id} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.id}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_mecanico} </span>
+        <span style="font-size: 20px;"> #{ventasController.selected.mecanico}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_porcentaje}</span>
+        <span style="font-size: 20px; ">#{ventasController.selected.porcentaje}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_marcaDelVehiculo} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.marcaDelVehiculo}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_modeloVehiculo} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.modeloVehiculo}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_matricula} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.matricula}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_vin} </span>
+        <span style="font-size: 20px; ">#{ventasController.selected.vin}</span>
+    </div>
+
+    <div style="margin-bottom: 15px; ">
+        <span style="font-weight: bold; font-size: 20px ">#{bundle.ViewVentasLabel_fechaDeSolicitud} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.fechaDeSolicitud}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_servicio} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.servicio}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_producto} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.producto}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_total} </span>
+        <span style="font-size: 20px;">#{ventasController.selected.total}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_createdAt} </span>
+        <span style="font-size: 20px; ">
+            <h:outputText value="#{ventasController.selected.createdAt}" title="#{bundle.ViewVentasTitle_createdAt}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+        </span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_updatedAt} </span>
+        <span style="font-size: 20px; ">
+            <h:outputText value="#{ventasController.selected.updatedAt}" title="#{bundle.ViewVentasTitle_updatedAt}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+        </span>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <span style="font-weight: bold; font-size: 20px">#{bundle.ViewVentasLabel_inhabilitado}</span>
+        <span style="font-size: 20px; ">#{ventasController.selected.inhabilitado}</span>
+    </div>
+</h:panelGrid>
+                <br />
+                 
+            <div style="display: flex;">
+    <h:commandLink action="#{ventasController.destroyAndView}" value="#{bundle.ViewVentasDestroyLink}" style="background-color: #dc3545; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px" />
+    
+    <h:link outcome="Edit" value="#{bundle.ViewVentasEditLink}" style="background-color: #007bff; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px" />
+    
+    <h:commandLink action="#{ventasController.prepareCreate}" value="#{bundle.ViewVentasCreateLink}" style="background-color: #28a745; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px" />
+    
+    <h:commandLink action="#{ventasController.prepareList}" value="#{bundle.ViewVentasShowAllLink}" style="background-color: #6c757d; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px" />
+    
+    <h:link outcome="/index" value="#{bundle.ViewVentasIndexLink}" style="background-color: #343a40; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px" />
+</div>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

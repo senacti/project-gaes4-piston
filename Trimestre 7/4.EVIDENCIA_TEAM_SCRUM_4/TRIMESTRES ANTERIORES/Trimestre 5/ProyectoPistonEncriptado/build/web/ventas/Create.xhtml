@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateVentasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+               
+                    <h:outputLabel for="mecanico" value="#{bundle.CreateVentasLabel_mecanico}" style="font-size: 20px;" />
+                    <h:selectOneMenu id="mecanico" value="#{ventasController.selected.mecanico}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_mecanico}" 
+                style="width: 660px; border: 1px solid black; padding: 4px;">
+                        
+                <f:selectItem itemLabel="" itemValue="" />
+                <f:selectItem itemLabel="Juan" itemValue="Juan" />
+                <f:selectItem itemLabel="David" itemValue="David" />
+                <f:selectItem itemLabel="Cristian" itemValue="Cristian" />
+                <f:selectItem itemLabel="Leonardo" itemValue="Leonardo" />
+    
+                    </h:selectOneMenu>
+                    
+                    
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_porcentaje}" for="porcentaje" style="font-size: 20px;" />
+                        <h:selectOneMenu id="porcentaje" value="#{ventasController.selected.porcentaje}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_porcentaje}" 
+                        style="width: 660px; border: 1px solid black; padding: 4px;">
+                            <f:selectItem itemLabel="" itemValue="" />
+                        <f:selectItem itemLabel="10%" itemValue="10%" />
+                        <f:selectItem itemLabel="20%" itemValue="20%" />
+                        <f:selectItem itemLabel="30%" itemValue="30%" />
+                        <f:selectItem itemLabel="40%" itemValue="40%" />
+                        <f:selectItem itemLabel="50%" itemValue="50%" />
+                        <f:selectItem itemLabel="60%" itemValue="60%" />
+                        <f:selectItem itemLabel="70%" itemValue="70%" />
+                        <f:selectItem itemLabel="80%" itemValue="80%" />
+                        <f:selectItem itemLabel="90%" itemValue="90%" />
+                        <f:selectItem itemLabel="100%" itemValue="100%" />
+                        
+                        
+                    </h:selectOneMenu>
+                    
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_marcaDelVehiculo}" for="marcaDelVehiculo" style="font-size: 20px;" />
+                    <h:selectOneMenu id="marcaDelVehiculo" value="#{ventasController.selected.marcaDelVehiculo}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_marcaDelVehiculo}" 
+                                    style="width: 660px; border: 1px solid black; padding: 4px;">
+                        <f:selectItem itemLabel="" itemValue="" />
+                        <f:selectItem itemLabel="Renault" itemValue="Renault" />
+                        <f:selectItem itemLabel="Chevloret" itemValue="Chevloret" />
+                        <f:selectItem itemLabel="Suzuki" itemValue="Suzuki" />
+                        <f:selectItem itemLabel="Kia" itemValue="Kia" />
+                        <f:selectItem itemLabel="Mazda" itemValue="Mazda" />
+                        <f:selectItem itemLabel="Volkswagen" itemValue="Volkswagen" />
+                        <f:selectItem itemLabel="Nissan" itemValue="Nissan" />
+                        <f:selectItem itemLabel="Hyundai" itemValue="Hyundai" />
+                        <f:selectItem itemLabel="Ford" itemValue="Ford" />
+                        <f:selectItem itemLabel="Otra" itemValue="Otra" />
+                        
+                    </h:selectOneMenu>
+                        
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_modeloVehiculo}" for="modeloVehiculo" style="font-size: 20px;"/>
+                    <h:inputText id="modeloVehiculo" value="#{ventasController.selected.modeloVehiculo}" title="#{bundle.CreateVentasTitle_modeloVehiculo}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_modeloVehiculo}"
+                                 style="width: 660px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="30"/>
+                        </h:inputText>
+                        
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_matricula}" for="matricula" style="font-size: 20px;"/>
+                    <h:inputText id="matricula" value="#{ventasController.selected.matricula}" title="#{bundle.CreateVentasTitle_matricula}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_matricula}"
+                                 style="width: 660px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="6" maximum="7"/>
+                        </h:inputText>
+                        
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_vin}" for="vin" style="font-size: 20px;"/>
+                    <h:inputText id="vin" value="#{ventasController.selected.vin}" title="#{bundle.CreateVentasTitle_vin}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_vin}"
+                                 style="width: 660px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="255"/>
+                        </h:inputText>
+                        
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_fechaDeSolicitud}" for="fechaDeSolicitud" style="font-size: 20px;"/>
+                    <h:inputText id="fechaDeSolicitud" value="#{ventasController.selected.fechaDeSolicitud}" title="#{bundle.CreateVentasTitle_fechaDeSolicitud}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_fechaDeSolicitud}"
+                                 style="width: 660px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="255"/>
+                        </h:inputText>
+                        
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_servicio}" for="servicio" style="font-size: 20px;" />
+                        <h:selectOneMenu id="servicio" value="#{ventasController.selected.servicio}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_servicio}" 
+                                        style="width: 660px; border: 1px solid black; padding: 4px;">
+                            <f:selectItem itemLabel="" itemValue="" />
+                            <f:selectItem itemLabel="Lubricacion" itemValue="Diagnostico automotriz" />
+                            <f:selectItem itemLabel="Cambio de aceite" itemValue="Cambio de aceite" />
+                            <f:selectItem itemLabel="Cambio de llantas" itemValue="Cambio de llantas" />
+                            <f:selectItem itemLabel="Lubricacion" itemValue="Lubricacion" />
+                            <f:selectItem itemLabel="Servicio scanner" itemValue="Servicio scanner" />
+                            <f:selectItem itemLabel="Mantenimiento preventivo y correctivo" itemValue="Mantenimiento preventivo y correctivo" />
+                            <f:selectItem itemLabel="Electricidad y electrónica automotriz" itemValue="Electricidad y electrónica automotriz" />
+                            <f:selectItem itemLabel="Suspensión" itemValue="Suspensión" />
+                            <f:selectItem itemLabel="Frenos" itemValue="Frenos" />
+                            <f:selectItem itemLabel="Dirección" itemValue="Dirección" />
+                            <f:selectItem itemLabel="PA de autos" itemValue="SPA de autos" />
+                            <f:selectItem itemLabel="Alineación y balanceo" itemValue="Alineación y balanceo" />
+                            <f:selectItem itemLabel="Reparaciones plásticas" itemValue="Reparaciones plásticas" />
+                            <f:selectItem itemLabel="Reparación de mecátronica" itemValue="Reparación de mecátronica" />
+                            <f:selectItem itemLabel="Reparación de módulo" itemValue="Reparación de módulos" />
+                            <f:selectItem itemLabel="Reparación de motores" itemValue="Reparación de motores" />
+                            <f:selectItem itemLabel="Reparación de techos automáticos e hidráulicos" itemValue="Reparación de techos automáticos e hidráulicos" />   
+                        </h:selectOneMenu>
+                        
+                        
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_producto}" for="producto" style="font-size: 20px;" />
+                        <h:selectOneMenu id="producto" value="#{ventasController.selected.producto}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_producto}" 
+                                        style="width: 660px; border: 1px solid black; padding: 4px;">
+                            <f:selectItem itemLabel="" itemValue="" />
+                            <f:selectItem itemLabel="LLantas" itemValue="LLantas" />
+                            <f:selectItem itemLabel="Aceite" itemValue="Aceite" />
+                            <f:selectItem itemLabel="Lubricante" itemValue="Lubricante" />
+                            <f:selectItem itemLabel="Baterias" itemValue="Baterias" />
+                            <f:selectItem itemLabel="Alternadores" itemValue="Alternadores" />
+                            <f:selectItem itemLabel="Motores de Arranque" itemValue="Motores de Arranque" />
+                            <f:selectItem itemLabel="Dirección Hidraudica" itemValue="Dirección Hidraudica" />
+                            <f:selectItem itemLabel="Dirección Electrica" itemValue="Dirección Electrica" />
+                            <f:selectItem itemLabel="Bomba de Presion" itemValue="Bomba de Presion" />
+                            <f:selectItem itemLabel="Tuberías" itemValue="Tuberías" />
+                            <f:selectItem itemLabel="Rotula Axial" itemValue="Rotula Axial" />
+                            <f:selectItem itemLabel="Rotula de Dirección" itemValue="Rotula de Dirección" />
+                            <f:selectItem itemLabel="Liquido Hidraulico" itemValue="Liquido Hidraulico" />
+                            <f:selectItem itemLabel="Correa de Distribucion" itemValue="Correa de Distribucion" />
+                            <f:selectItem itemLabel="Correa Auxiliar y Tensores" itemValue="Correa Auxiliar y Tensores" />
+                            <f:selectItem itemLabel="Bomba de Agua" itemValue="Bomba de Agua" />
+                            <f:selectItem itemLabel="Bombas y Inyectores" itemValue="Bombas y Inyectores" />
+                            <f:selectItem itemLabel="Embrague y Bimasa" itemValue="Embrague y Bimasa" />
+                            <f:selectItem itemLabel="Sistema de Lubricacion" itemValue="Sistema de Lubricacion" />
+                            <f:selectItem itemLabel="Sistema de Enfriamiento" itemValue="Sistema de Enfriamiento" />
+                            <f:selectItem itemLabel="Turbo de Intercooler" itemValue="Turbo de Intercooler" />
+                            <f:selectItem itemLabel="LubricanteAuto-Diagnosis" itemValue="LubricanteAuto-Diagnosis" />
+                            <f:selectItem itemLabel="Juntas Homocinéticas" itemValue="Juntas Homocinéticas" />
+                            <f:selectItem itemLabel="Arbol de Transmision" itemValue="Arbol de Transmision" />
+                            <f:selectItem itemLabel="Luces" itemValue="Luces" />
+                            <f:selectItem itemLabel="Venta de repuestos" itemValue="Venta de repuestos" />
+                            <f:selectItem itemLabel="Venta de repuestos de segunda" itemValue="Venta de repuestos de segunda" />
+                            <!-- Agrega más opciones de producto predeterminadas según sea necesario -->
+                        </h:selectOneMenu>
+                        
+                    
+                    <h:outputLabel value="#{bundle.CreateVentasLabel_total}" for="total" style="font-size: 20px;" />
+                    <h:inputText id="total" value="#{ventasController.selected.total}" title="#{bundle.CreateVentasTitle_total}" required="true" requiredMessage="#{bundle.CreateVentasRequiredMessage_total}"
+                                 style="width: 660px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="30"/>
+                        </h:inputText>
+                  
+                </h:panelGrid>
+            <br />
+                <div style="display: flex; flex-wrap: wrap;">
+    <h:commandLink action="#{ventasController.create}" value="#{bundle.CreateVentasSaveLink}" style="background-color: #007bff; color: white; padding: 10px; border-radius: 5px; margin-right: 10px;"/>
+    <h:commandLink action="#{ventasController.prepareList}" value="#{bundle.CreateVentasShowAllLink}" immediate="true" style="background-color: #4caf50; color: white; padding: 10px; border-radius: 5px; margin-right: 385px;"/>
+    <h:link outcome="/index" value="#{bundle.CreateVentasIndexLink}" style="background-color: #282828; color: white; padding: 10px; border-radius: 5px;"/>
+</div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

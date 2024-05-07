@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:panelGroup rendered="#{userController.isAdministrador()}">
+
+        <ui:composition template="/template.xhtml">
+            <ui:define name="title">
+                <h:outputText value="#{bundle.ListMecanicosTitle}"></h:outputText>
+            </ui:define>
+            <ui:define name="body">
+                <h:form styleClass="jsfcrud_list_form">
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+                    <h:outputText escape="false" value="#{bundle.ListMecanicosEmpty}" rendered="#{mecanicosController.items.rowCount == 0}"/>
+                    <h:panelGroup rendered="#{mecanicosController.items.rowCount > 0}">
+                        <h:outputText value="#{mecanicosController.pagination.pageFirstItem + 1}..#{mecanicosController.pagination.pageLastItem + 1}/#{mecanicosController.pagination.itemsCount}"/>&nbsp;
+                        <h:commandLink action="#{mecanicosController.previous}" value="#{bundle.Previous} #{mecanicosController.pagination.pageSize}" rendered="#{mecanicosController.pagination.hasPreviousPage}"/>&nbsp;
+                        <h:commandLink action="#{mecanicosController.next}" value="#{bundle.Next} #{mecanicosController.pagination.pageSize}" rendered="#{mecanicosController.pagination.hasNextPage}"/>&nbsp;
+                        <h:dataTable value="#{mecanicosController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_id}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_cedula}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.cedula}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_nombre}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nombre}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_apellido}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.apellido}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_direccion}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.direccion}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_telefono}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.telefono}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_email}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.email}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_ciudad}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.ciudad}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListMecanicosTitle_especialidad}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.especialidad}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="&nbsp;"/>
+                                </f:facet>
+
+
+
+                                <h:commandLink action="#{mecanicosController.prepareView}" value="#{bundle.ListMecanicosViewLink}" styleClass="my-button"/>
+                                <h:outputText />
+                                <h:commandLink action="#{mecanicosController.prepareEdit}" value="#{bundle.ListMecanicosEditLink}" styleClass="my-buttonn"/>
+                                <h:outputText />
+                                <h:commandLink action="#{mecanicosController.destroy}" value="#{bundle.ListMecanicosDestroyLink}" styleClass="my-buttonnn"/>
+                                <h:outputText  />
+
+
+
+
+
+
+
+
+
+
+
+
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                    <br />
+                    <h:commandLink action="#{mecanicosController.prepareCreate}" value="#{bundle.ListMecanicosCreateLink}" style="text-decoration: none; padding: 5px 10px; background-color: #3498db; color: #fff; border: none; cursor: pointer; border-radius: 4px;"/>
+                    <br />
+                    <br />
+                    
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:panelGroup>
+</html>

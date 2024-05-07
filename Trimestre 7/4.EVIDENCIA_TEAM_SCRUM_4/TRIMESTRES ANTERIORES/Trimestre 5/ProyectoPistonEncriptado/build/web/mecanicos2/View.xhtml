@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/mecanicos2.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewMecanicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2" style="width:150%;">
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_id}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.id}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_cedula}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.cedula}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_nombre}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.nombre}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_apellido}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.apellido}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_direccion}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.direccion}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_telefono}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.telefono}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_email}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.email}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_ciudad}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.ciudad}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_especialidad}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.especialidad}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_createdAt}</span>
+        <span style="font-size: 20px;">
+            <h:outputText value="#{mecanicosController.selected.createdAt}" title="#{bundle.ViewMecanicosTitle_createdAt}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_updatedAt}</span>
+        <span style="font-size: 20px;">
+            <h:outputText value="#{mecanicosController.selected.updatedAt}" title="#{bundle.ViewMecanicosTitle_updatedAt}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewMecanicosLabel_inhabilitado}</span>
+        <span style="font-size: 20px;">#{mecanicosController.selected.inhabilitado}</span>
+    </div>
+</h:panelGrid>
+                <br />
+                
+                
+                <div style="display: flex;">
+                    
+                <h:commandLink action="#{mecanicosController.destroyAndView}" value="#{bundle.ViewMecanicosDestroyLink}" style="background-color: #dc3545; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+               
+                <h:link outcome="Edit" value="#{bundle.ViewMecanicosEditLink}" style="background-color: #007bff; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+                
+                <h:commandLink action="#{mecanicosController.prepareCreate}" value="#{bundle.ViewMecanicosCreateLink}" style="background-color: #28a745; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+                <h:commandLink action="#{mecanicosController.prepareList}" value="#{bundle.ViewMecanicosShowAllLink}" style="background-color: #6c757d; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+                
+                <h:link outcome="/index" value="#{bundle.ViewMecanicosIndexLink}" style="background-color: #343a40; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+                </div>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

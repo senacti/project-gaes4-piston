@@ -1,0 +1,229 @@
+
+.my-button {
+    background-color: #0BD241; /* Cambia el color de fondo a tu preferencia */
+    color: #fff; /* Cambia el color del texto a tu preferencia */
+    padding: 10px 20px; /* Ajusta el espaciado interno según sea necesario */
+    border: none; /* Elimina el borde predeterminado */
+    text-decoration: none; /* Elimina la subrayado predeterminado en los enlaces */
+    border-radius: 5px; /* Agrega bordes redondeados si lo deseas */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón sobre el botón */
+    margin-right:5px;
+    width:70%;
+    height: 70%;
+}
+
+.my-button:hover {
+    background-color: #0056b3; /* Cambia el color de fondo cuando se pasa el ratón sobre el botón */
+    
+}
+
+.my-buttonn {
+    background-color: orange; /* Cambia el color de fondo a tu preferencia */
+    color: #fff; /* Cambia el color del texto a tu preferencia */
+    padding: 10px 20px; /* Ajusta el espaciado interno según sea necesario */
+    border: none; /* Elimina el borde predeterminado */
+    text-decoration: none; /* Elimina la subrayado predeterminado en los enlaces */
+    border-radius: 5px; /* Agrega bordes redondeados si lo deseas */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón sobre el botón */
+    margin-right:5px;
+    width:70%;
+    height: 70%;
+}
+
+.my-buttonnn {
+    background-color: #F22A26; /* Cambia el color de fondo a tu preferencia */
+    color: #fff; /* Cambia el color del texto a tu preferencia */
+    padding: 10px 20px; /* Ajusta el espaciado interno según sea necesario */
+    border: none; /* Elimina el borde predeterminado */
+    text-decoration: none; /* Elimina la subrayado predeterminado en los enlaces */
+    border-radius: 5px; /* Agrega bordes redondeados si lo deseas */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón sobre el botón */
+    margin-right:5px;
+    width:70%;
+    height: 70%;
+}
+
+____________________________
+
+root { 
+    display: block;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3a4f54;
+    background-color: #f6f6f9;
+    font-size: small;
+}
+
+a {
+    color: #e33b06;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    border: 0px solid #ccc;
+}
+
+/* Estilo para las celdas de encabezado */
+th {
+    background-color: #f2f2f2;
+    border: 0px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para las celdas de datos */
+td {
+    border: 0px solid #ccc;
+    padding: 8px;
+}
+
+/* Estilo para las columnas específicas */
+.column-style {
+    /* Aquí puedes definir estilos específicos para tus columnas si es necesario */
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 16px;
+  
+}
+
+div.table-title {
+   display: block;
+  margin: auto;
+  max-width: 600px;
+  padding:1px;
+  width: 100%;
+}
+
+.table-title h3 {
+   color: #fafafa;
+   font-size: 10px;
+   font-weight: bold;
+   text-transform: uppercase;
+   
+   
+}
+
+
+/*** Table Styles **/
+
+.table-fill {
+  background: white;
+  border-radius: 3px;
+  border-collapse: collapse;
+  margin: auto;
+  max-width: 600px; /* Cambia este valor según tu preferencia */
+  padding: 5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+ 
+th {
+  color: #D5DDE5;
+  background: #1b1e24;
+  border-bottom: 4px solid #9ea7af;
+  font-size: 18px; /* Reducido el tamaño de la fuente */
+  font-weight: bold; /* Cambiado a "bold" para mayor visibilidad */
+  padding: 10px; /* Reducido el espacio de relleno */
+  text-align: left;
+  vertical-align: middle;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+ 
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+  
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  
+}
+ 
+tr:hover td {
+ 
+}
+ 
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+ 
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+tr:nth-child(odd):hover td {
+  
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+td {
+  background:#FFFFFF;
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:16px;
+  
+  border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}
+
+
+
+#busyImage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+ }

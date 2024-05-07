@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/mecanicos2.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateMecanicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_cedula}" for="cedula" style="font-size: 20px;" />
+                    <h:inputText id="cedula" value="#{mecanicosController.selected.cedula}" title="#{bundle.CreateMecanicosTitle_cedula}" required="true" requiredMessage="#{bundle.CreateMecanicosRequiredMessage_cedula}"
+                                 style="width: 655px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="255"/>
+                        </h:inputText>
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_nombre}" for="nombre"  style="font-size: 20px;" />
+                    <h:selectOneMenu id="mecanico" value="#{mecanicosController.selected.nombre}" required="true" requiredMessage="#{bundle.CreateMecanicosRequiredMessage_nombre}" 
+                style="width: 660px; border: 1px solid black; padding: 4px;">
+                        
+                <f:selectItem itemLabel="" itemValue="" />
+                <f:selectItem itemLabel="Juan" itemValue="Juan" />
+                <f:selectItem itemLabel="David" itemValue="David" />
+                <f:selectItem itemLabel="Cristian" itemValue="Cristian" />
+                <f:selectItem itemLabel="Leonardo" itemValue="Leonardo" />
+    
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_apellido}" for="apellido"  style="font-size: 20px;" />
+                    <h:inputText id="apellido" value="#{mecanicosController.selected.apellido}" title="#{bundle.CreateMecanicosTitle_apellido}" required="true" requiredMessage="#{bundle.CreateMecanicosRequiredMessage_apellido}"
+                                 style="width: 655px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="3" maximum="30"/>
+                       <f:validateRegex pattern="^[a-zA-Z\s]+$" />
+                        </h:inputText>
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_direccion}" for="direccion" style="font-size: 20px;" />
+                    <h:inputText id="direccion" value="#{mecanicosController.selected.direccion}" title="#{bundle.CreateMecanicosTitle_direccion}" required="true" requiredMessage="#{bundle.CreateMecanicosRequiredMessage_direccion}"
+                                 style="width: 655px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="8" maximum="30"/>
+                        </h:inputText>
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_telefono}" for="telefono" style="font-size: 20px;" />
+                    <h:inputText id="telefono" value="#{mecanicosController.selected.telefono}" title="#{bundle.CreateMecanicosTitle_telefono}" required="true" requiredMessage="#{bundle.CreateMecanicosRequiredMessage_telefono}"
+                                 style="width: 655px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="255"/>
+                        </h:inputText>
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_email}" for="email" style="font-size: 20px;" />
+                    <h:inputText id="email" value="#{mecanicosController.selected.email}" title="#{bundle.CreateMecanicosTitle_email}" required="true" requiredMessage="#{bundle.CreateMecanicosRequiredMessage_email}"
+                                 style="width: 655px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="30"/>
+                        <f:validateRegex pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" />
+                        </h:inputText>
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_ciudad}" for="ciudad" style="font-size: 20px;" />
+                    <h:selectOneMenu id="ciudad" value="#{mecanicosController.selected.ciudad}" title="#{bundle.CreateMecanicosTitle_ciudad}" required="true" requiredMessage="#{bundle.CreateClientesRequiredMessage_ciudad}"
+                                 style="width: 650px; border: 1px solid black; padding: 4px;">
+                    <f:selectItems value="#{ciudadesController.ciudades}" />
+                </h:selectOneMenu>
+
+                    
+                    <h:outputLabel value="#{bundle.CreateMecanicosLabel_especialidad}" for="especialidad" style="font-size: 20px;" />
+                    <h:inputText id="especialidad" value="#{mecanicosController.selected.especialidad}" title="#{bundle.CreateMecanicosTitle_especialidad}" required="true" requiredMessage="#{bundle.CreateMecanicosRequiredMessage_especialidad}"
+                                 style="width: 655px; border: 1px solid black; padding: 4px;">
+                        <f:validateLength minimum="2" maximum="255"/>
+                        </h:inputText>
+                    
+     
+                </h:panelGrid>
+                <br />
+                
+                
+                <div style="display: flex; flex-wrap: wrap;">
+                <h:commandLink action="#{mecanicosController.create}" value="#{bundle.CreateMecanicosSaveLink}" style="background-color: #007bff; color: white; padding: 10px; border-radius: 5px; margin-right: 10px;"  />
+                
+                <h:commandLink action="#{mecanicosController.prepareList}" value="#{bundle.CreateMecanicosShowAllLink}" immediate="true" style="background-color: #4caf50; color: white; padding: 10px; border-radius: 5px; margin-right: 360px;"/>
+                
+                <h:link outcome="/index" value="#{bundle.CreateMecanicosIndexLink}" style="background-color: #282828; color: white; padding: 10px; border-radius: 5px;"/>
+                </div>
+                
+                
+                
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

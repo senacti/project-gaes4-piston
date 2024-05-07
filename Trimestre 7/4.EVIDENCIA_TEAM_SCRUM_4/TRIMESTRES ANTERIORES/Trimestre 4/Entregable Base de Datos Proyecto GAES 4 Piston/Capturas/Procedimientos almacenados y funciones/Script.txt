@@ -1,0 +1,72 @@
+ 
+PROCEDIMIENTOS ALMACENADOS:
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE BuscarColorVehiculo(
+  IN p_vin VARCHAR(50),
+  OUT p_color VARCHAR(50)
+)
+BEGIN
+  SELECT COLOR INTO p_color
+  FROM vehiculo
+  WHERE VIN = p_vin;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE BuscarInfoClienteID(
+  IN p_id_cliente INT
+)
+BEGIN
+  SELECT c.*
+  FROM clientes c
+  WHERE c.ID_CLIENTES = p_id_cliente;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost PROCEDURE BuscarInfoProductoID(
+  IN p_id_producto INT
+)
+BEGIN
+  SELECT *
+  FROM productos
+  WHERE ID_PRODUCTOS = p_id_producto;
+END$$
+DELIMITER ;
+
+
+
+
+
+FUNCIONES:
+
+DELIMITER $$
+CREATE DEFINER=root@localhost FUNCTION ContarProveedoresMedellin() RETURNS int(11)
+BEGIN
+  DECLARE contador INT;
+  SET contador = 0;
+
+  SELECT COUNT(*) INTO contador
+  FROM proveedor
+  WHERE CIUDAD_PROVEEDOR = 'Medellín';
+
+  RETURN contador;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=root@localhost FUNCTION ObtenerNombreCompletoMecanico(p_id_mecanico INT) RETURNS varchar(100) CHARSET utf8mb4 COLLATE utf8mb4_general_ci
+BEGIN
+    DECLARE nombre_completo VARCHAR(100);
+
+    SELECT CONCAT(NOMBRE, ' ', APELLIDO) INTO nombre_completo
+    FROM mecanicos
+    WHERE ID_MECANICOS = p_id_mecanico;
+
+    RETURN nombre_completo;
+END$$
+DELIMITER ;
+
+
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFailedJobsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFailedJobsLabel_id}"/>
+                    <h:outputText value="#{failedJobsController.selected.id}" title="#{bundle.ViewFailedJobsTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewFailedJobsLabel_uuid}"/>
+                    <h:outputText value="#{failedJobsController.selected.uuid}" title="#{bundle.ViewFailedJobsTitle_uuid}"/>
+                    <h:outputText value="#{bundle.ViewFailedJobsLabel_connection}"/>
+                    <h:outputText value="#{failedJobsController.selected.connection}" title="#{bundle.ViewFailedJobsTitle_connection}"/>
+                    <h:outputText value="#{bundle.ViewFailedJobsLabel_queue}"/>
+                    <h:outputText value="#{failedJobsController.selected.queue}" title="#{bundle.ViewFailedJobsTitle_queue}"/>
+                    <h:outputText value="#{bundle.ViewFailedJobsLabel_payload}"/>
+                    <h:outputText value="#{failedJobsController.selected.payload}" title="#{bundle.ViewFailedJobsTitle_payload}"/>
+                    <h:outputText value="#{bundle.ViewFailedJobsLabel_exception}"/>
+                    <h:outputText value="#{failedJobsController.selected.exception}" title="#{bundle.ViewFailedJobsTitle_exception}"/>
+                    <h:outputText value="#{bundle.ViewFailedJobsLabel_failedAt}"/>
+                    <h:outputText value="#{failedJobsController.selected.failedAt}" title="#{bundle.ViewFailedJobsTitle_failedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{failedJobsController.destroyAndView}" value="#{bundle.ViewFailedJobsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFailedJobsEditLink}"/>
+                <br />
+                <h:commandLink action="#{failedJobsController.prepareCreate}" value="#{bundle.ViewFailedJobsCreateLink}" />
+                <br />
+                <h:commandLink action="#{failedJobsController.prepareList}" value="#{bundle.ViewFailedJobsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFailedJobsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

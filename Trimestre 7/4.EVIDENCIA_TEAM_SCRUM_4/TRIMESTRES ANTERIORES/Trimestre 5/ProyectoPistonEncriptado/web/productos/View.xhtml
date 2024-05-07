@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProductosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2" style="width:150%;">
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_id}</span>
+        <span style="font-size: 20px;">#{productosController.selected.id}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_nombreProducto}</span>
+        <span style="font-size: 20px;">#{productosController.selected.nombreProducto}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_cantidadProducto}</span>
+        <span style="font-size: 20px;">#{productosController.selected.cantidadProducto}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_descripcion}</span>
+        <span style="font-size: 20px;">#{productosController.selected.descripcion}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_idCategoriaDeProductos}</span>
+        <span style="font-size: 20px;">#{productosController.selected.idCategoriaDeProductos}</span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_createdAt}</span>
+        <span style="font-size: 20px;">
+            <h:outputText value="#{productosController.selected.createdAt}" title="#{bundle.ViewProductosTitle_createdAt}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_updatedAt}</span>
+        <span style="font-size: 20px;">
+            <h:outputText value="#{productosController.selected.updatedAt}" title="#{bundle.ViewProductosTitle_updatedAt}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+        </span>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <span style="font-weight: bold; font-size: 20px;">#{bundle.ViewProductosLabel_inhabilitado}</span>
+        <span style="font-size: 20px;">#{productosController.selected.inhabilitado}</span>
+    </div>
+</h:panelGrid>
+                <br />
+                
+               <div style="display: flex;">
+                <h:commandLink action="#{productosController.destroyAndView}" value="#{bundle.ViewProductosDestroyLink}" style="background-color: #dc3545; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px" />
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewProductosEditLink}" style="background-color: #007bff; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+                <br />
+                <h:commandLink action="#{productosController.prepareCreate}" value="#{bundle.ViewProductosCreateLink}" style="background-color: #28a745; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"  />
+                <br />
+                <h:commandLink action="#{productosController.prepareList}" value="#{bundle.ViewProductosShowAllLink}" style="background-color: #6c757d; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewProductosIndexLink}" style="background-color: #343a40; color: white; padding: 10px; border-radius: 5px; text-align: center; text-decoration: none; margin-bottom: 10px; margin-left: 10px"/>
+</div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

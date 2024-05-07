@@ -1,0 +1,546 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet name="css/Ventas.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputStylesheet name="/Web Application _ todo_files/app.v2.css"/>
+        
+        
+        
+        
+      <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="Web Application _ todo_files/app.v2.css" type="text/css"/>
+        <link rel="stylesheet" href="Web Application _ todo_files/font-awesome.css" type="text/css"/>
+        <h:outputStylesheet name="/Web Application _ todo_files/app.v2.css"/>  
+        
+        
+    </h:head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,200,1,200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,300,1,200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,500,1,200" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <h:body>
+        <h:panelGroup rendered="#{userController.isLoggedIn()}">
+            <div class="container">
+                <aside>
+                    <div class="top">
+                        <div class="logo">
+                            <img src="https://cdn.myshoptet.com/usr/www.bezkompreseshop.cz/user/logos/40768266_318040395596897_6400137205372682240_n-1.png" alt="" />
+                            <h2><span class="danger">PIS</span>TON</h2>
+                        </div>
+                        <div class="close" id="close-btn">
+                            <span class="material-icons-sharp">close</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar">
+                        <h:panelGroup rendered="#{not userController.isMecanico()}">
+                            <h:link class="active" outcome="/dashboard.xhtml">
+                                <span class="material-icons-sharp">people</span>
+                                <h3>Dashboard</h3>
+                            </h:link>
+                            <h:link outcome="/clientes/List">
+                                <span class="material-icons-sharp">people</span>
+                                <h3>Clientes</h3>
+                            </h:link>
+
+                            <h:link outcome="/productos/List">
+                                <span class="material-icons-sharp">inventory</span>
+                                <h3>Productos</h3>
+                            </h:link>
+
+                            <h:link outcome="/ventas/List">
+                                <span class="material-symbols-outlined">add_task</span>
+                                <h3>Ventas</h3>
+                            </h:link>    
+
+                        </h:panelGroup>
+
+
+
+                        <h:link outcome="/mecanicos/List">
+                            <span class="material-symbols-rounded">plumbing</span>
+                            <h3>Mecanicos</h3>
+                        </h:link>
+
+
+
+                        <h:link outcome="/home">
+                            <span class="material-icons-sharp">logout</span>
+                            <h3>Salir</h3>
+                        </h:link>
+
+
+
+                        <p:outputLabel class="subtitle" value="Bienvenido, #{userController.nombreUsuario}" />
+                                
+                        <h:form>
+                            
+                            <div class="cerrarSesion">
+    <p:commandButton style="height: 44px;
+        border-radius: 4px;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0 30px;
+        letter-spacing: 1px;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 5%;
+        margin-bottom: 5rem;
+        border: none;
+        color: #ffffff;
+        background-color:#EF9F16 ;
+        margin-top: 15px;
+        box-shadow: 0 8px 24px 0 rgba(249, 249, 249, 0.375);
+        transition: all 200ms linear;" 
+        value="Cerrar sesion" 
+        action="#{userController.logout}" 
+        ajax="false" />
+</div>
+
+                        </h:form>
+                    </div>
+                </aside>
+                <main>
+
+                    <h1>
+                        <ui:insert name="title">Default</ui:insert>
+                    </h1>
+                    <ui:insert name="body">Default Body</ui:insert>
+
+                </main>
+
+            </div>
+
+        </h:panelGroup>
+        
+        <h:panelGroup rendered="#{not userController.isLoggedIn()}" >
+          
+            <style>
+                
+body {
+    
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#content {
+    margin: 100px auto;
+    width: 90%;
+    max-width: 400px;
+    
+}
+
+.nav-brand {
+    font-size: 28px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Cambia este color según tu preferencia */
+}
+
+.panel {
+    background-color: #2A2A2A;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.panel-heading {
+    background-color: #2A2A2A; /* Cambia este color según tu preferencia */
+    color: #fff;
+    font-size: 30px;
+    padding: 15px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.panel-body {
+    padding: 20px;
+    padding-top: 10px;
+    
+}
+
+.form-group {
+    margin-bottom: 20px;
+    
+}
+
+.control-label {
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+}
+
+.form-control {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    
+}
+
+.checkbox {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.btn {
+   
+    padding: 15px 80px;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;  
+    bottom: 20px;
+    margin: 50px 40px 0 0;
+    
+    align-items:center;
+}
+
+.btn-info {
+    background-color: #EF9F16; /* Cambia este color según tu preferencia */
+    color: #ffffff;
+    margin-top: -5px;
+    align-items: center;
+}
+
+.btn-info:hover {
+    background-color: #B87D18; /* Cambia este color según tu preferencia */
+}
+
+.text-muted {
+    font-size: 14px;
+    text-align: center;
+}
+
+.text-muted small {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #333; /* Cambia este color según tu preferencia */
+    border: 1px solid #ccc;
+}
+
+.btn-white:hover {
+    background-color: #f5f5f5;
+}
+
+/* Enlace para crear una cuenta */
+.signup-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #0074d3; /* Cambia este color según tu preferencia */
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+
+.panel-body .forgot-password {
+    text-align: right; /* Centra horizontalmente */
+    margin-top: -100px; /* Ajusta el valor según sea necesario para moverlo hacia abajo */
+}
+
+
+
+
+/*nuevos estilos*/
+
+
+
+
+  body {
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+background-color: #ffffff;
+color: #000000;
+
+}
+
+/* Login Page */
+
+.login-container {
+margin: 100px auto;
+width: 90%;
+max-width: 450px;
+background-color: #df1717;
+border-radius: 5px;
+padding: 40px;
+text-align: center;
+
+}
+
+.login-header {
+font-size: 28px;
+margin-bottom: 20px;
+}
+
+.login-input {
+width: 100%;
+padding: 15px;
+margin-bottom: 20px;
+background-color: #000000;
+border: none;
+border-radius: 3px;
+color: #fffdfd;
+outline: none;
+align-content: center;
+
+    
+}
+
+.login-button {
+width: 100%;
+padding: 15px;
+background-color: #ffffff;
+color: #fff;
+font-weight: bold;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+outline: none;
+
+}
+
+.login-button:hover {
+background-color: #000000;
+}
+
+.login-options {
+margin-top: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 14px;
+}
+
+.login-options-label {
+margin-left: 5px;
+}
+
+.login-options-link {
+text-decoration: none;
+color: #030303;
+}
+
+.login-options-link:hover {
+text-decoration: underline;
+}
+
+.signup-container {
+margin-top: 20px;
+font-size: 16px;
+}
+
+.signup-text {
+color: #000000;
+}
+
+.signup-link {
+margin-left: 5px;
+text-decoration: none;
+color: #000000;
+font-weight: bold;
+}
+
+.signup-link:hover {
+text-decoration: underline;
+}
+
+/* Register Page */
+
+.register-container {
+margin: 100px auto;
+width: 90%;
+max-width: 400px;
+background-color: #292929;
+border-radius: 5px;
+padding: 40px;
+text-align: center;
+}
+
+.email{
+
+  color: #ffffff;
+}
+
+
+.password{
+
+  color: #fdf9f9;
+}
+
+
+
+
+.register-header {
+font-size: 28px;
+margin-bottom: 20px;
+color: #ffffff;
+}
+
+.register-input {
+width: 85%;
+padding: 15px;
+margin-bottom: 20px;
+background-color: #ffffff;
+border: none;
+border-radius: 3px;
+color: #050505;
+outline: none;
+}
+
+.register-button {
+width: 100%;
+padding: 15px;
+background-color: #ff9100;
+color: #fff;
+font-weight: bold;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+outline: none;
+}
+
+.register-button:hover {
+background-color: #0074d3;
+}
+
+.signup-options {
+margin-top: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 14px;
+}
+
+.signup-options-text {
+color: #ffffff;
+}
+
+.signup-options-link {
+margin-left: 5px;
+text-decoration: none;
+color: #fff;
+font-weight: bold;
+}
+
+.signup-options-link:hover {
+text-decoration: underline;
+}
+
+
+.form-label{
+
+  color: #ffffff;
+}
+
+.link{
+    
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    
+} 
+                
+.login1{
+    
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    
+} 
+
+
+
+
+                
+                </style>
+                <h:form class="login1">
+                <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+                    <a class="nav-brand" href="index.html">PISTON</a> 
+                    <div class="row m-n">
+                        <div class="col-md-4 col-md-offset-4 m-t-lg">
+                            <section class="panel">
+                                <header class="panel-heading text-center"> Ingresar </header>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="control-label">Correo</label>
+                                        <p:outputLabel for="email" class="email" style=""></p:outputLabel>  
+                                        <p:inputText id="email" value="#{userController.email}" size="20" required="true" requiredMessage="Campo es obligatorio" 
+                                                     type="email"  class="register-input" placeholder="Ingresa tu correo" p:inputText="required"/>
+                                        <p:message for="email" display="icon"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Contraseña</label>
+                                        <p:outputLabel for="password"></p:outputLabel>  
+                                        <p:password id="password" value="#{userController.password}" size="20" required="true" requiredMessage="Campo es obligatorio" 
+                                                    class="register-input" placeholder="Ingresa tu correo" p:inputText="required"/>
+                                        <p:message for="password" display="icon"/>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"/> Mantenerme conectado
+                                        </label>
+                                    </div>
+                                    <br></br>
+                                    <h:commandButton value="Iniciar sesión" class="btn btn-info" action="#{userController.validaLogin()}"/><br></br>
+
+                                    <div class="link">
+                                        <span class="signup-options-text">¿No tienes cuenta?</span>
+                                        <h:outputLink class="signup-options-link" value="faces/register.xhtml"> Registrate aqui </h:outputLink><br>
+                                        </br>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+
+                <script src="js/app.v2.js"></script> <!-- Bootstrap --> <!-- app --> 
+
+            </h:form>
+            
+        </h:panelGroup>
+
+    </h:body>
+
+</html>

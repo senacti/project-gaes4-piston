@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFailedJobsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFailedJobsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{failedJobsController.selected.id}" title="#{bundle.EditFailedJobsTitle_id}" required="true" requiredMessage="#{bundle.EditFailedJobsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditFailedJobsLabel_uuid}" for="uuid" />
+                    <h:inputText id="uuid" value="#{failedJobsController.selected.uuid}" title="#{bundle.EditFailedJobsTitle_uuid}" required="true" requiredMessage="#{bundle.EditFailedJobsRequiredMessage_uuid}"/>
+                    <h:outputLabel value="#{bundle.EditFailedJobsLabel_connection}" for="connection" />
+                    <h:inputTextarea rows="4" cols="30" id="connection" value="#{failedJobsController.selected.connection}" title="#{bundle.EditFailedJobsTitle_connection}" required="true" requiredMessage="#{bundle.EditFailedJobsRequiredMessage_connection}"/>
+                    <h:outputLabel value="#{bundle.EditFailedJobsLabel_queue}" for="queue" />
+                    <h:inputTextarea rows="4" cols="30" id="queue" value="#{failedJobsController.selected.queue}" title="#{bundle.EditFailedJobsTitle_queue}" required="true" requiredMessage="#{bundle.EditFailedJobsRequiredMessage_queue}"/>
+                    <h:outputLabel value="#{bundle.EditFailedJobsLabel_payload}" for="payload" />
+                    <h:inputTextarea rows="4" cols="30" id="payload" value="#{failedJobsController.selected.payload}" title="#{bundle.EditFailedJobsTitle_payload}" required="true" requiredMessage="#{bundle.EditFailedJobsRequiredMessage_payload}"/>
+                    <h:outputLabel value="#{bundle.EditFailedJobsLabel_exception}" for="exception" />
+                    <h:inputTextarea rows="4" cols="30" id="exception" value="#{failedJobsController.selected.exception}" title="#{bundle.EditFailedJobsTitle_exception}" required="true" requiredMessage="#{bundle.EditFailedJobsRequiredMessage_exception}"/>
+                    <h:outputLabel value="#{bundle.EditFailedJobsLabel_failedAt}" for="failedAt" />
+                    <h:inputText id="failedAt" value="#{failedJobsController.selected.failedAt}" title="#{bundle.EditFailedJobsTitle_failedAt}" required="true" requiredMessage="#{bundle.EditFailedJobsRequiredMessage_failedAt}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                </h:panelGrid>
+                <h:commandLink action="#{failedJobsController.update}" value="#{bundle.EditFailedJobsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFailedJobsViewLink}"/>
+                <br />
+                <h:commandLink action="#{failedJobsController.prepareList}" value="#{bundle.EditFailedJobsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFailedJobsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
